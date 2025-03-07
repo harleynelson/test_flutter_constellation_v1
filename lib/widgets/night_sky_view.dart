@@ -22,6 +22,13 @@ class _NightSkyViewState extends State<NightSkyView> with SingleTickerProviderSt
   late AnimationController _animationController;
   String? _hoveredConstellation;
   
+  // Store the size for background consistency
+  Size? _currentSize;
+  // Store the background widget to prevent redrawing
+  Widget? _backgroundWidget;
+  // Store constellation positions
+  Map<String, ConstellationInfo> _constellationInfoMap = {};
+  
   @override
   void initState() {
     super.initState();
@@ -41,43 +48,31 @@ class _NightSkyViewState extends State<NightSkyView> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
+        final Size size = constraints.biggest;
+        
+        // Only calculate positions and create background when size changes
+        if (_currentSize != size || _backgroundWidget == null) {
+          _currentSize = size;
+          _calculateConstellationInfos(size);
+          _createBackgroundWidget(size);
+        }
+        
         return Stack(
           children: [
-            // Background with stars (drawn once)
-            _buildStaticBackground(constraints.biggest),
+            // Static background - never redraws on hover
+            _backgroundWidget!,
             
-            // Constellations layer that updates on hover
-            AnimatedBuilder(
-              animation: _animationController,
-              builder: (context, child) {
-                return CustomPaint(
-                  painter: ConstellationsPainter(
-                    constellations: widget.constellations,
-                    animationValue: _animationController.value,
-                    hoveredConstellation: _hoveredConstellation,
-                    size: constraints.biggest,
-                  ),
-                  size: Size.infinite,
-                );
-              }
-            ),
-            
-            // Interactive layer for constellation selection
+            // Transparent overlay for hover effects only
             Stack(
               children: widget.constellations.map((constellation) {
-                // Get constellation position consistently
                 final String name = constellation['name'] as String;
-                final Random random = Random(name.hashCode); // Deterministic positioning
-                
-                final double x = 0.2 + random.nextDouble() * 0.6;
-                final double y = 0.2 + random.nextDouble() * 0.6;
-                
-                final double posX = constraints.maxWidth * x;
-                final double posY = constraints.maxHeight * y;
+                final ConstellationInfo info = _constellationInfoMap[name]!;
                 
                 return Positioned(
-                  left: posX - 40,
-                  top: posY - 40,
+                  left: info.centerX - info.radius,
+                  top: info.centerY - info.radius,
+                  width: info.radius * 2,
+                  height: info.radius * 2,
                   child: MouseRegion(
                     onEnter: (_) => setState(() => _hoveredConstellation = name),
                     onExit: (_) => setState(() => _hoveredConstellation = null),
@@ -86,68 +81,9 @@ class _NightSkyViewState extends State<NightSkyView> with SingleTickerProviderSt
                         HapticFeedback.mediumImpact();
                         widget.onConstellationSelected(name);
                       },
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          // Larger tap area
-                          Container(
-                            width: 80,
-                            height: 80,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.transparent,
-                            ),
-                          ),
-                          
-                          // Subtle highlight indicator that appears on hover
-                          AnimatedOpacity(
-                            duration: const Duration(milliseconds: 200),
-                            opacity: _hoveredConstellation == name ? 0.2 : 0.0,
-                            child: Container(
-                              width: 60,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blue.withOpacity(0.3),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.blue.withOpacity(0.2),
-                                    blurRadius: 10,
-                                    spreadRadius: 5,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          
-                          // Constellation name
-                          Positioned(
-                            bottom: -5,
-                            child: AnimatedOpacity(
-                              duration: const Duration(milliseconds: 200),
-                              opacity: _hoveredConstellation == name ? 1.0 : 0.7,
-                              child: Text(
-                                name,
-                                style: TextStyle(
-                                  color: _hoveredConstellation == name 
-                                      ? Colors.white
-                                      : Colors.white.withOpacity(0.7),
-                                  fontSize: _hoveredConstellation == name ? 14.0 : 12.0,
-                                  fontWeight: FontWeight.w600,
-                                  shadows: [
-                                    Shadow(
-                                      blurRadius: 5.0,
-                                      color: Colors.blue.withOpacity(0.7),
-                                      offset: const Offset(0, 0),
-                                    ),
-                                  ],
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: _hoveredConstellation == name 
+                          ? _buildHoverEffect(name, info.radius * 2) 
+                          : Container(color: Colors.transparent),
                     ),
                   ),
                 );
@@ -159,32 +95,227 @@ class _NightSkyViewState extends State<NightSkyView> with SingleTickerProviderSt
     );
   }
   
-  // Build static background that doesn't need to redraw on hover
-  Widget _buildStaticBackground(Size size) {
-    return CustomPaint(
-      painter: StarBackgroundPainter(
-        animationValue: _animationController.value,
-        size: size,
-      ),
-      size: Size.infinite,
+  // Calculate all constellation positions and sizes once
+  void _calculateConstellationInfos(Size size) {
+    _constellationInfoMap = {};
+    
+    for (var constellation in widget.constellations) {
+      final String name = constellation['name'] as String;
+      final List<dynamic> stars = constellation['stars'] as List<dynamic>;
+      
+      if (stars.isEmpty) continue;
+      
+      // Random position based on constellation name
+      final Random posRandom = Random(name.hashCode);
+      final double centerX = size.width * (0.2 + posRandom.nextDouble() * 0.6);
+      final double centerY = size.height * (0.2 + posRandom.nextDouble() * 0.6);
+      
+      // Calculate constellation bounds
+      double minX = double.infinity, minY = double.infinity;
+      double maxX = 0.0, maxY = 0.0;
+      
+      for (var star in stars) {
+        final double x = (star['x'] as double);
+        final double y = (star['y'] as double);
+        minX = min(minX, x);
+        minY = min(minY, y);
+        maxX = max(maxX, x);
+        maxY = max(maxY, y);
+      }
+      
+      final double constellationWidth = maxX - minX;
+      final double constellationHeight = maxY - minY;
+      final double constellationCenterX = minX + constellationWidth / 2;
+      final double constellationCenterY = minY + constellationHeight / 2;
+      
+      // Scale for display
+      final double scale = 500;
+      
+      // Find the maximum distance from center to any star
+      double maxDistance = 0;
+      final List<ConstellationStar> scaledStars = [];
+      
+      for (var star in stars) {
+        final double starX = centerX + ((star['x'] as double) - constellationCenterX) * scale;
+        final double starY = centerY + ((star['y'] as double) - constellationCenterY) * scale;
+        
+        scaledStars.add(ConstellationStar(
+          id: star['id'] as String,
+          x: starX,
+          y: starY,
+          magnitude: star['magnitude'] as double
+        ));
+        
+        final double distance = sqrt(pow(starX - centerX, 2) + pow(starY - centerY, 2));
+        maxDistance = max(maxDistance, distance);
+      }
+      
+      // Create line connections
+      final List<dynamic>? linesData = constellation['lines'] as List<dynamic>?;
+      final List<ConstellationLine> lines = [];
+      
+      if (linesData != null) {
+        for (var line in linesData) {
+          final List<dynamic> connection = line as List<dynamic>;
+          if (connection.length == 2) {
+            final String star1Id = connection[0] as String;
+            final String star2Id = connection[1] as String;
+            
+            // Find the stars by ID
+            ConstellationStar? star1, star2;
+            for (var star in scaledStars) {
+              if (star.id == star1Id) star1 = star;
+              if (star.id == star2Id) star2 = star;
+            }
+            
+            if (star1 != null && star2 != null) {
+              lines.add(ConstellationLine(star1: star1, star2: star2));
+            }
+          }
+        }
+      }
+      
+      // Add some padding to radius
+      final double radius = maxDistance + 30.0;
+      
+      _constellationInfoMap[name] = ConstellationInfo(
+        centerX: centerX,
+        centerY: centerY,
+        radius: radius,
+        stars: scaledStars,
+        lines: lines
+      );
+    }
+  }
+  
+  // Create the background widget once
+  void _createBackgroundWidget(Size size) {
+    _backgroundWidget = AnimatedBuilder(
+      animation: _animationController,
+      builder: (context, child) {
+        return RepaintBoundary(
+          child: CustomPaint(
+            painter: StaticNightSkyPainter(
+              constellations: _constellationInfoMap,
+              animationValue: _animationController.value,
+              size: size,
+            ),
+            size: Size.infinite,
+          ),
+        );
+      },
+    );
+  }
+  
+  // Build hover effect widget
+  Widget _buildHoverEffect(String name, double size) {
+    return Stack(
+      children: [
+        // Subtle highlight glow
+        Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.blue.withOpacity(0.1),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.blue.withOpacity(0.2),
+                blurRadius: 15,
+                spreadRadius: 5,
+              ),
+            ],
+          ),
+        ),
+        
+        // Constellation name
+        Positioned(
+          bottom: size * 0.4,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Text(
+              name,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  Shadow(
+                    blurRadius: 8.0,
+                    color: Colors.black,
+                    offset: Offset(0, 0),
+                  ),
+                ],
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
 
-// Separate painter just for the background
-class StarBackgroundPainter extends CustomPainter {
+// Custom class to hold scaled star information
+class ConstellationStar {
+  final String id;
+  final double x;
+  final double y;
+  final double magnitude;
+  
+  ConstellationStar({
+    required this.id,
+    required this.x,
+    required this.y,
+    required this.magnitude,
+  });
+}
+
+// Custom class to hold line connection information
+class ConstellationLine {
+  final ConstellationStar star1;
+  final ConstellationStar star2;
+  
+  ConstellationLine({
+    required this.star1,
+    required this.star2,
+  });
+}
+
+// Custom class to hold constellation information
+class ConstellationInfo {
+  final double centerX;
+  final double centerY;
+  final double radius;
+  final List<ConstellationStar> stars;
+  final List<ConstellationLine> lines;
+  
+  ConstellationInfo({
+    required this.centerX,
+    required this.centerY,
+    required this.radius,
+    required this.stars,
+    required this.lines,
+  });
+}
+
+// Completely static painter that draws everything just once
+class StaticNightSkyPainter extends CustomPainter {
+  final Map<String, ConstellationInfo> constellations;
   final double animationValue;
   final Size size;
   final Random _random = Random(42);
   
-  StarBackgroundPainter({
+  StaticNightSkyPainter({
+    required this.constellations,
     required this.animationValue,
     required this.size,
   });
   
   @override
   void paint(Canvas canvas, Size size) {
-    // Draw black background
+    // Draw background gradient
     final Rect rect = Offset.zero & size;
     final Paint gradientPaint = Paint()
       ..shader = const RadialGradient(
@@ -226,160 +357,40 @@ class StarBackgroundPainter extends CustomPainter {
         canvas.drawCircle(Offset(x, y), radius * 2, glowPaint);
       }
     }
-  }
-  
-  @override
-  bool shouldRepaint(StarBackgroundPainter oldDelegate) {
-    return oldDelegate.animationValue != animationValue;
-  }
-}
-
-// Separate painter just for the constellations
-class ConstellationsPainter extends CustomPainter {
-  final List<Map<String, dynamic>> constellations;
-  final double animationValue;
-  final String? hoveredConstellation;
-  final Size size;
-  
-  ConstellationsPainter({
-    required this.constellations,
-    required this.animationValue,
-    required this.size,
-    this.hoveredConstellation,
-  });
-  
-  @override
-  void paint(Canvas canvas, Size size) {
-    // For debugging - add border to see the painting area
-    final Paint borderPaint = Paint()
-      ..color = Colors.red.withOpacity(0.3)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.0;
-      
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), borderPaint);
     
-    // Animate the constellations appearance
-    final double constellationOpacity = min(1.0, animationValue * 1.5);
-    _drawConstellations(canvas, size, constellationOpacity);
-  }
-  
-  void _drawConstellations(Canvas canvas, Size size, double opacity) {
-    // Build a map of constellation positions for consistency
-    final Map<String, Offset> constellationPositions = {};
-    
-    for (var constellation in constellations) {
-      final String name = constellation['name'] as String;
-      final Random posRandom = Random(name.hashCode); // Deterministic positioning
+    // Draw all constellations
+    for (var entry in constellations.entries) {
+      final ConstellationInfo info = entry.value;
       
-      final double x = 0.15 + posRandom.nextDouble() * 0.7;
-      final double y = 0.15 + posRandom.nextDouble() * 0.7;
+      // Draw constellation lines
+      final Paint linePaint = Paint()
+        ..color = Colors.blue.withOpacity(0.5 * animationValue)
+        ..strokeWidth = 1.0
+        ..style = PaintingStyle.stroke;
       
+      for (var line in info.lines) {
+        canvas.drawLine(
+          Offset(line.star1.x, line.star1.y),
+          Offset(line.star2.x, line.star2.y),
+          linePaint
+        );
+      }
       
-      constellationPositions[name] = Offset(
-        size.width * x,
-        size.height * y
-      );
-    }
-    
-    for (var constellation in constellations) {
-      final String name = constellation['name'] as String;
-      final List<dynamic> stars = constellation['stars'] as List<dynamic>;
-      final List<dynamic>? lines = constellation['lines'] as List<dynamic>?;
-      
-      // Get the pre-calculated position
-      final Offset centerPosition = constellationPositions[name]!;
-      final double centerX = centerPosition.dx;
-      final double centerY = centerPosition.dy;
-      
-      // Scale factor to make constellations visible in the overview
-      final double scale = 500; // Fixed scale instead of relative
-      
-      // Highlight the hovered constellation
-      final bool isHighlighted = name == hoveredConstellation;
-      
-      // Draw constellation
-      if (lines != null && stars.isNotEmpty) {
-        // Calculate center of constellation from stars for correct positioning
-        double minX = double.infinity, minY = double.infinity;
-        double maxX = 0.0, maxY = 0.0;
+      // Draw stars
+      for (var star in info.stars) {
+        final double radius = (3.5 - min(3, star.magnitude)) * 0.8;
         
-        for (var star in stars) {
-          final double x = (star['x'] as double);
-          final double y = (star['y'] as double);
-          minX = min(minX, x);
-          minY = min(minY, y);
-          maxX = max(maxX, x);
-          maxY = max(maxY, y);
-        }
+        final Paint starPaint = Paint()
+          ..color = Colors.white.withOpacity(0.8 * animationValue);
         
-        final double constellationWidth = maxX - minX;
-        final double constellationHeight = maxY - minY;
-        final double constellationCenterX = minX + constellationWidth / 2;
-        final double constellationCenterY = minY + constellationHeight / 2;
-        
-        // Draw constellation lines
-        final Paint linePaint = Paint()
-          ..color = isHighlighted 
-              ? Colors.blue.withOpacity(0.9 * opacity)
-              : Colors.blue.withOpacity(0.5 * opacity)
-          ..strokeWidth = isHighlighted ? 2.5 : 1.5
-          ..style = PaintingStyle.stroke;
-        
-        // Draw lines between stars
-        for (var line in lines) {
-          final List<dynamic> connection = line as List<dynamic>;
-          if (connection.length == 2) {
-            final String star1Id = connection[0] as String;
-            final String star2Id = connection[1] as String;
-            
-            Map<String, dynamic>? star1, star2;
-            
-            for (var star in stars) {
-              final Map<String, dynamic> starData = star as Map<String, dynamic>;
-              if (starData['id'] == star1Id) star1 = starData;
-              if (starData['id'] == star2Id) star2 = starData;
-            }
-            
-            if (star1 != null && star2 != null) {
-              final double x1 = centerX + ((star1['x'] as double) - constellationCenterX) * scale;
-              final double y1 = centerY + ((star1['y'] as double) - constellationCenterY) * scale;
-              final double x2 = centerX + ((star2['x'] as double) - constellationCenterX) * scale;
-              final double y2 = centerY + ((star2['y'] as double) - constellationCenterY) * scale;
-              
-              // Draw the connection line
-              canvas.drawLine(Offset(x1, y1), Offset(x2, y2), linePaint);
-            }
-          }
-        }
-        
-        // Draw each star in the constellation
-        for (var star in stars) {
-          final Map<String, dynamic> starData = star as Map<String, dynamic>;
-          final double magnitude = starData['magnitude'] as double;
-          
-          final double x = centerX + ((starData['x'] as double) - constellationCenterX) * scale;
-          final double y = centerY + ((starData['y'] as double) - constellationCenterY) * scale;
-          
-          // Size based on magnitude but smaller for overview
-          final double radius = isHighlighted
-              ? (3.5 - min(3, magnitude)) * 1.2  // Larger when highlighted
-              : (3.5 - min(3, magnitude)) * 0.8; // Make stars more visible
-          
-          // Draw the star
-          final Paint starPaint = Paint()
-            ..color = isHighlighted
-                ? Colors.white.withOpacity(0.95 * opacity)
-                : Colors.white.withOpacity(0.7 * opacity);
-          
-          canvas.drawCircle(Offset(x, y), radius, starPaint);
-        }
+        canvas.drawCircle(Offset(star.x, star.y), radius, starPaint);
       }
     }
   }
   
   @override
-  bool shouldRepaint(ConstellationsPainter oldDelegate) {
-    return oldDelegate.animationValue != animationValue ||
-           oldDelegate.hoveredConstellation != hoveredConstellation;
+  bool shouldRepaint(StaticNightSkyPainter oldDelegate) {
+    // Only repaint during the initial animation
+    return oldDelegate.animationValue != animationValue;
   }
 }
