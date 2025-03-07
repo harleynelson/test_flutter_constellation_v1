@@ -2,17 +2,17 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle, HapticFeedback;
 import '../models/constellation.dart';
-import '../widgets/night_sky_view.dart';
-import '../widgets/enhanced_sky_view.dart'; // Import the new component
+import '../widgets/enhanced_sky_view.dart';
+import '../widgets/night_sky_view.dart'; // Keep using the existing overview widget
 
-class ConstellationScreen extends StatefulWidget {
-  const ConstellationScreen({Key? key}) : super(key: key);
+class ImprovedConstellationScreen extends StatefulWidget {
+  const ImprovedConstellationScreen({Key? key}) : super(key: key);
 
   @override
-  State<ConstellationScreen> createState() => _ConstellationScreenState();
+  State<ImprovedConstellationScreen> createState() => _ImprovedConstellationScreenState();
 }
 
-class _ConstellationScreenState extends State<ConstellationScreen> {
+class _ImprovedConstellationScreenState extends State<ImprovedConstellationScreen> {
   String _currentConstellation = "Ursa Major";
   bool _showConstellationLines = true;
   bool _showConstellationStars = true;
@@ -52,7 +52,7 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
   }
   
   void _showStarDetails(Map<String, dynamic> starData) {
-    // This function is passed to EnhancedSkyView and called when a star is tapped
+    // Provide haptic feedback when a star is selected
     HapticFeedback.lightImpact();
     
     // For logging example:
@@ -87,6 +87,7 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
               child: _constellations.isEmpty
                 ? const Center(child: CircularProgressIndicator())
                 : _isOverviewMode
+                  // Keep using the existing overview widget
                   ? NightSkyView(
                       constellations: _constellations,
                       onConstellationSelected: (name) {
@@ -96,7 +97,8 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
                         });
                       },
                     )
-                  : EnhancedSkyView( // Replace AnimatedSkyView with EnhancedSkyView
+                  // Use our new enhanced sky view
+                  : EnhancedSkyView(
                       constellations: _constellations,
                       currentConstellation: _currentConstellation,
                       showConstellationLines: _showConstellationLines,
