@@ -1,0 +1,407 @@
+
+[
+    {
+      "name": "Ursa Major",
+      "abbreviation": "UMa",
+      "description": "The Great Bear, contains the Big Dipper asterism",
+      "season": "Spring",
+      "rightAscension": 165.0,
+      "declination": 56.0,
+      "stars": [
+        {
+          "id": "alpha",
+          "name": "Dubhe",
+          "magnitude": 1.79,
+          "rightAscension": 165.9325,
+          "declination": 61.7510,
+          "spectralType": "K0III",
+          "distance": 123.0,
+          "x": 0.2,
+          "y": 0.3
+        },
+        {
+          "id": "beta",
+          "name": "Merak",
+          "magnitude": 2.37,
+          "rightAscension": 165.4604,
+          "declination": 56.3824,
+          "spectralType": "A1V",
+          "distance": 79.7,
+          "x": 0.25,
+          "y": 0.35
+        },
+        {
+          "id": "gamma",
+          "name": "Phecda",
+          "magnitude": 2.44,
+          "rightAscension": 178.4575,
+          "declination": 53.6948,
+          "spectralType": "A0Ve",
+          "distance": 84.0,
+          "x": 0.3,
+          "y": 0.4
+        },
+        {
+          "id": "delta",
+          "name": "Megrez",
+          "magnitude": 3.31,
+          "rightAscension": 183.8567,
+          "declination": 57.0326,
+          "spectralType": "A3V",
+          "distance": 81.0,
+          "x": 0.35,
+          "y": 0.38
+        },
+        {
+          "id": "epsilon",
+          "name": "Alioth",
+          "magnitude": 1.77,
+          "rightAscension": 193.5071,
+          "declination": 55.9598,
+          "spectralType": "A0p",
+          "distance": 82.6,
+          "x": 0.4,
+          "y": 0.35
+        },
+        {
+          "id": "zeta",
+          "name": "Mizar",
+          "magnitude": 2.27,
+          "rightAscension": 200.9812,
+          "declination": 54.9254,
+          "spectralType": "A2Vp",
+          "distance": 82.9,
+          "x": 0.45,
+          "y": 0.32
+        },
+        {
+          "id": "eta",
+          "name": "Alkaid",
+          "magnitude": 1.86,
+          "rightAscension": 206.8850,
+          "declination": 49.3133,
+          "spectralType": "B3V",
+          "distance": 103.9,
+          "x": 0.5,
+          "y": 0.25
+        }
+      ],
+      "lines": [
+        ["alpha", "beta"],
+        ["beta", "gamma"],
+        ["gamma", "delta"],
+        ["delta", "epsilon"],
+        ["epsilon", "zeta"],
+        ["zeta", "eta"]
+      ]
+    },
+    {
+      "name": "Cassiopeia",
+      "abbreviation": "Cas",
+      "description": "Named after the queen in Greek mythology, has a distinctive W shape",
+      "season": "Autumn",
+      "rightAscension": 10.0,
+      "declination": 60.0,
+      "stars": [
+        {
+          "id": "alpha",
+          "name": "Schedar",
+          "magnitude": 2.24,
+          "rightAscension": 10.1267,
+          "declination": 56.5373,
+          "spectralType": "K0IIIa",
+          "distance": 228.0,
+          "x": 0.7,
+          "y": 0.2
+        },
+        {
+          "id": "beta",
+          "name": "Caph",
+          "magnitude": 2.28,
+          "rightAscension": 2.2942,
+          "declination": 59.1498,
+          "spectralType": "F2III",
+          "distance": 54.7,
+          "x": 0.8,
+          "y": 0.15
+        },
+        {
+          "id": "gamma",
+          "name": "Navi",
+          "magnitude": 2.47,
+          "rightAscension": 14.1771,
+          "declination": 60.7167,
+          "spectralType": "B0IV",
+          "distance": 613.0,
+          "x": 0.65,
+          "y": 0.25
+        },
+        {
+          "id": "delta",
+          "name": "Ruchbah",
+          "magnitude": 2.68,
+          "rightAscension": 21.4538,
+          "declination": 60.2354,
+          "spectralType": "A5V",
+          "distance": 99.4,
+          "x": 0.75,
+          "y": 0.25
+        },
+        {
+          "id": "epsilon",
+          "name": "Segin",
+          "magnitude": 3.38,
+          "rightAscension": 28.5988,
+          "declination": 63.6700,
+          "spectralType": "B2V",
+          "distance": 441.0,
+          "x": 0.6,
+          "y": 0.3
+        }
+      ],
+      "lines": [
+        ["alpha", "beta"],
+        ["beta", "gamma"],
+        ["gamma", "delta"],
+        ["delta", "epsilon"]
+      ]
+    },
+    {
+      "name": "Orion",
+      "abbreviation": "Ori",
+      "description": "The Hunter, one of the most recognizable constellations",
+      "season": "Winter",
+      "rightAscension": 85.0,
+      "declination": 5.0,
+      "stars": [
+        {
+          "id": "alpha",
+          "name": "Betelgeuse",
+          "magnitude": 0.42,
+          "rightAscension": 88.7929,
+          "declination": 7.4071,
+          "spectralType": "M1-2Ia-Iab",
+          "distance": 548.0,
+          "x": 0.3,
+          "y": 0.6
+        },
+        {
+          "id": "beta",
+          "name": "Rigel",
+          "magnitude": 0.18,
+          "rightAscension": 78.6346,
+          "declination": -8.2016,
+          "spectralType": "B8Ia",
+          "distance": 860.0,
+          "x": 0.4,
+          "y": 0.8
+        },
+        {
+          "id": "gamma",
+          "name": "Bellatrix",
+          "magnitude": 1.64,
+          "rightAscension": 81.2829,
+          "declination": 6.3498,
+          "spectralType": "B2III",
+          "distance": 243.0,
+          "x": 0.25,
+          "y": 0.65
+        },
+        {
+          "id": "delta",
+          "name": "Mintaka",
+          "magnitude": 2.23,
+          "rightAscension": 83.0021,
+          "declination": -0.2991,
+          "spectralType": "O9.5II+B0III",
+          "distance": 916.0,
+          "x": 0.32,
+          "y": 0.7
+        },
+        {
+          "id": "epsilon",
+          "name": "Alnilam",
+          "magnitude": 1.69,
+          "rightAscension": 84.0534,
+          "declination": -1.2019,
+          "spectralType": "B0Ia",
+          "distance": 1342.0,
+          "x": 0.35,
+          "y": 0.7
+        },
+        {
+          "id": "zeta",
+          "name": "Alnitak",
+          "magnitude": 1.77,
+          "rightAscension": 85.1896,
+          "declination": -1.9427,
+          "spectralType": "O9.7Ib+B0III",
+          "distance": 1260.0,
+          "x": 0.38,
+          "y": 0.7
+        },
+        {
+          "id": "kappa",
+          "name": "Saiph",
+          "magnitude": 2.07,
+          "rightAscension": 86.9391,
+          "declination": -9.6697,
+          "spectralType": "B0.5Ia",
+          "distance": 724.0,
+          "x": 0.45,
+          "y": 0.75
+        }
+      ],
+      "lines": [
+        ["alpha", "gamma"],
+        ["gamma", "delta"],
+        ["delta", "epsilon"],
+        ["epsilon", "zeta"],
+        ["zeta", "kappa"],
+        ["kappa", "beta"],
+        ["beta", "alpha"]
+      ]
+    },
+    {
+      "name": "Cygnus",
+      "abbreviation": "Cyg",
+      "description": "The Swan, also known as the Northern Cross",
+      "season": "Summer",
+      "rightAscension": 305.0,
+      "declination": 40.0,
+      "stars": [
+        {
+          "id": "alpha",
+          "name": "Deneb",
+          "magnitude": 1.25,
+          "rightAscension": 310.3579,
+          "declination": 45.2803,
+          "spectralType": "A2Ia",
+          "distance": 2615.0,
+          "x": 0.5,
+          "y": 0.5
+        },
+        {
+          "id": "beta",
+          "name": "Albireo",
+          "magnitude": 3.05,
+          "rightAscension": 292.6804,
+          "declination": 27.9597,
+          "spectralType": "K3II+B8V",
+          "distance": 390.0,
+          "x": 0.5,
+          "y": 0.7
+        },
+        {
+          "id": "gamma",
+          "name": "Sadr",
+          "magnitude": 2.23,
+          "rightAscension": 305.5571,
+          "declination": 40.2567,
+          "spectralType": "F8Ib",
+          "distance": 1523.0,
+          "x": 0.5,
+          "y": 0.55
+        },
+        {
+          "id": "delta",
+          "name": "Rukh",
+          "magnitude": 2.87,
+          "rightAscension": 296.2463,
+          "declination": 45.1308,
+          "spectralType": "B9.5III",
+          "distance": 171.0,
+          "x": 0.45,
+          "y": 0.6
+        },
+        {
+          "id": "epsilon",
+          "name": "Gienah",
+          "magnitude": 2.48,
+          "rightAscension": 311.5525,
+          "declination": 33.9700,
+          "spectralType": "K0III",
+          "distance": 73.0,
+          "x": 0.55,
+          "y": 0.6
+        }
+      ],
+      "lines": [
+        ["alpha", "gamma"],
+        ["gamma", "beta"],
+        ["gamma", "delta"],
+        ["gamma", "epsilon"]
+      ]
+    },
+    {
+      "name": "Lyra",
+      "abbreviation": "Lyr",
+      "description": "The Lyre, contains one of the brightest stars, Vega",
+      "season": "Summer",
+      "rightAscension": 284.0,
+      "declination": 38.0,
+      "stars": [
+        {
+          "id": "alpha",
+          "name": "Vega",
+          "magnitude": 0.03,
+          "rightAscension": 279.2344,
+          "declination": 38.7837,
+          "spectralType": "A0Va",
+          "distance": 25.0,
+          "x": 0.7,
+          "y": 0.4
+        },
+        {
+          "id": "beta",
+          "name": "Sheliak",
+          "magnitude": 3.52,
+          "rightAscension": 282.5200,
+          "declination": 33.3625,
+          "spectralType": "B7V+A8V",
+          "distance": 882.0,
+          "x": 0.65,
+          "y": 0.45
+        },
+        {
+          "id": "gamma",
+          "name": "Sulafat",
+          "magnitude": 3.24,
+          "rightAscension": 284.7363,
+          "declination": 32.6898,
+          "spectralType": "B9.5III",
+          "distance": 635.0,
+          "x": 0.62,
+          "y": 0.48
+        },
+        {
+          "id": "delta",
+          "name": "Delta Lyrae",
+          "magnitude": 4.22,
+          "rightAscension": 285.6900,
+          "declination": 36.9086,
+          "spectralType": "B2.5V",
+          "distance": 1099.0,
+          "x": 0.67,
+          "y": 0.35
+        },
+        {
+          "id": "zeta",
+          "name": "Zeta Lyrae",
+          "magnitude": 4.34,
+          "rightAscension": 278.3742,
+          "declination": 37.6050,
+          "spectralType": "B7V+G8III",
+          "distance": 154.0,
+          "x": 0.72,
+          "y": 0.35
+        }
+      ],
+      "lines": [
+        ["alpha", "beta"],
+        ["beta", "gamma"],
+        ["alpha", "delta"],
+        ["alpha", "zeta"]
+      ]
+    }
+  ]
