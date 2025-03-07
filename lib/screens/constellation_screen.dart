@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle, HapticFeedback;
 import '../models/constellation.dart';
-import '../widgets/animated_sky_view.dart';
-import '../widgets/night_sky_view.dart'; // Import the new widget
+import '../widgets/night_sky_view.dart';
+import '../widgets/enhanced_sky_view.dart'; // Import the new component
 
 class ConstellationScreen extends StatefulWidget {
   const ConstellationScreen({Key? key}) : super(key: key);
@@ -52,16 +52,7 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
   }
   
   void _showStarDetails(Map<String, dynamic> starData) {
-    // This function is passed to AnimatedSkyView and called when a star is tapped
-    // The star info card is already shown in the AnimatedSkyView widget
-    
-    // You could add additional actions here if needed, such as:
-    // - Opening a more detailed screen
-    // - Playing a sound
-    // - Triggering a haptic feedback
-    // - Logging the interaction
-    
-    // For haptic feedback example:
+    // This function is passed to EnhancedSkyView and called when a star is tapped
     HapticFeedback.lightImpact();
     
     // For logging example:
@@ -105,7 +96,7 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
                         });
                       },
                     )
-                  : AnimatedSkyView(
+                  : EnhancedSkyView( // Replace AnimatedSkyView with EnhancedSkyView
                       constellations: _constellations,
                       currentConstellation: _currentConstellation,
                       showConstellationLines: _showConstellationLines,
@@ -116,33 +107,33 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
                     ),
             ),
           ),
-          if (!_isOverviewMode)           Column(
-            children: [
-              // Full Sky View Button at the top
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: ElevatedButton.icon(
-                  onPressed: () {
-                    setState(() {
-                      _isOverviewMode = true;
-                    });
-                  },
-                  icon: const Icon(Icons.zoom_out),
-                  label: const Text('Full Sky View'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueGrey[800],
-                    foregroundColor: Colors.white,
-                    minimumSize: const Size(200, 45),
+          if (!_isOverviewMode)
+            Column(
+              children: [
+                // Full Sky View Button at the top
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        _isOverviewMode = true;
+                      });
+                    },
+                    icon: const Icon(Icons.zoom_out),
+                    label: const Text('Full Sky View'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blueGrey[800],
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size(200, 45),
+                    ),
                   ),
                 ),
-              ),
-              // Original controls
-              _buildControls(),
-            ],
-          ),
+                // Controls
+                _buildControls(),
+              ],
+            ),
         ],
       ),
-      // Removed floating action button since we have the button at the top now
     );
   }
 
