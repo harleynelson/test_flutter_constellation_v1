@@ -1,5 +1,6 @@
+// lib/main.dart
 import 'package:flutter/material.dart';
-import 'screens/improved_constellation_screen.dart';
+import 'screens/enhanced_constellation_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +12,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Constellation Learning App',
+      title: 'Celestial Navigator',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF1A237E),
+          elevation: 0,
+        ),
+        checkboxTheme: CheckboxThemeData(
+          fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+            if (states.contains(MaterialState.disabled)) {
+              return Colors.blue.withOpacity(.32);
+            }
+            return Colors.blue;
+          }),
+        ),
       ),
-      home: const ImprovedConstellationScreen(), // Use the improved screen
+      home: const EnhancedConstellationScreen(),
     );
   }
 }
