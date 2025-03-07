@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/constellation_screen.dart';
+import 'screens/improved_constellation_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,
       ),
-      home: const ConstellationScreen(),
+      home: const ImprovedConstellationScreen(), // Use the improved screen
     );
   }
 }
