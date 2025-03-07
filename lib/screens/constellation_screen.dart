@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import '../painters/sky_painter.dart';
+import 'package:flutter/services.dart' show rootBundle, HapticFeedback;
 import '../models/constellation.dart';
+import '../widgets/animated_sky_view.dart';
+import '../widgets/night_sky_view.dart'; // Import the new widget
 
 class ConstellationScreen extends StatefulWidget {
   const ConstellationScreen({Key? key}) : super(key: key);
@@ -16,6 +17,8 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
   bool _showConstellationLines = true;
   bool _showConstellationStars = true;
   bool _showBackgroundStars = true;
+  bool _showStarNames = true;
+  bool _isOverviewMode = true;
   final List<Map<String, dynamic>> _constellations = [];
   
   @override
@@ -47,12 +50,43 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
       });
     }
   }
+  
+  void _showStarDetails(Map<String, dynamic> starData) {
+    // This function is passed to AnimatedSkyView and called when a star is tapped
+    // The star info card is already shown in the AnimatedSkyView widget
+    
+    // You could add additional actions here if needed, such as:
+    // - Opening a more detailed screen
+    // - Playing a sound
+    // - Triggering a haptic feedback
+    // - Logging the interaction
+    
+    // For haptic feedback example:
+    HapticFeedback.lightImpact();
+    
+    // For logging example:
+    print('Star selected: ${starData['name']} (${starData['id']})');
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Constellation Learning App'),
+        title: Text(_isOverviewMode 
+            ? 'Night Sky Overview' 
+            : 'Constellation: $_currentConstellation'),
+        actions: [
+          if (!_isOverviewMode)
+            IconButton(
+              icon: const Icon(Icons.zoom_out),
+              tooltip: 'Zoom out to full sky view',
+              onPressed: () {
+                setState(() {
+                  _isOverviewMode = true;
+                });
+              },
+            ),
+        ],
       ),
       body: Column(
         children: [
@@ -61,21 +95,54 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
               color: Colors.black,
               child: _constellations.isEmpty
                 ? const Center(child: CircularProgressIndicator())
-                : CustomPaint(
-                    painter: SkyPainter(
+                : _isOverviewMode
+                  ? NightSkyView(
+                      constellations: _constellations,
+                      onConstellationSelected: (name) {
+                        setState(() {
+                          _currentConstellation = name;
+                          _isOverviewMode = false;
+                        });
+                      },
+                    )
+                  : AnimatedSkyView(
                       constellations: _constellations,
                       currentConstellation: _currentConstellation,
                       showConstellationLines: _showConstellationLines,
                       showConstellationStars: _showConstellationStars,
                       showBackgroundStars: _showBackgroundStars,
+                      showStarNames: _showStarNames,
+                      onStarTapped: _showStarDetails,
                     ),
-                    size: Size.infinite,
-                  ),
             ),
           ),
-          _buildControls(),
+          if (!_isOverviewMode)           Column(
+            children: [
+              // Full Sky View Button at the top
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      _isOverviewMode = true;
+                    });
+                  },
+                  icon: const Icon(Icons.zoom_out),
+                  label: const Text('Full Sky View'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueGrey[800],
+                    foregroundColor: Colors.white,
+                    minimumSize: const Size(200, 45),
+                  ),
+                ),
+              ),
+              // Original controls
+              _buildControls(),
+            ],
+          ),
         ],
       ),
+      // Removed floating action button since we have the button at the top now
     );
   }
 
@@ -131,6 +198,17 @@ class _ConstellationScreenState extends State<ConstellationScreen> {
               if (value != null) {
                 setState(() {
                   _showBackgroundStars = value;
+                });
+              }
+            },
+          ),
+          CheckboxListTile(
+            title: const Text('Show Star Names'),
+            value: _showStarNames,
+            onChanged: (bool? value) {
+              if (value != null) {
+                setState(() {
+                  _showStarNames = value;
                 });
               }
             },

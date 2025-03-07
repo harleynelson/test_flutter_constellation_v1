@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class SkyPainter extends CustomPainter {
   final List<Map<String, dynamic>> constellations;
@@ -7,7 +8,12 @@ class SkyPainter extends CustomPainter {
   final bool showConstellationLines;
   final bool showConstellationStars;
   final bool showBackgroundStars;
+  final bool showStarNames;
+  final Function(Map<String, dynamic>)? onStarTapped;
+  final Offset? tapPosition;
   final Random _random = Random(42); // Fixed seed for consistent background stars
+  final Ticker? _ticker;
+  final double _twinklePhase;
   
   // Cache for background stars
   static List<Map<String, dynamic>>? _backgroundStarsCache;
@@ -19,7 +25,13 @@ class SkyPainter extends CustomPainter {
     required this.showConstellationLines,
     required this.showConstellationStars,
     required this.showBackgroundStars,
-  });
+    this.showStarNames = true,
+    this.onStarTapped,
+    this.tapPosition,
+    Ticker? ticker,
+    double twinklePhase = 0.0,
+  }) : _ticker = ticker, 
+       _twinklePhase = twinklePhase;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -115,27 +127,57 @@ class SkyPainter extends CustomPainter {
         final double x = _random.nextDouble() * size.width;
         final double y = _random.nextDouble() * size.height;
         final double radius = _random.nextDouble() * 1.0 + 0.5; // Random star size (0.5-1.5)
-        final double opacity = _random.nextDouble() * 0.5 + 0.2; // Random opacity (0.2-0.7)
+        final double baseOpacity = _random.nextDouble() * 0.5 + 0.2; // Random opacity (0.2-0.7)
+        final double twinkleSpeed = _random.nextDouble() * 3.0 + 1.0; // Random twinkle speed (1.0-4.0)
         
         _backgroundStarsCache!.add({
           'x': x,
           'y': y,
           'radius': radius,
-          'opacity': opacity,
+          'baseOpacity': baseOpacity,
+          'twinkleSpeed': twinkleSpeed,
         });
       }
     }
     
-    // Draw stars from cache
+    // Draw stars from cache with twinkling effect
     for (var star in _backgroundStarsCache!) {
+      // Calculate twinkle effect based on phase
+      final double baseRadius = star['radius'] as double;
+      final double baseOpacity = star['baseOpacity'] as double;
+      final double twinkleSpeed = star['twinkleSpeed'] as double;
+      
+      // Calculate twinkling using sine wave (only use positive values)
+      final double twinkleFactor = max(0, sin((_twinklePhase * twinkleSpeed) % (2 * pi)));
+      
+      // Increase radius by up to 10% during twinkle
+      final double currentRadius = baseRadius * (1.0 + twinkleFactor * 0.1);
+      
+      // Increase brightness by up to 10% during twinkle
+      final double currentOpacity = min(1.0, baseOpacity * (1.0 + twinkleFactor * 0.1));
+      
+      // Draw star with current properties
       final Paint starPaint = Paint()
-        ..color = Colors.white.withOpacity(star['opacity'] as double);
+        ..color = Colors.white.withOpacity(currentOpacity);
       
       canvas.drawCircle(
         Offset(star['x'] as double, star['y'] as double),
-        star['radius'] as double,
+        currentRadius,
         starPaint,
       );
+      
+      // Draw subtle glow (10% larger than the star)
+      if (twinkleFactor > 0.3) {
+        final Paint glowPaint = Paint()
+          ..color = Colors.white.withOpacity(currentOpacity * 0.3)
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2.0);
+        
+        canvas.drawCircle(
+          Offset(star['x'] as double, star['y'] as double),
+          currentRadius * 1.1,
+          glowPaint,
+        );
+      }
     }
   }
 
@@ -183,29 +225,78 @@ class SkyPainter extends CustomPainter {
       // Ensure reasonable star size that scales with the constellation but not too large
       final double radius = max(baseRadius, 2.0) * min(scale * 0.05, 3.0);
       
-      final Paint starPaint = Paint()
-        ..color = _calculateStarColor(magnitude)
-        ..style = PaintingStyle.fill;
+      // Apply twinkling effect to main stars too, but more subtly
+      final double starSeed = x * y; // Use position as a seed for random variation
+      final double twinkleSpeed = 0.5 + (sin(starSeed) + 1) * 0.5; // Range 0.5-1.5
+      final double twinkleFactor = sin((_twinklePhase * twinkleSpeed) % (2 * pi));
       
-      canvas.drawCircle(Offset(x, y), radius, starPaint);
+      // Calculate twinkling effect - positive values = brighter/larger
+      final double twinkleEffect = max(0, twinkleFactor); // Only use positive part of sine wave
       
-      // Draw star name with appropriate font size
-      final double fontSize = max(12.0, min(14.0, scale * 0.02));
+      // Increase star radius by 10% during twinkle
+      final double currentRadius = radius * (1.0 + twinkleEffect * 0.1);
       
-      final TextPainter textPainter = TextPainter(
-        text: TextSpan(
-          text: starData['name'] as String,
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.9),
-            fontSize: fontSize,
-            fontWeight: FontWeight.w500, // Semi-bold for better readability
-          ),
-        ),
-        textDirection: TextDirection.ltr,
+      // Create a twinkling glow effect (10% larger than the star)
+      final double glowRadius = currentRadius * 1.1;
+      
+      // Draw glow
+      final Paint glowPaint = Paint()
+        ..color = _calculateStarColor(magnitude).withOpacity(0.3 + twinkleEffect * 0.1)
+        ..style = PaintingStyle.fill
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3.0);
+      
+      canvas.drawCircle(Offset(x, y), glowRadius, glowPaint);
+      
+      // Draw star core with 10% brightness increase during twinkle
+      final Color baseColor = _calculateStarColor(magnitude);
+      final Color brighterColor = Color.fromRGBO(
+        min(255, baseColor.red + (255 - baseColor.red) * twinkleEffect * 0.1).round(),
+        min(255, baseColor.green + (255 - baseColor.green) * twinkleEffect * 0.1).round(),
+        min(255, baseColor.blue + (255 - baseColor.blue) * twinkleEffect * 0.1).round(),
+        1.0
       );
       
-      textPainter.layout();
-      textPainter.paint(canvas, Offset(x + radius + 4, y - textPainter.height / 2));
+      final Paint starPaint = Paint()
+        ..color = brighterColor
+        ..style = PaintingStyle.fill;
+      
+      canvas.drawCircle(Offset(x, y), currentRadius, starPaint);
+      
+      // Check if tap is within this star
+      if (tapPosition != null && onStarTapped != null) {
+        final double tapDistance = (Offset(x, y) - tapPosition!).distance;
+        if (tapDistance < currentRadius * 2) { // Larger tap target for better UX
+          // Call the callback with star data (will be handled outside)
+          Future.microtask(() => onStarTapped!(starData));
+        }
+      }
+      
+      // Draw star name if enabled
+      if (showStarNames) {
+        final double fontSize = max(12.0, min(14.0, scale * 0.02));
+        
+        final TextPainter textPainter = TextPainter(
+          text: TextSpan(
+            text: starData['name'] as String,
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.9),
+              fontSize: fontSize,
+              fontWeight: FontWeight.w500, // Semi-bold for better readability
+              shadows: [
+                Shadow(
+                  color: Colors.black.withOpacity(0.7),
+                  offset: const Offset(1, 1),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
+          ),
+          textDirection: TextDirection.ltr,
+        );
+        
+        textPainter.layout();
+        textPainter.paint(canvas, Offset(x + radius + 4, y - textPainter.height / 2));
+      }
     }
   }
 
@@ -228,12 +319,14 @@ class SkyPainter extends CustomPainter {
   Color _calculateStarColor(double magnitude) {
     // Brighter stars tend to be slightly blue-white
     // Dimmer stars tend to be slightly yellow-red
-    if (magnitude < 2.0) {
+    if (magnitude < 1.0) {
       return Colors.white;
+    } else if (magnitude < 2.0) {
+      return const Color(0xFFF0F8FF); // Slightly blue-white (AliceBlue)
     } else if (magnitude < 3.0) {
-      return Colors.blue[100] ?? Colors.white;
+      return const Color(0xFFF5F5DC); // Slightly yellow (Beige)
     } else {
-      return Colors.yellow[100] ?? Colors.white;
+      return const Color(0xFFFFE4B5); // Slightly orange (Moccasin)
     }
   }
 
@@ -242,6 +335,9 @@ class SkyPainter extends CustomPainter {
     return oldDelegate.currentConstellation != currentConstellation ||
         oldDelegate.showConstellationLines != showConstellationLines ||
         oldDelegate.showConstellationStars != showConstellationStars ||
+        oldDelegate.showStarNames != showStarNames ||
+        oldDelegate._twinklePhase != _twinklePhase ||
+        oldDelegate.tapPosition != tapPosition ||
         (oldDelegate.showBackgroundStars != showBackgroundStars && showBackgroundStars);
   }
 }
