@@ -8,11 +8,11 @@ class InsideViewController extends ChangeNotifier {
   double _pitch = 0.0;    // Vertical angle (-90=down, 0=horizon, 90=up)
   
   // Field of view in degrees
-  double _fieldOfView = 100.0;
+  double _fieldOfView = 110.0;
   
   // For smooth drag/rotation
   Offset? _dragStart;
-  double _dragSensitivity = 0.5;
+  double _dragSensitivity = 0.2;
   
   // Auto-rotation
   bool _autoRotate = false;
@@ -44,25 +44,26 @@ class InsideViewController extends ChangeNotifier {
   
   // Update during drag
   void updateDrag(Offset currentPosition) {
-    if (_dragStart == null) return;
-    
-    // Calculate the change in position
-    final double dx = currentPosition.dx - _dragStart!.dx;
-    final double dy = currentPosition.dy - _dragStart!.dy;
-    
-    // Update the view direction
-    // Negative dx because we want to rotate opposite of drag direction
-    _heading = (_heading - dx * _dragSensitivity) % 360.0;
-    if (_heading < 0) _heading += 360.0;
-    
-    // Update pitch, with clamping to avoid flipping over
-    _pitch = (_pitch + dy * _dragSensitivity).clamp(-80.0, 80.0);
-    
-    // Update drag start for next frame
-    _dragStart = currentPosition;
-    
-    notifyListeners();
-  }
+  if (_dragStart == null) return;
+  
+  // Calculate the change in position
+  final double dx = currentPosition.dx - _dragStart!.dx;
+  final double dy = currentPosition.dy - _dragStart!.dy;
+  
+  // Update the view direction
+  // Positive dx means dragging right, so we should increase heading (rotate right)
+  // Positive dy means dragging down, so we should decrease pitch (look down)
+  _heading = (_heading + dx * _dragSensitivity) % 360.0;
+  if (_heading < 0) _heading += 360.0;
+  
+  // Update pitch, with clamping to avoid flipping over
+  _pitch = (_pitch + dy * _dragSensitivity).clamp(-80.0, 80.0);
+  
+  // Update drag start for next frame
+  _dragStart = currentPosition;
+  
+  notifyListeners();
+}
   
   // End the drag operation
   void endDrag() {

@@ -37,7 +37,7 @@ class _StarVisualizationState extends State<StarVisualization> with SingleTicker
     // Create controller for twinkling effect
     _twinkleController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 30),
     )..repeat();
   }
   
@@ -199,7 +199,7 @@ void paint(Canvas canvas, Size size) {
     // Apply twinkling effect
     final double starSeed = position.dx * position.dy; // Use position as a seed
     final double twinkleSpeed = 0.5 + (sin(starSeed) + 1) * 0.5; // Range 0.5-1.5
-    final double twinkleFactor = max(0, sin((twinklePhase * twinkleSpeed) % (2 * pi)));
+    final double twinkleFactor = max(0, sin((twinklePhase * twinkleSpeed * 0.5) % (2 * pi)));
     
     // Get star color based on spectral type
     final Color starColor = _getStarColor(star.spectralType);

@@ -1,11 +1,14 @@
 // lib/widgets/inside_sky_view.dart
 import 'dart:math';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import '../models/enhanced_constellation.dart';
 import '../controllers/inside_view_controller.dart';
 import '../utils/celestial_projections_inside.dart';
+import '../utils/star_renderer.dart';
+import '../utils/celestial_grid_renderer.dart';
+import '../utils/twinkle_manager.dart';
 
 /// A widget that renders the view from inside the celestial sphere
 class InsideSkyView extends StatefulWidget {
@@ -28,13 +31,15 @@ class _InsideSkyViewState extends State<InsideSkyView> with SingleTickerProvider
   late InsideViewController _controller;
   late Ticker _ticker;
   double _twinklePhase = 0.0;
-  String? _hoveredConstellation;
   bool _showGrid = true;
   
   // To track selected stars/constellations
   Map<String, ConstellationPositionInfo> _visibleConstellations = {};
   StarPositionInfo? _selectedStar;
   
+  // Stream subscription for twinkling
+  StreamSubscription<double>? _twinkleSub;
+
   @override
   void initState() {
     super.initState();
@@ -47,17 +52,26 @@ class _InsideSkyViewState extends State<InsideSkyView> with SingleTickerProvider
       widget.onControllerCreated!(_controller);
     }
     
-    // Create ticker for animation
+    // Create ticker for rotation animation only
     _ticker = createTicker((elapsed) {
-      setState(() {
-        _twinklePhase = elapsed.inMilliseconds / 5000 * pi;
-        
-        // Update auto-rotation
+      if (_controller.autoRotate) {
         _controller.updateAutoRotation();
-      });
+        setState(() {}); // Trigger redraw
+      }
     });
     
     _ticker.start();
+    
+    // Setup twinkling with the shared manager
+    final twinkleManager = TwinkleManager();
+    twinkleManager.start(); // Use default settings
+    
+    // Listen for phase updates
+    _twinkleSub = twinkleManager.phaseStream.listen((phase) {
+      setState(() {
+        _twinklePhase = phase;
+      });
+    });
     
     // Default to looking at the first constellation
     if (widget.constellations.isNotEmpty && 
@@ -68,13 +82,11 @@ class _InsideSkyViewState extends State<InsideSkyView> with SingleTickerProvider
         widget.constellations[0].declination!
       );
     }
-    
-    // Debug output
-    print("DEBUG: Inside Sky View initialized with ${widget.constellations.length} constellations");
   }
   
   @override
   void dispose() {
+    _twinkleSub?.cancel();
     _ticker.dispose();
     super.dispose();
   }
@@ -207,26 +219,6 @@ class _InsideSkyViewState extends State<InsideSkyView> with SingleTickerProvider
             ),
           ),
           
-          // Direction indicator
-          Positioned(
-            bottom: 20,
-            right: 20,
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.6),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Text(
-                _getDirectionText(),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          
           // Selected star/constellation info
           if (_selectedStar != null)
             Positioned(
@@ -326,42 +318,6 @@ class _InsideSkyViewState extends State<InsideSkyView> with SingleTickerProvider
       widget.onConstellationSelected!(tappedStar.constellation!);
     }
   }
-  
-  /// Get text description of current view direction
-  String _getDirectionText() {
-    final heading = _controller.heading;
-    final pitch = _controller.pitch;
-    
-    String dirText = "";
-    
-    // Heading text
-    if (heading >= 337.5 || heading < 22.5) {
-      dirText = "N";
-    } else if (heading >= 22.5 && heading < 67.5) {
-      dirText = "NE";
-    } else if (heading >= 67.5 && heading < 112.5) {
-      dirText = "E";
-    } else if (heading >= 112.5 && heading < 157.5) {
-      dirText = "SE";
-    } else if (heading >= 157.5 && heading < 202.5) {
-      dirText = "S";
-    } else if (heading >= 202.5 && heading < 247.5) {
-      dirText = "SW";
-    } else if (heading >= 247.5 && heading < 292.5) {
-      dirText = "W";
-    } else if (heading >= 292.5 && heading < 337.5) {
-      dirText = "NW";
-    }
-    
-    // Add pitch
-    if (pitch >= 45) {
-      dirText += " ↑";
-    } else if (pitch <= -45) {
-      dirText += " ↓";
-    }
-    
-    return dirText;
-  }
 }
 
 /// Painter for the inside sky view
@@ -448,8 +404,17 @@ class InsideSkyPainter extends CustomPainter {
           spectralType: star.spectralType,
         ));
         
-        // Draw the star
-        _drawStar(canvas, star, screenPos);
+        // Draw the star using our shared renderer
+        StarRenderer.drawStar(
+          canvas,
+          star.id,
+          screenPos,
+          star.magnitude,
+          twinklePhase,
+          size,
+          spectralType: star.spectralType,
+          twinkleIntensity: 0.3
+        );
       }
       
       // Draw constellation lines if we have at least 2 visible stars
@@ -459,14 +424,21 @@ class InsideSkyPainter extends CustomPainter {
           stars: constellationStars,
         );
         
-        // Draw the lines
-        _drawConstellationLines(canvas, constellation.lines, starPositions);
+        // Draw the lines using shared renderer
+        StarRenderer.drawConstellationLines(canvas, constellation.lines, starPositions);
       }
     }
     
     // Draw the celestial grid
     if (showGrid) {
-      _drawCelestialGrid(canvas, size, viewDir);
+      CelestialGridRenderer.drawCelestialGrid(
+        canvas, 
+        size, 
+        viewDir,
+        controller.projection.celestialToDirection,
+        controller.projection.projectToScreen,
+        controller.projection.isPointVisible
+      );
     }
     
     // Notify about calculated positions
@@ -477,324 +449,56 @@ class InsideSkyPainter extends CustomPainter {
   
   /// Draw background stars
   void _drawBackgroundStars(Canvas canvas, Size size) {
-  final Random random = Random(42);
-  final int starCount = (size.width * size.height / 2000).round().clamp(500, 3000);
-  
-  // For consistent but realistic-looking random stars, we'll create them in 3D space
-  // and then project them to the screen
-  for (int i = 0; i < starCount; i++) {
-    // Create a random 3D direction
-    final double theta = random.nextDouble() * 2 * pi; // Azimuth
-    final double phi = acos(2 * random.nextDouble() - 1); // Inclination
+    final Random random = Random(42);
+    final int starCount = (size.width * size.height / 2000).round().clamp(500, 3000);
     
-    final double x = sin(phi) * cos(theta);
-    final double y = cos(phi);
-    final double z = sin(phi) * sin(theta);
-    
-    final direction = Vector3D(x, y, z);
-    
-    // Check if it's in our field of view
-    if (!controller.projection.isPointVisible(direction, controller.getViewDirection())) {
-      continue;
-    }
-    
-    // Project to screen coordinates
-    final screenPos = controller.projection.projectToScreen(
-      direction, 
-      size, 
-      controller.getViewDirection()
-    );
-    
-    // Skip if off-screen
-    if (screenPos.dx < 0 || screenPos.dx > size.width ||
-        screenPos.dy < 0 || screenPos.dy > size.height) {
-      continue;
-    }
-    
-    // Randomize size and brightness
-    final double radius = random.nextDouble() * 1.0 + 0.3; // 0.3-1.3 pixels
-    final double baseOpacity = random.nextDouble() * 0.5 + 0.2; // 0.2-0.7
-    
-    // Apply twinkling - but make sure opacity stays in valid range 0-1
-    final double starSeed = screenPos.dx * screenPos.dy;
-    final double twinkleSpeed = 0.5 + (sin(starSeed) + 1) * 0.5; // Range 0.5-1.5
-    final double twinkleFactor = max(0, sin((twinklePhase * twinkleSpeed) % (2 * pi)));
-    
-    // Adjust opacity with twinkling - ensure it's clamped to valid range
-    final double opacity = min(1.0, max(0.0, baseOpacity * (1.0 + twinkleFactor * 0.3)));
-    
-    // Draw star
-    final Paint starPaint = Paint()
-      ..color = Colors.white.withOpacity(opacity);
-    
-    canvas.drawCircle(screenPos, radius, starPaint);
-    
-    // Draw subtle glow for some stars
-    if (random.nextDouble() > 0.8) {
-      final double glowOpacity = min(1.0, max(0.0, opacity * 0.3));
-      final Paint glowPaint = Paint()
-        ..color = Colors.white.withOpacity(glowOpacity)
-        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2.0);
+    // For consistent but realistic-looking random stars, we'll create them in 3D space
+    // and then project them to the screen
+    for (int i = 0; i < starCount; i++) {
+      // Create a random 3D direction
+      final double theta = random.nextDouble() * 2 * pi; // Azimuth
+      final double phi = acos(2 * random.nextDouble() - 1); // Inclination
       
-      canvas.drawCircle(screenPos, radius * 1.5, glowPaint);
-    }
-  }
-}
-  
-  /// Draw a single star
-  void _drawStar(Canvas canvas, CelestialStar star, Offset position) {
-    // Calculate star size based on magnitude (brighter = larger)
-    final double size = _calculateStarSize(star.magnitude);
-    
-    // Apply small twinkle effect
-    final double starSeed = position.dx * position.dy;
-    final double twinkleSpeed = 0.5 + (sin(starSeed) + 1) * 0.5;
-    final double twinkleFactor = max(0, sin((twinklePhase * twinkleSpeed) % (2 * pi)));
-    
-    // Adjust size and brightness with twinkling
-    final double currentSize = size * (1.0 + twinkleFactor * 0.1);
-    
-    // Get star color based on spectral type
-    final Color starColor = _getStarColor(star.spectralType);
-    
-    // Make color slightly brighter during twinkle
-    final Color twinkleColor = _adjustColorBrightness(starColor, twinkleFactor * 0.15);
-    
-    // Draw star glow
-    final Paint glowPaint = Paint()
-      ..color = twinkleColor.withOpacity(0.3 + twinkleFactor * 0.1)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3.0);
-    
-    canvas.drawCircle(position, currentSize * 1.5, glowPaint);
-    
-    // Draw star core
-    final Paint starPaint = Paint()
-      ..color = twinkleColor
-      ..style = PaintingStyle.fill;
-    
-    canvas.drawCircle(position, currentSize, starPaint);
-  }
-  
-  /// Draw constellation lines
-  void _drawConstellationLines(Canvas canvas, List<List<String>> lines, Map<String, Offset> starPositions) {
-    final Paint linePaint = Paint()
-      ..color = Colors.blue.withOpacity(0.4)
-      ..strokeWidth = 1.0
-      ..style = PaintingStyle.stroke;
-    
-    for (final line in lines) {
-      if (line.length == 2) {
-        final String star1Id = line[0];
-        final String star2Id = line[1];
-        
-        if (starPositions.containsKey(star1Id) && starPositions.containsKey(star2Id)) {
-          canvas.drawLine(
-            starPositions[star1Id]!,
-            starPositions[star2Id]!,
-            linePaint
-          );
-        }
-      }
-    }
-  }
-  
-  /// Draw the celestial grid
-  void _drawCelestialGrid(Canvas canvas, Size size, Vector3D viewDir) {
-    final Paint gridPaint = Paint()
-      ..color = Colors.lightBlue.withOpacity(0.2)
-      ..strokeWidth = 1.0
-      ..style = PaintingStyle.stroke;
-    
-    // Draw meridians (longitude lines)
-    for (int i = 0; i < 24; i++) { // 24 meridians = 15° spacing
-      final double ra = i * 15.0; // RA in degrees
-      final List<Offset> points = [];
+      final double x = sin(phi) * cos(theta);
+      final double y = cos(phi);
+      final double z = sin(phi) * sin(theta);
       
-      // Draw points along this meridian
-      for (int j = 0; j <= 36; j++) { // Higher resolution for smoother curves
-        final double dec = -90.0 + j * 5.0; // Dec in degrees
-        
-        // Convert to direction vector
-        final direction = controller.projection.celestialToDirection(ra, dec);
-        
-        // Check if it's in our field of view
-        if (!controller.projection.isPointVisible(direction, viewDir)) {
-          // If we have points already, draw what we have so far
-          if (points.isNotEmpty) {
-            _drawLines(canvas, points, gridPaint);
-            points.clear();
-          }
-          continue;
-        }
-        
-        // Project to screen coordinates
-        final screenPos = controller.projection.projectToScreen(
-          direction, 
-          size, 
-          viewDir
-        );
-        
-        points.add(screenPos);
-      }
-      
-      _drawLines(canvas, points, gridPaint);
-    }
-    
-    // Draw parallels (latitude lines)
-    for (int i = 1; i < 18; i++) { // 18 parallels = 10° spacing, skip poles
-      final double dec = -90.0 + i * 10.0; // Dec in degrees
-      final List<Offset> points = [];
-      
-      // Draw points along this parallel
-      for (int j = 0; j <= 72; j++) { // Higher resolution for smoother curves
-        final double ra = j * 5.0; // RA in degrees
-        
-        // Convert to direction vector
-        final direction = controller.projection.celestialToDirection(ra, dec);
-        
-        // Check if it's in our field of view
-        if (!controller.projection.isPointVisible(direction, viewDir)) {
-          // If we have points already, draw what we have so far
-          if (points.isNotEmpty) {
-            _drawLines(canvas, points, gridPaint);
-            points.clear();
-          }
-          continue;
-        }
-        
-        // Project to screen coordinates
-        final screenPos = controller.projection.projectToScreen(
-          direction, 
-          size, 
-          viewDir
-        );
-        
-        points.add(screenPos);
-      }
-      
-      _drawLines(canvas, points, gridPaint);
-    }
-    
-    // Draw cardinal direction labels
-    _drawCardinalLabels(canvas, size, viewDir);
-  }
-  
-  /// Draw cardinal direction labels
-  void _drawCardinalLabels(Canvas canvas, Size size, Vector3D viewDir) {
-    final directions = [
-      {'label': 'N', 'ra': 0.0, 'dec': 0.0},    // North
-      {'label': 'S', 'ra': 180.0, 'dec': 0.0},  // South
-      {'label': 'E', 'ra': 90.0, 'dec': 0.0},   // East
-      {'label': 'W', 'ra': 270.0, 'dec': 0.0},  // West
-    ];
-    
-    for (final direction in directions) {
-      // Convert to direction vector
-      final dir = controller.projection.celestialToDirection(
-        direction['ra'] as double, 
-        direction['dec'] as double
-      );
+      final direction = Vector3D(x, y, z);
       
       // Check if it's in our field of view
-      if (!controller.projection.isPointVisible(dir, viewDir)) {
+      if (!controller.projection.isPointVisible(direction, controller.getViewDirection())) {
         continue;
       }
       
       // Project to screen coordinates
       final screenPos = controller.projection.projectToScreen(
-        dir, 
+        direction, 
         size, 
-        viewDir
+        controller.getViewDirection()
       );
       
-      // Draw the label
-      final TextPainter textPainter = TextPainter(
-        text: TextSpan(
-          text: direction['label'] as String,
-          style: TextStyle(
-            color: Colors.lightBlue.withOpacity(0.7),
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            shadows: const [
-              Shadow(
-                color: Colors.black,
-                offset: Offset(1, 1),
-                blurRadius: 2,
-              ),
-            ],
-          ),
-        ),
-        textDirection: TextDirection.ltr,
-      );
+      // Skip if off-screen
+      if (screenPos.dx < 0 || screenPos.dx > size.width ||
+          screenPos.dy < 0 || screenPos.dy > size.height) {
+        continue;
+      }
       
-      textPainter.layout();
-      textPainter.paint(
-        canvas, 
-        Offset(
-          screenPos.dx - textPainter.width / 2, 
-          screenPos.dy - textPainter.height / 2
-        )
+      // Randomize size and brightness
+      final double radius = random.nextDouble() * 1.0 + 0.3; // 0.3-1.3 pixels
+      final double baseOpacity = random.nextDouble() * 0.5 + 0.2; // 0.2-0.7
+      
+      // Draw background star using shared renderer
+      StarRenderer.drawBackgroundStar(
+        canvas,
+        i,
+        screenPos,
+        radius,
+        baseOpacity,
+        twinklePhase,
+        glowProbability: 0.2,
+        twinkleIntensity: 0.3
       );
     }
-  }
-  
-  /// Draw a connected line through the given points
-  void _drawLines(Canvas canvas, List<Offset> points, Paint paint) {
-    if (points.length < 2) return;
-    
-    final Path path = Path()..moveTo(points.first.dx, points.first.dy);
-    
-    for (int i = 1; i < points.length; i++) {
-      path.lineTo(points[i].dx, points[i].dy);
-    }
-    
-    canvas.drawPath(path, paint);
-  }
-  
-  /// Calculate star size based on magnitude
-  double _calculateStarSize(double magnitude) {
-    // Brighter stars (lower magnitude) are larger
-    return max(2.0, 8.0 - magnitude * 0.7);
-  }
-  
-  /// Get star color based on spectral type
-  Color _getStarColor(String? spectralType) {
-    if (spectralType == null || spectralType.isEmpty) {
-      return Colors.white;
-    }
-    
-    // Extract the main spectral class (first character)
-    final String mainClass = spectralType[0].toUpperCase();
-    
-    // Colors based on stellar classification
-    switch (mainClass) {
-      case 'O': // Blue
-        return const Color(0xFFCAE8FF);
-      case 'B': // Blue-white
-        return const Color(0xFFE6F0FF);
-      case 'A': // White
-        return Colors.white;
-      case 'F': // Yellow-white
-        return const Color(0xFFFFF8E8);
-      case 'G': // Yellow (Sun-like)
-        return const Color(0xFFFFEFB3);
-      case 'K': // Orange
-        return const Color(0xFFFFD2A1);
-      case 'M': // Red
-        return const Color(0xFFFFBDAD);
-      default:
-        return Colors.white;
-    }
-  }
-  
-  /// Adjust color brightness for twinkling effect
-  Color _adjustColorBrightness(Color color, double factor) {
-    return Color.fromRGBO(
-      min(255, color.red + ((255 - color.red) * factor).round()),
-      min(255, color.green + ((255 - color.green) * factor).round()),
-      min(255, color.blue + ((255 - color.blue) * factor).round()),
-      color.opacity
-    );
   }
   
   @override
