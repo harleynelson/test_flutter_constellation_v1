@@ -194,6 +194,9 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
               _controller.endDrag();
             },
             onTapDown: (details) {
+            // _handleTap(details.localPosition);
+            },
+            onTapUp: (details) {
               _handleTap(details.localPosition);
             },
             child: MouseRegion(

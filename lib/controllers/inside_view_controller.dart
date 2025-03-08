@@ -101,9 +101,11 @@ class InsideViewController extends ChangeNotifier {
   
   // Zoom in or out
   void zoom(double factor) {
-    _fieldOfView = (_fieldOfView / factor).clamp(30.0, 150.0);
-    notifyListeners();
-  }
+  // Dampen the zoom factor to make it less sensitive
+  double dampened = 1.0 + (factor - 1.0) * 0.1; // Adjust the 0.3 multiplier to change pinch zoom'ness
+  _fieldOfView = (_fieldOfView / dampened).clamp(30.0, 150.0);
+  notifyListeners();
+}
   
   // Reset to the initial view
   void resetView() {

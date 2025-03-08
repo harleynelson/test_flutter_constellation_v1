@@ -122,7 +122,7 @@ class ConstellationPainter extends CustomPainter {
       // Scale star radius appropriately
       final double baseRadius = controller.calculateStarRadius(magnitude);
       // Ensure reasonable star size that scales with the constellation but not too large
-      final double radius = max(baseRadius, 2.0) * min(scale * 0.05, 3.0);
+      final double radius = max(baseRadius, 1.5) * min(scale * 0.04, 2.5); // Reduced multipliers
       
       // Apply twinkling effect to main stars too, but more subtly
       final double starSeed = x * y; // Use position as a seed for random variation

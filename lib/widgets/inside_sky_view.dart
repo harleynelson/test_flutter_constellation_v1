@@ -109,6 +109,9 @@ class _InsideSkyViewState extends State<InsideSkyView> with SingleTickerProvider
         _controller.endDrag();
       },
       onTapDown: (details) {
+       // _handleTap(details.localPosition);
+      },
+      onTapUp: (details) {
         _handleTap(details.localPosition);
       },
       child: Stack(

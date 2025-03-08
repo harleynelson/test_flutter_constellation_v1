@@ -2,28 +2,32 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+import 'celestial_projections.dart';
+
 /// Utility class for rendering stars with consistent appearance and behavior
 class StarRenderer {
   /// Calculate star size based on magnitude, screen size, and device pixel ratio
   static double calculateStarSize(double magnitude, Size screenSize) {
-    // Base size calculation based on magnitude (brighter = larger)
-    double baseSize = max(2.0, 8.0 - magnitude * 0.7);
-    
-    // Calculate diagonal size of screen for consistent scaling across devices
-    double screenDiagonal = sqrt(screenSize.width * screenSize.width + 
-                               screenSize.height * screenSize.height);
-    
-    // Scale factor based on screen diagonal (normalize to a reference size)
-    // Reference: 1500px diagonal (typical tablet)
-    double scaleFactor = screenDiagonal / 1500.0;
-    
-    // Apply logarithmic scaling to prevent stars from being too large on large screens
-    // or too small on small screens
-    double sizeScale = 0.7 + (log(scaleFactor + 0.5) / log(2));
-    
-    // Apply scale with lower and upper bounds
-    return max(1.5, min(baseSize * sizeScale, 10.0));
-  }
+  // Base size calculation based on magnitude (brighter = larger)
+  // Scaling down by reducing the base size and coefficient
+  double baseSize = max(1.5, 6.0 - magnitude * 0.5); // Reduced from 8.0 to 6.0, coefficient from 0.7 to 0.5
+  
+  // Calculate diagonal size of screen for consistent scaling across devices
+  double screenDiagonal = sqrt(screenSize.width * screenSize.width + 
+                             screenSize.height * screenSize.height);
+  
+  // Scale factor based on screen diagonal (normalize to a reference size)
+  // Reference: 1500px diagonal (typical tablet)
+  double scaleFactor = screenDiagonal / 1500.0;
+  
+  // Apply logarithmic scaling to prevent stars from being too large on large screens
+  // Reduce the scaling factor to make stars smaller
+  double sizeScale = 0.5 + (log(scaleFactor + 0.5) / log(2)); // Reduced from 0.7 to 0.5
+  
+  // Apply scale with lower and upper bounds
+  // Reduce both the minimum and maximum size
+  return max(1.0, min(baseSize * sizeScale, 7.0)); // Reduced min from 1.5 to 1.0, max from 10.0 to 7.0
+}
   
   /// Get star color based on spectral type
   static Color getStarColor(String? spectralType) {
@@ -84,8 +88,8 @@ static double calculateBackgroundStarSize(int starIndex, Size screenSize) {
   // Use the star index to create different sized background stars
   final Random random = Random(starIndex);
    
-  // Extremely small base size variation
-  double baseSize = random.nextDouble() * 0.2 + 0.01;
+  // Increase the base size
+  double baseSize = random.nextDouble() * 0.5 + 1; // Increased from 0.2+0.01 to 0.5+0.8
    
   // Calculate diagonal size for consistent scaling
   double screenDiagonal = sqrt(screenSize.width * screenSize.width +
@@ -93,10 +97,10 @@ static double calculateBackgroundStarSize(int starIndex, Size screenSize) {
    
   // Scale factor that grows more slowly for larger screens
   double scaleFactor = screenDiagonal / 1500.0;
-  double sizeScale = 0.1 + (log(scaleFactor + 0.2) / log(3));
+  double sizeScale = 0.2 + (log(scaleFactor + 0.3) / log(3)); // Increased from 0.1 to 0.2
    
-  // Apply scale with extremely tight bounds
-  return max(0.01, min(baseSize * sizeScale, 1.5));
+  // Apply scale with larger bounds
+  return max(0.3, min(baseSize * sizeScale, 2.5)); // Increased min from 0.01 to 0.3, max from 1.5 to 2.5
 }
   
   /// Draw a star with appropriate twinkling
@@ -189,6 +193,68 @@ static double calculateBackgroundStarSize(int starIndex, Size screenSize) {
       canvas.drawCircle(position, scaledRadius * 1.5, glowPaint);
     }
   }
+
+  /// Draw a set of random background stars across the sky
+static void drawRandomBackgroundStars(
+  Canvas canvas,
+  Size size,
+  double twinklePhase,
+  Function(Vector3D, Vector3D) isPointVisible,
+  Function(Vector3D, Size, Vector3D) projectToScreen,
+  Vector3D viewDirection,
+  {
+    int starDensity = 1, // Parameter to control star density
+    int seed = 42, // Fixed seed for consistent pattern
+    double glowProbability = 0.2,
+    double twinkleIntensity = 0.3,
+  }
+) {
+  final Random random = Random(seed);
+  final int starCount = (size.width * size.height / 2000).round().clamp(500, 3000) * starDensity;
+  
+  for (int i = 0; i < starCount; i++) {
+    // Create a random 3D direction
+    final double theta = random.nextDouble() * 2 * pi;
+    final double phi = acos(2 * random.nextDouble() - 1);
+    
+    final double x = sin(phi) * cos(theta);
+    final double y = cos(phi);
+    final double z = sin(phi) * sin(theta);
+    
+    final direction = Vector3D(x, y, z);
+    
+    // Check if it's in field of view
+    if (!isPointVisible(direction, viewDirection)) {
+      continue;
+    }
+    
+    // Project to screen
+    final screenPos = projectToScreen(direction, size, viewDirection);
+    
+    // Skip if off-screen
+    if (screenPos.dx < 0 || screenPos.dx > size.width ||
+        screenPos.dy < 0 || screenPos.dy > size.height) {
+      continue;
+    }
+    
+    // Generate random properties for this star
+    double radius = random.nextDouble() * 1.0 + 0.3; // Random radius between 0.3-1.3 pixels
+    double baseOpacity = random.nextDouble() * 0.5 + 0.2; // Random opacity between 0.2-0.7
+    
+    // Use the existing drawBackgroundStar method
+    drawBackgroundStar(
+      canvas,
+      i,
+      screenPos,
+      radius,
+      baseOpacity,
+      twinklePhase,
+      size,
+      glowProbability: glowProbability,
+      twinkleIntensity: twinkleIntensity
+    );
+  }
+}
   
   /// Draw constellation lines connecting stars
   static void drawConstellationLines(
