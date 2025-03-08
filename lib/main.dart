@@ -7,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
         checkboxTheme: CheckboxThemeData(
-          fillColor: MaterialStateProperty.resolveWith<Color>((states) {
-            if (states.contains(MaterialState.disabled)) {
+          fillColor: WidgetStateProperty.resolveWith<Color>((states) {
+            if (states.contains(WidgetState.disabled)) {
               return Colors.blue.withOpacity(.32);
             }
             return Colors.blue;

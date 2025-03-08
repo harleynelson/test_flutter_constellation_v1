@@ -60,8 +60,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/constellations.json
     - assets/enhanced_constellations.json
+    - assets/centers_20.txt
+    - assets/lines_in_20.txt
 
   # To add assets to your application, add an assets section, like this:
   # assets:

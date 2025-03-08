@@ -1,14 +1,15 @@
 // lib/screens/enhanced_constellation_screen.dart
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../models/enhanced_constellation.dart';
-import '../services/constellation_service.dart';
-import '../widgets/celestial_sky_view.dart';
-import '../widgets/inside_sky_view.dart';
+import '../services/constellation_centers_service.dart';
+import '../services/constellation_data_service.dart';
+import '../models/constellation_center.dart';
+import '../widgets/sky_view.dart';
 import '../controllers/inside_view_controller.dart';
+import 'constellation_detail_screen.dart';
 
 class EnhancedConstellationScreen extends StatefulWidget {
-  const EnhancedConstellationScreen({Key? key}) : super(key: key);
+  const EnhancedConstellationScreen({super.key});
 
   @override
   State<EnhancedConstellationScreen> createState() => _EnhancedConstellationScreenState();
@@ -16,26 +17,22 @@ class EnhancedConstellationScreen extends StatefulWidget {
 
 class _EnhancedConstellationScreenState extends State<EnhancedConstellationScreen> 
     with WidgetsBindingObserver {
-  String _currentConstellation = "Ursa Major";
-  bool _showConstellationLines = true;
-  bool _showStarNames = true;
-  bool _showMagnitudes = false;
+  final String _currentConstellation = "Ursa Major";
   bool _enable3DMode = true;  // Default to 3D mode
-  bool _isOverviewMode = true;
   bool _isLoading = true;
   List<EnhancedConstellation> _constellations = [];
+  List<ConstellationCenter> _constellationCenters = [];
   
   // Reference to the inside view controller
   InsideViewController? _insideViewController;
-  // We no longer need the legacy format since our new overview uses the enhanced model
   
+  @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       // Enable auto-rotation for better visibility
-      if (_isOverviewMode && _insideViewController != null) {
+      if (_insideViewController != null) {
         // This will be called after the view is visible
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          print("DEBUG: Enabling auto-rotation for inside view");
           _insideViewController!.toggleAutoRotate();
         });
       }
@@ -46,7 +43,7 @@ class _EnhancedConstellationScreenState extends State<EnhancedConstellationScree
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    _loadConstellations();
+    _loadData();
   }
   
   @override
@@ -55,17 +52,19 @@ class _EnhancedConstellationScreenState extends State<EnhancedConstellationScree
     super.dispose();
   }
 
-  Future<void> _loadConstellations() async {
+  Future<void> _loadData() async {
     try {
-      // Load enhanced constellations
-      final constellations = await ConstellationService.loadConstellations();
+      // Load both enhanced constellations and centers
+      final constellations = await ConstellationDataService.loadConstellations();
+      final centers = await ConstellationCentersService.loadConstellationCenters();
       
       setState(() {
         _constellations = constellations;
+        _constellationCenters = centers;
         _isLoading = false;
       });
     } catch (e) {
-      print('Error loading constellations: $e');
+      print('Error loading data: $e');
       // Show error state
       setState(() {
         _isLoading = false;
@@ -73,32 +72,28 @@ class _EnhancedConstellationScreenState extends State<EnhancedConstellationScree
     }
   }
   
-  void _showStarDetails(Map<String, dynamic> starData) {
-    // Provide haptic feedback when a star is selected
-    HapticFeedback.lightImpact();
+  // Navigate to the constellation detail screen
+  void _showConstellationDetail(String constellationName) {
+    final constellation = _constellations.firstWhere(
+      (c) => c.name == constellationName,
+      orElse: () => _constellations.first,
+    );
     
-    // For logging example:
-    print('Star selected: ${starData['name']} (${starData['id']})');
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ConstellationDetailScreen(
+          constellation: constellation,
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_isOverviewMode 
-            ? _enable3DMode ? '3D Night Sky Overview' : 'Night Sky Overview'
-            : 'Constellation: $_currentConstellation'),
+        title: Text(_enable3DMode ? '3D Night Sky Overview' : 'Night Sky Overview'),
         actions: [
-          if (!_isOverviewMode)
-            IconButton(
-              icon: const Icon(Icons.zoom_out),
-              tooltip: 'Zoom out to full sky view',
-              onPressed: () {
-                setState(() {
-                  _isOverviewMode = true;
-                });
-              },
-            ),
           // Toggle 3D mode
           IconButton(
             icon: Icon(_enable3DMode ? Icons.view_in_ar : Icons.view_in_ar_outlined),
@@ -107,6 +102,15 @@ class _EnhancedConstellationScreenState extends State<EnhancedConstellationScree
               setState(() {
                 _enable3DMode = !_enable3DMode;
               });
+            },
+          ),
+          
+          // Info button for constellation centers
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            tooltip: 'About Constellation Centers',
+            onPressed: () {
+              _showCentersInfoDialog();
             },
           ),
         ],
@@ -120,226 +124,93 @@ class _EnhancedConstellationScreenState extends State<EnhancedConstellationScree
                 ? const Center(child: CircularProgressIndicator())
                 : _constellations.isEmpty
                   ? const Center(child: Text('No constellation data available', style: TextStyle(color: Colors.white)))
-                  : _isOverviewMode
-                    // Use our truly inside-looking-out sky view
-                    ? InsideSkyView(
-                        constellations: _constellations,
-                        onConstellationSelected: (name) {
-                          setState(() {
-                            _currentConstellation = name;
-                            _isOverviewMode = false;
-                          });
-                        },
-                        onControllerCreated: (controller) {
-                          _insideViewController = controller;
-                          
-                          // Enable auto-rotation by default for better visibility
-                          Future.delayed(Duration(milliseconds: 500), () {
-                            if (_insideViewController != null && _isOverviewMode) {
-                              print("DEBUG: Enabling auto-rotation for inside view");
-                              _insideViewController!.toggleAutoRotate();
-                            }
-                          });
-                        },
-                      )
-                    // Use our new enhanced celestial view
-                    : CelestialSkyView(
-                        constellations: _constellations,
-                        currentConstellation: _currentConstellation,
-                        showConstellationLines: _showConstellationLines,
-                        showStarNames: _showStarNames,
-                        showMagnitudes: _showMagnitudes,
-                        enable3DMode: _enable3DMode,
-                        onStarTapped: _showStarDetails,
-                      ),
+                  : SkyView(
+                      constellations: _constellations,
+                      onConstellationSelected: _showConstellationDetail,
+                      onControllerCreated: (controller) {
+                        _insideViewController = controller;
+                      },
+                    ),
             ),
           ),
-          if (!_isOverviewMode)
-            Column(
-              children: [
-                // Full Sky View Button at the top
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        _isOverviewMode = true;
-                      });
-                    },
-                    icon: const Icon(Icons.zoom_out),
-                    label: const Text('Full Sky View'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueGrey[800],
-                      foregroundColor: Colors.white,
-                      minimumSize: const Size(200, 45),
-                    ),
-                  ),
-                ),
-                // Controls
-                _buildControls(),
-              ],
-            ),
         ],
       ),
     );
   }
-
-  Widget _buildControls() {
-    // Find the current constellation for additional info
-    final currentConstellation = _constellations.firstWhere(
-      (c) => c.name == _currentConstellation,
-      orElse: () => _constellations.first,
-    );
-    
-    return Container(
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.black87,
-        border: Border(top: BorderSide(color: Colors.blueGrey.shade800, width: 1)),
-      ),
-      child: Column(
-        children: [
-          // Constellation selection dropdown
-          if (_constellations.isNotEmpty) 
-            DropdownButton<String>(
-              isExpanded: true,
-              value: _currentConstellation,
-              dropdownColor: Colors.blueGrey[900],
-              items: _constellations.map<DropdownMenuItem<String>>((constellation) {
-                return DropdownMenuItem<String>(
-                  value: constellation.name,
-                  child: Text(
-                    constellation.name,
-                    style: const TextStyle(color: Colors.white),
+  
+  // Show an informational dialog about constellation centers
+  void _showCentersInfoDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.black87,
+        title: const Text(
+          'Constellation Centers',
+          style: TextStyle(color: Colors.white),
+        ),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'The yellow labels show the official center coordinates of each constellation. These are marked with their IAU abbreviation.',
+                style: TextStyle(color: Colors.white70),
+              ),
+              const SizedBox(height: 16),
+              
+              // Show some stats about the centers
+              Text(
+                'Total Constellations: ${_constellationCenters.length}',
+                style: const TextStyle(color: Colors.white),
+              ),
+              const SizedBox(height: 8),
+              
+              if (_constellationCenters.isNotEmpty)
+                const Text(
+                  'Constellation Abbreviations:',
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+              
+              // Show a grid of constellation abbreviations
+              if (_constellationCenters.isNotEmpty)
+                Flexible(
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 8, // 8 items per row
+                      childAspectRatio: 1.5,
+                      mainAxisSpacing: 4,
+                      crossAxisSpacing: 4,
+                    ),
+                    itemCount: _constellationCenters.length,
+                    itemBuilder: (context, index) {
+                      final center = _constellationCenters[index];
+                      return Tooltip(
+                        message: 'RA: ${center.rightAscension}h, Dec: ${center.declination}°',
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.blue.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            center.abbreviation,
+                            style: const TextStyle(color: Colors.yellow),
+                          ),
+                        ),
+                      );
+                    },
                   ),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                if (newValue != null) {
-                  setState(() {
-                    _currentConstellation = newValue;
-                  });
-                }
-              },
-            ),
-          
-          // Constellation additional info
-          if (currentConstellation.abbreviation != null ||
-              currentConstellation.season != null)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: Colors.blueGrey[900]?.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (currentConstellation.abbreviation != null)
-                      Text(
-                        'Abbreviation: ${currentConstellation.abbreviation}',
-                        style: const TextStyle(color: Colors.white70),
-                      ),
-                    if (currentConstellation.season != null)
-                      Text(
-                        'Best viewing season: ${currentConstellation.season}',
-                        style: const TextStyle(color: Colors.white70),
-                      ),
-                    // Show RA/Dec for the constellation center if available
-                    if (currentConstellation.rightAscension != null && 
-                        currentConstellation.declination != null)
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Center RA: ${ConstellationService.formatRA(currentConstellation.rightAscension!)}',
-                            style: const TextStyle(color: Colors.white70),
-                          ),
-                          Text(
-                            'Center Dec: ${ConstellationService.formatDec(currentConstellation.declination!)}',
-                            style: const TextStyle(color: Colors.white70),
-                          ),
-                        ],
-                      ),
-                  ],
-                ),
-              ),
-            ),
-          
-          // Display controls
-          Row(
-            children: [
-              Expanded(
-                child: CheckboxListTile(
-                  title: const Text('Show Lines', style: TextStyle(color: Colors.white)),
-                  value: _showConstellationLines,
-                  onChanged: (bool? value) {
-                    if (value != null) {
-                      setState(() {
-                        _showConstellationLines = value;
-                      });
-                    }
-                  },
-                ),
-              ),
-              Expanded(
-                child: CheckboxListTile(
-                  title: const Text('Show Names', style: TextStyle(color: Colors.white)),
-                  value: _showStarNames,
-                  onChanged: (bool? value) {
-                    if (value != null) {
-                      setState(() {
-                        _showStarNames = value;
-                      });
-                    }
-                  },
-                ),
-              ),
             ],
           ),
-          
-          Row(
-            children: [
-              Expanded(
-                child: CheckboxListTile(
-                  title: const Text('Show Magnitudes', style: TextStyle(color: Colors.white)),
-                  value: _showMagnitudes,
-                  onChanged: (bool? value) {
-                    if (value != null) {
-                      setState(() {
-                        _showMagnitudes = value;
-                      });
-                    }
-                  },
-                ),
-              ),
-              Expanded(
-                child: CheckboxListTile(
-                  title: const Text('3D Mode', style: TextStyle(color: Colors.white)),
-                  value: _enable3DMode,
-                  onChanged: (bool? value) {
-                    if (value != null) {
-                      setState(() {
-                        _enable3DMode = value;
-                      });
-                    }
-                  },
-                ),
-              ),
-            ],
-          ),
-          
-          // Description
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Text(
-              currentConstellation.description,
-              style: const TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
-              textAlign: TextAlign.center,
-            ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Close'),
           ),
         ],
       ),

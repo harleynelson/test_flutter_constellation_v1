@@ -1,0 +1,8234 @@
+{
+    "constellations": {
+      "And": {
+        "abbreviation": "And",
+        "name": "Andromeda",
+        "description": "A celestial portrayal of the mythical Greek princess chained to a rock as a sacrifice, immortalized among the stars. Her story of peril and rescue by Perseus is captured in this constellation's twinkling outline.",
+        "lines": [
+          [
+            677,
+            3092,
+            5447,
+            9640
+          ],
+          [
+            113726,
+            116631,
+            116805,
+            116584
+          ],
+          [
+            116631,
+            2912,
+            3092
+          ],
+          [
+            2912,
+            5447,
+            4436,
+            3881,
+            5434,
+            7607
+          ],
+          [
+            3092,
+            3031,
+            3693,
+            4463
+          ]
+        ],
+        "star_count": 16,
+        "brightest_star": 677
+      },
+      "Ant": {
+        "abbreviation": "Ant",
+        "name": "Antlia",
+        "description": "A constellation representing an air pump, symbolizing scientific curiosity and the mechanical innovations of astronomical exploration.",
+        "lines": [
+          [
+            53502,
+            51172,
+            46515
+          ]
+        ],
+        "star_count": 3,
+        "brightest_star": 51172
+      },
+      "Aps": {
+        "abbreviation": "Aps",
+        "name": "Apus",
+        "description": "A constellation depicting a bird of paradise from the southern skies, bringing exotic beauty to the celestial landscape.",
+        "lines": [
+          [
+            72370,
+            81065
+          ],
+          [
+            80047,
+            81852,
+            81065
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 72370
+      },
+      "Aql": {
+        "abbreviation": "Aql",
+        "name": "Aquila",
+        "description": "The majestic eagle constellation, traditionally associated with Zeus, soars across the night sky as a symbol of power and divine messenger.",
+        "lines": [
+          [
+            98036,
+            97649,
+            97278,
+            95501,
+            93805,
+            95501,
+            93747,
+            95501,
+            97804,
+            99473
+          ],
+          [
+            93244,
+            93747
+          ],
+          [
+            93805,
+            93429
+          ],
+          [
+            99473,
+            96468,
+            93805,
+            93747
+          ]
+        ],
+        "star_count": 11,
+        "brightest_star": 97649
+      },
+      "Aqr": {
+        "abbreviation": "Aqr",
+        "name": "Aquarius",
+        "description": "A celestial water bearer pouring from a cosmic jug, representing the flow of life and the mystical qualities of water in ancient mythology.",
+        "lines": [
+          [
+            102618,
+            106278,
+            109074,
+            110395,
+            110960,
+            111497,
+            110960,
+            110672,
+            109074
+          ],
+          [
+            109139,
+            106278,
+            109074,
+            110003,
+            112961,
+            114724,
+            115033,
+            115438,
+            115033,
+            114341,
+            115033,
+            113136,
+            112716,
+            112961
+          ]
+        ],
+        "star_count": 16,
+        "brightest_star": 106278
+      },
+      "Ara": {
+        "abbreviation": "Ara",
+        "name": "Ara",
+        "description": "An altar constellation where the gods would swear their most solemn oaths before battling the Titans, representing divine commitment and sacred ritual.",
+        "lines": [
+          [
+            85267,
+            85727,
+            82363,
+            83081,
+            83153,
+            85792,
+            88714,
+            85792,
+            85258
+          ]
+        ],
+        "star_count": 8,
+        "brightest_star": 85792
+      },
+      "Ari": {
+        "abbreviation": "Ari",
+        "name": "Aries",
+        "description": "Commemorating the legendary golden-fleeced ram from Greek mythology, this constellation tells the tale of heroic quests and magical transformation.",
+        "lines": [
+          [
+            8832,
+            8903,
+            9884,
+            13209
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 9884
+      },
+      "Aur": {
+        "abbreviation": "Aur",
+        "name": "Auriga",
+        "description": "A celestial charioteer navigating the heavens, capturing the spirit of ancient Greek mythological heroes and their mastery of transportation.",
+        "lines": [
+          [
+            25428,
+            23015,
+            23767,
+            24608,
+            28360,
+            28380,
+            25428
+          ],
+          [
+            23767,
+            23453,
+            23416,
+            24608,
+            28358,
+            28360
+          ]
+        ],
+        "star_count": 9,
+        "brightest_star": 24608
+      },
+      "Boo": {
+        "abbreviation": "Boo",
+        "name": "BoÃ¶tes",
+        "description": "The celestial herdsman following the Great Bear across the night sky, representing pastoral life and the eternal movement of celestial bodies.",
+        "lines": [
+          [
+            69673,
+            72105,
+            74666,
+            73555,
+            71075,
+            71053,
+            69673,
+            67927,
+            67275
+          ],
+          [
+            69673,
+            71795
+          ],
+          [
+            71075,
+            69732,
+            70497,
+            69483,
+            69732
+          ]
+        ],
+        "star_count": 12,
+        "brightest_star": 69673
+      },
+      "CMa": {
+        "abbreviation": "CMa",
+        "name": "Canis Major",
+        "description": "Orion's larger hunting dog, home to the brilliant star Sirius, the brightest star in our night sky.",
+        "lines": [
+          [
+            30324,
+            32349,
+            34444,
+            33579,
+            34444,
+            35904
+          ],
+          [
+            30324,
+            31592,
+            33152,
+            33579
+          ],
+          [
+            32349,
+            33347,
+            34045,
+            33160,
+            33347
+          ]
+        ],
+        "star_count": 10,
+        "brightest_star": 32349
+      },
+      "CMi": {
+        "abbreviation": "CMi",
+        "name": "Canis Minor",
+        "description": "Orion's smaller hunting dog, featuring the prominent star Procyon, completing the mythological hunting pack.",
+        "lines": [
+          [
+            37279,
+            36188
+          ]
+        ],
+        "star_count": 2,
+        "brightest_star": 37279
+      },
+      "CVn": {
+        "abbreviation": "CVn",
+        "name": "Canes Venatici",
+        "description": "The hunting dogs of BoÃ¶tes, faithfully accompanying the herdsman through the celestial wilderness.",
+        "lines": [
+          [
+            63125,
+            61317
+          ]
+        ],
+        "star_count": 2,
+        "brightest_star": 63125
+      },
+      "Cae": {
+        "abbreviation": "Cae",
+        "name": "Caelum",
+        "description": "A constellation shaped like a sculptor's chisel, honoring the artistry and precision of craftsmanship.",
+        "lines": [
+          [
+            23595,
+            21861,
+            21770,
+            21060
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 21770
+      },
+      "Cam": {
+        "abbreviation": "Cam",
+        "name": "Camelopardalis",
+        "description": "A constellation depicting a giraffe, bringing the wonder of exotic wildlife to the star-studded canvas of the night sky.",
+        "lines": [
+          [
+            23040,
+            23522,
+            22783,
+            29997,
+            33694,
+            29997,
+            22783,
+            17959,
+            17884,
+            16228
+          ]
+        ],
+        "star_count": 8,
+        "brightest_star": 23522
+      },
+      "Cap": {
+        "abbreviation": "Cap",
+        "name": "Capricornus",
+        "description": "A mythical sea-goat with a goat's head and a fish's tail, bridging the realms of land and sea in a single fantastical creature.",
+        "lines": [
+          [
+            100064,
+            100345,
+            102485,
+            102978,
+            105881,
+            106723,
+            107556,
+            106985,
+            104139,
+            100064
+          ]
+        ],
+        "star_count": 9,
+        "brightest_star": 107556
+      },
+      "Car": {
+        "abbreviation": "Car",
+        "name": "Carina",
+        "description": "Representing the keel of the mythical ship Argo Navis, this constellation speaks to maritime adventure and legendary voyages.",
+        "lines": [
+          [
+            30438,
+            45238,
+            50099,
+            52419,
+            51576,
+            50371,
+            45556,
+            42913
+          ],
+          [
+            51576,
+            53253
+          ],
+          [
+            52419,
+            54301,
+            54751,
+            54463,
+            53253
+          ],
+          [
+            45556,
+            41037,
+            38827,
+            39953
+          ]
+        ],
+        "star_count": 15,
+        "brightest_star": 30438
+      },
+      "Cas": {
+        "abbreviation": "Cas",
+        "name": "Cassiopeia",
+        "description": "A constellation depicting the vain queen from Greek mythology, eternally spinning in the night sky as punishment for her pride.",
+        "lines": [
+          [
+            746,
+            3179,
+            4427,
+            6686,
+            8886
+          ]
+        ],
+        "star_count": 5,
+        "brightest_star": 4427
+      },
+      "Cen": {
+        "abbreviation": "Cen",
+        "name": "Centaurus",
+        "description": "A majestic representation of the mythical centaur - half-man, half-horse - embodying the complex nature of wisdom and wildness.",
+        "lines": [
+          [
+            61932,
+            66657,
+            68702,
+            71683,
+            68702,
+            66657,
+            68002,
+            61932,
+            68002,
+            68282,
+            68245,
+            71352,
+            68245,
+            68862,
+            70090,
+            68933,
+            67464,
+            68002
+          ],
+          [
+            55425,
+            59196,
+            60823,
+            61932,
+            60823,
+            59449,
+            56243
+          ],
+          [
+            67464,
+            65936,
+            65109,
+            61789
+          ],
+          [
+            71352,
+            73334
+          ]
+        ],
+        "star_count": 21,
+        "brightest_star": 71683
+      },
+      "Cep": {
+        "abbreviation": "Cep",
+        "name": "Cepheus",
+        "description": "The king of mythology, husband to Cassiopeia, ruling over his celestial domain.",
+        "lines": [
+          [
+            102422,
+            105199,
+            106032,
+            112724,
+            106032,
+            116727,
+            112724,
+            110991,
+            109492,
+            109857,
+            107259,
+            105199
+          ],
+          [
+            101093,
+            102422
+          ]
+        ],
+        "star_count": 10,
+        "brightest_star": 105199
+      },
+      "Cet": {
+        "abbreviation": "Cet",
+        "name": "Cetus",
+        "description": "The sea monster from Greek mythology that was sent to devour Andromeda, immortalized in the starry expanse.",
+        "lines": [
+          [
+            12706,
+            14135,
+            13954,
+            12828,
+            11484,
+            12706,
+            12387,
+            10826,
+            8645,
+            8102,
+            3419,
+            1562,
+            5364,
+            6537,
+            8645
+          ]
+        ],
+        "star_count": 13,
+        "brightest_star": 3419
+      },
+      "Cha": {
+        "abbreviation": "Cha",
+        "name": "Chamaeleon",
+        "description": "A constellation celebrating the remarkable adaptability of the chameleon, blending into the cosmic landscape.",
+        "lines": [
+          [
+            40702,
+            51839,
+            52633,
+            60000,
+            58484,
+            51839
+          ]
+        ],
+        "star_count": 5,
+        "brightest_star": 40702
+      },
+      "Cir": {
+        "abbreviation": "Cir",
+        "name": "Circinus",
+        "description": "Shaped like a geometrical drawing compass, this constellation represents precision and mathematical beauty.",
+        "lines": [
+          [
+            74824,
+            71908,
+            75323
+          ]
+        ],
+        "star_count": 3,
+        "brightest_star": 71908
+      },
+      "Cnc": {
+        "abbreviation": "Cnc",
+        "name": "Cancer",
+        "description": "Commemorating the crab that bit Hercules during his legendary battle with the Hydra, this constellation tells a small but significant moment in mythological heroism.",
+        "lines": [
+          [
+            44066,
+            42911,
+            40526,
+            42911,
+            42806,
+            43103
+          ]
+        ],
+        "star_count": 5,
+        "brightest_star": 40526
+      },
+      "Col": {
+        "abbreviation": "Col",
+        "name": "Columba",
+        "description": "Commemorating Noah's dove carrying an olive branch, symbolizing hope and peace.",
+        "lines": [
+          [
+            26634,
+            27628
+          ],
+          [
+            25859,
+            26634
+          ],
+          [
+            28328,
+            27628,
+            28199,
+            30277
+          ]
+        ],
+        "star_count": 6,
+        "brightest_star": 26634
+      },
+      "Com": {
+        "abbreviation": "Com",
+        "name": "Coma Berenices",
+        "description": "A constellation representing the cut hair of Queen Berenice II, transformed into a celestial memorial.",
+        "lines": [
+          [
+            64241,
+            64241,
+            64394,
+            60742
+          ]
+        ],
+        "star_count": 3,
+        "brightest_star": 64394
+      },
+      "CrA": {
+        "abbreviation": "CrA",
+        "name": "Corona Australis",
+        "description": "The southern crown worn by the centaur Sagittarius, a celestial decoration of mythological royalty.",
+        "lines": [
+          [
+            93825,
+            94114,
+            94160,
+            94005,
+            90982
+          ]
+        ],
+        "star_count": 5,
+        "brightest_star": 94114
+      },
+      "CrB": {
+        "abbreviation": "CrB",
+        "name": "Corona Borealis",
+        "description": "The crown given to Ariadne by Dionysus, a symbol of love and divine gifting.",
+        "lines": [
+          [
+            76127,
+            75695,
+            76267,
+            76952,
+            77512,
+            78159,
+            78493
+          ]
+        ],
+        "star_count": 7,
+        "brightest_star": 76267
+      },
+      "Crt": {
+        "abbreviation": "Crt",
+        "name": "Crater",
+        "description": "The cup of Apollo, associated with the mythological crow, representing divine libation and storytelling.",
+        "lines": [
+          [
+            53740,
+            54682,
+            55705,
+            57283,
+            58188,
+            57283,
+            55705,
+            55282,
+            55687,
+            56633,
+            55687,
+            55282,
+            53740
+          ]
+        ],
+        "star_count": 8,
+        "brightest_star": 55282
+      },
+      "Cru": {
+        "abbreviation": "Cru",
+        "name": "Crux",
+        "description": "The Southern Cross, a prominent constellation of the southern skies, guiding travelers and holding deep cultural significance.",
+        "lines": [
+          [
+            60718,
+            61084
+          ],
+          [
+            62434,
+            59747
+          ],
+          [
+            62434,
+            59747
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 60718
+      },
+      "Crv": {
+        "abbreviation": "Crv",
+        "name": "Corvus",
+        "description": "A crow sent by Apollo to fetch water, immortalized in the stellar narrative of Greek mythology.",
+        "lines": [
+          [
+            60965,
+            59803,
+            59316,
+            61359,
+            60965
+          ],
+          [
+            59316,
+            59199
+          ]
+        ],
+        "star_count": 5,
+        "brightest_star": 59803
+      },
+      "Cyg": {
+        "abbreviation": "Cyg",
+        "name": "Cygnus",
+        "description": "A swan representing Zeus in his transformative mythology, gliding majestically across the celestial river.",
+        "lines": [
+          [
+            102098,
+            100453,
+            102488,
+            100453,
+            95947,
+            100453,
+            97165,
+            95853,
+            94779,
+            95853,
+            99848,
+            102098,
+            103413,
+            104732,
+            102488
+          ]
+        ],
+        "star_count": 10,
+        "brightest_star": 102098
+      },
+      "Del": {
+        "abbreviation": "Del",
+        "name": "Delphinus",
+        "description": "A dolphin that helped Poseidon find his bride, symbolizing assistance and divine intervention.",
+        "lines": [
+          [
+            101421,
+            101769,
+            101958,
+            102532,
+            102281,
+            101769
+          ]
+        ],
+        "star_count": 5,
+        "brightest_star": 101769
+      },
+      "Dor": {
+        "abbreviation": "Dor",
+        "name": "Dorado",
+        "description": "A constellation representing a dolphinfish or goldfish, adding aquatic wonder to the night sky.",
+        "lines": [
+          [
+            19893,
+            21281,
+            23693,
+            26069,
+            21281,
+            26069,
+            27100,
+            27890,
+            26069
+          ]
+        ],
+        "star_count": 6,
+        "brightest_star": 21281
+      },
+      "Dra": {
+        "abbreviation": "Dra",
+        "name": "Draco",
+        "description": "The dragon guarding the golden apples in Greek mythology, a symbol of protection and mythical treasure.",
+        "lines": [
+          [
+            56211,
+            61281,
+            68756,
+            75458,
+            78527,
+            80331,
+            83895,
+            89908,
+            89937,
+            89908,
+            94376,
+            97433,
+            94376,
+            87585,
+            85829,
+            85670,
+            87833,
+            87585,
+            94376
+          ]
+        ],
+        "star_count": 15,
+        "brightest_star": 87833
+      },
+      "Equ": {
+        "abbreviation": "Equ",
+        "name": "Equuleus",
+        "description": "Either the foal of Mercury or part of the horse Pegasus, representing youthful potential and divine companionship.",
+        "lines": [
+          [
+            104987,
+            104858,
+            104521
+          ]
+        ],
+        "star_count": 3,
+        "brightest_star": 104987
+      },
+      "Eri": {
+        "abbreviation": "Eri",
+        "name": "Eridanus",
+        "description": "A river constellation associated with Phaethon's legendary fall, embodying the drama of mythological storytelling.",
+        "lines": [
+          [
+            23875,
+            22109,
+            21444,
+            19587,
+            18543,
+            17593,
+            17378,
+            16537,
+            13701,
+            12770,
+            12770,
+            12843,
+            14146,
+            15474,
+            16611,
+            17651,
+            18216,
+            18673,
+            21248,
+            21393,
+            20535,
+            20042,
+            17874,
+            17874,
+            16870,
+            15510,
+            13847,
+            12486,
+            12413,
+            11407,
+            9007,
+            7588
+          ]
+        ],
+        "star_count": 30,
+        "brightest_star": 7588
+      },
+      "For": {
+        "abbreviation": "For",
+        "name": "Fornax",
+        "description": "A constellation representing a scientific furnace, symbolizing human curiosity and the quest for knowledge.",
+        "lines": [
+          [
+            14879,
+            13147,
+            9677
+          ]
+        ],
+        "star_count": 3,
+        "brightest_star": 14879
+      },
+      "Gem": {
+        "abbreviation": "Gem",
+        "name": "Gemini",
+        "description": "The twins Castor and Pollux, immortalized in the stars, representing brotherhood and mythological heroism.",
+        "lines": [
+          [
+            32362,
+            35350,
+            35550,
+            34088,
+            31681,
+            34088,
+            35550,
+            36962,
+            37740,
+            36962,
+            37826,
+            36962,
+            36046,
+            34693,
+            36850,
+            34693,
+            33018,
+            34693,
+            32246,
+            30883,
+            32246,
+            30343,
+            29655,
+            28734
+          ]
+        ],
+        "star_count": 17,
+        "brightest_star": 37826
+      },
+      "Gru": {
+        "abbreviation": "Gru",
+        "name": "Grus",
+        "description": "A crane constellation, bringing the grace of avian life to the celestial sphere.",
+        "lines": [
+          [
+            108085,
+            109111,
+            110997,
+            109268,
+            112122,
+            110997,
+            112122,
+            112623,
+            113638
+          ]
+        ],
+        "star_count": 7,
+        "brightest_star": 109268
+      },
+      "Her": {
+        "abbreviation": "Her",
+        "name": "Hercules",
+        "description": "Commemorating the legendary hero, representing strength, courage, and mythological achievement.",
+        "lines": [
+          [
+            84379,
+            84345,
+            80816,
+            80170,
+            80816,
+            81693,
+            83207,
+            81693,
+            81833,
+            81126,
+            79992,
+            81126,
+            81833,
+            84380,
+            85112,
+            87808,
+            86414,
+            87808,
+            85112,
+            84380,
+            83207,
+            84379,
+            85693,
+            86974,
+            87933,
+            88794
+          ],
+          [
+            77760,
+            79101,
+            79992
+          ],
+          [
+            80170,
+            80463,
+            81008
+          ]
+        ],
+        "star_count": 21,
+        "brightest_star": 84345
+      },
+      "Hor": {
+        "abbreviation": "Hor",
+        "name": "Horologium",
+        "description": "A pendulum clock constellation, marking the passage of cosmic time.",
+        "lines": [
+          [
+            19747,
+            12653,
+            12225,
+            12484,
+            14240,
+            13884
+          ]
+        ],
+        "star_count": 6,
+        "brightest_star": 19747
+      },
+      "Hya": {
+        "abbreviation": "Hya",
+        "name": "Hydra",
+        "description": "The multi-headed water snake killed by Hercules, a testament to heroic struggle.",
+        "lines": [
+          [
+            43234,
+            42799,
+            42402,
+            42313,
+            43109,
+            43813,
+            45336,
+            47431,
+            46390,
+            48356,
+            49402,
+            49841,
+            51069,
+            52943,
+            53740
+          ],
+          [
+            54682,
+            56343,
+            57936,
+            64962,
+            68895,
+            72571
+          ]
+        ],
+        "star_count": 21,
+        "brightest_star": 46390
+      },
+      "Hyi": {
+        "abbreviation": "Hyi",
+        "name": "Hydrus",
+        "description": "Another water snake constellation, adding aquatic mystery to the night sky.",
+        "lines": [
+          [
+            2021,
+            17678,
+            11001,
+            9236,
+            2021
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 2021
+      },
+      "Ind": {
+        "abbreviation": "Ind",
+        "name": "Indus",
+        "description": "Representing Native Americans, a constellation celebrating cultural diversity and human connection.",
+        "lines": [
+          [
+            103227,
+            102333,
+            101772,
+            105319,
+            108431,
+            103227
+          ]
+        ],
+        "star_count": 5,
+        "brightest_star": 101772
+      },
+      "LMi": {
+        "abbreviation": "LMi",
+        "name": "Leo Minor",
+        "description": "A smaller lion constellation, adding nuance to the leonine celestial presence.",
+        "lines": [
+          [
+            46952,
+            49593,
+            51233,
+            53229,
+            51056,
+            49593
+          ]
+        ],
+        "star_count": 5,
+        "brightest_star": 53229
+      },
+      "Lac": {
+        "abbreviation": "Lac",
+        "name": "Lacerta",
+        "description": "A lizard constellation, bringing the subtle beauty of small creatures to the stellar landscape.",
+        "lines": [
+          [
+            111022,
+            111169,
+            110538,
+            110609,
+            111022,
+            110351,
+            111104,
+            111944,
+            111104,
+            111944,
+            111022,
+            111944,
+            111104,
+            109754,
+            109937
+          ]
+        ],
+        "star_count": 9,
+        "brightest_star": 111169
+      },
+      "Leo": {
+        "abbreviation": "Leo",
+        "name": "Leo",
+        "description": "The Nemean lion slain by Hercules, a symbol of ferocity and legendary conquest.",
+        "lines": [
+          [
+            49669,
+            49583,
+            50583,
+            50335,
+            48455,
+            47908
+          ],
+          [
+            50583,
+            54872,
+            57632,
+            54879,
+            54872,
+            54879,
+            49583
+          ],
+          [
+            48455,
+            46146,
+            46750,
+            47908,
+            49583
+          ],
+          [
+            54879,
+            55642,
+            55434
+          ]
+        ],
+        "star_count": 13,
+        "brightest_star": 49669
+      },
+      "Lep": {
+        "abbreviation": "Lep",
+        "name": "Lepus",
+        "description": "A hare being chased by Orion the hunter, capturing the dynamic of predator and prey.",
+        "lines": [
+          [
+            23685,
+            24305,
+            25985,
+            25606,
+            23685
+          ],
+          [
+            24845,
+            24305,
+            24327
+          ],
+          [
+            25606,
+            27072,
+            27654,
+            28910,
+            28103,
+            27288,
+            25985
+          ]
+        ],
+        "star_count": 11,
+        "brightest_star": 25985
+      },
+      "Lib": {
+        "abbreviation": "Lib",
+        "name": "Libra",
+        "description": "The scales of justice, associated with the goddess Astraea, representing balance and moral order.",
+        "lines": [
+          [
+            72622,
+            74785
+          ],
+          [
+            72622,
+            73714
+          ],
+          [
+            74785,
+            76333,
+            72622,
+            76333,
+            76470,
+            76600
+          ]
+        ],
+        "star_count": 6,
+        "brightest_star": 74785
+      },
+      "Lup": {
+        "abbreviation": "Lup",
+        "name": "Lupus",
+        "description": "A wolf being killed by the centaur Centaurus, dramatizing mythological conflict.",
+        "lines": [
+          [
+            71860,
+            74395,
+            75264,
+            76297,
+            75141,
+            73273,
+            75141,
+            76297,
+            78384,
+            75177,
+            77634,
+            78384,
+            74395
+          ]
+        ],
+        "star_count": 9,
+        "brightest_star": 71860
+      },
+      "Lyn": {
+        "abbreviation": "Lyn",
+        "name": "Lynx",
+        "description": "A faint lynx constellation, embodying stealth and subtle presence.",
+        "lines": [
+          [
+            45860,
+            45688,
+            44700,
+            44248,
+            41075,
+            36145,
+            33449,
+            30060
+          ]
+        ],
+        "star_count": 8,
+        "brightest_star": 45860
+      },
+      "Lyr": {
+        "abbreviation": "Lyr",
+        "name": "Lyra",
+        "description": "The lyre of Orpheus, representing musical harmony and mythological artistry.",
+        "lines": [
+          [
+            91262,
+            91919,
+            91971,
+            91262,
+            91971,
+            92791,
+            93194,
+            92420,
+            91971
+          ]
+        ],
+        "star_count": 6,
+        "brightest_star": 91262
+      },
+      "Men": {
+        "abbreviation": "Men",
+        "name": "Mensa",
+        "description": "A constellation named after a table mountain in South Africa, connecting celestial and terrestrial landscapes.",
+        "lines": [
+          [
+            29271,
+            23467
+          ]
+        ],
+        "star_count": 2,
+        "brightest_star": 29271
+      },
+      "Mic": {
+        "abbreviation": "Mic",
+        "name": "Microscopium",
+        "description": "A microscope constellation, symbolizing scientific exploration and the revelation of hidden worlds.",
+        "lines": [
+          [
+            102831,
+            102989
+          ]
+        ],
+        "star_count": 2,
+        "brightest_star": 102831
+      },
+      "Mon": {
+        "abbreviation": "Mon",
+        "name": "Monoceros",
+        "description": "A unicorn constellation, bringing mythical magic to the night sky.",
+        "lines": [
+          [
+            31978,
+            31216,
+            30419,
+            30419,
+            32578,
+            31216,
+            32578,
+            34769,
+            30867,
+            29651,
+            30867,
+            34769,
+            39863,
+            37447
+          ]
+        ],
+        "star_count": 9,
+        "brightest_star": 30867
+      },
+      "Mus": {
+        "abbreviation": "Mus",
+        "name": "Musca",
+        "description": "A fly constellation, demonstrating that even the smallest creatures have a place among the stars.",
+        "lines": [
+          [
+            57363,
+            59929,
+            61585,
+            62322,
+            63613,
+            61199,
+            61585
+          ]
+        ],
+        "star_count": 6,
+        "brightest_star": 61585
+      },
+      "Nor": {
+        "abbreviation": "Nor",
+        "name": "Norma",
+        "description": "A carpenter's square constellation, representing precision and craftsmanship.",
+        "lines": [
+          [
+            78639,
+            80000,
+            80582,
+            78914,
+            78639
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 80000
+      },
+      "Oct": {
+        "abbreviation": "Oct",
+        "name": "Octans",
+        "description": "An octant navigation instrument constellation, guiding sailors and explorers.",
+        "lines": [
+          [
+            70638,
+            107089,
+            112405,
+            70638
+          ]
+        ],
+        "star_count": 3,
+        "brightest_star": 107089
+      },
+      "Oph": {
+        "abbreviation": "Oph",
+        "name": "Ophiuchus",
+        "description": "The serpent bearer, a healer from Greek mythology, holding a serpent and symbolizing medical wisdom.",
+        "lines": [
+          [
+            86032,
+            83000,
+            80883,
+            79593,
+            79882,
+            80628,
+            81377,
+            80628,
+            79882,
+            79593,
+            80883,
+            83000,
+            81377,
+            84012,
+            86742,
+            87108,
+            88048,
+            87108,
+            86742,
+            86032
+          ],
+          [
+            84012,
+            84970,
+            85423
+          ],
+          [
+            81377,
+            80894,
+            80569,
+            80343,
+            80473
+          ]
+        ],
+        "star_count": 17,
+        "brightest_star": 86032
+      },
+      "Ori": {
+        "abbreviation": "Ori",
+        "name": "Orion",
+        "description": "The legendary hunter of Greek mythology, one of the most recognizable constellations in the night sky.",
+        "lines": [
+          [
+            27989,
+            26727,
+            27366,
+            26727,
+            26311,
+            25930,
+            25336,
+            25930,
+            25281,
+            24436
+          ],
+          [
+            27989,
+            25336,
+            26207,
+            26207,
+            27989
+          ],
+          [
+            23607,
+            22957,
+            22845,
+            22509,
+            22449,
+            25336,
+            22449,
+            22549,
+            22797,
+            23123
+          ],
+          [
+            27989,
+            28614,
+            29038
+          ],
+          [
+            29426,
+            28716,
+            27913,
+            29038
+          ]
+        ],
+        "star_count": 22,
+        "brightest_star": 24436
+      },
+      "Pav": {
+        "abbreviation": "Pav",
+        "name": "Pavo",
+        "description": "A peacock constellation, bringing regal beauty and ornate display to the celestial realm.",
+        "lines": [
+          [
+            100751,
+            99240,
+            102395
+          ],
+          [
+            100751,
+            105858,
+            102395
+          ],
+          [
+            91792,
+            99240,
+            98495,
+            99240,
+            93015,
+            88866,
+            86929,
+            88866,
+            90098,
+            92609,
+            99240
+          ]
+        ],
+        "star_count": 11,
+        "brightest_star": 100751
+      },
+      "Peg": {
+        "abbreviation": "Peg",
+        "name": "Pegasus",
+        "description": "The winged horse from Greek mythology, symbolizing freedom and divine inspiration.",
+        "lines": [
+          [
+            109410,
+            112158,
+            113881,
+            112748,
+            112440,
+            109176,
+            107354
+          ],
+          [
+            677,
+            113881,
+            113963,
+            1067,
+            677
+          ],
+          [
+            107315,
+            109427,
+            112029,
+            113963
+          ]
+        ],
+        "star_count": 13,
+        "brightest_star": 677
+      },
+      "Per": {
+        "abbreviation": "Per",
+        "name": "Perseus",
+        "description": "The hero who rescued Andromeda, immortalized as a constellation of heroism and rescue.",
+        "lines": [
+          [
+            17448,
+            18246,
+            18614,
+            18532,
+            17358,
+            15863,
+            14328,
+            13268,
+            13531,
+            14328,
+            13531,
+            14632,
+            15863,
+            14632,
+            14668,
+            14576,
+            18532,
+            14576,
+            14354
+          ],
+          [
+            17358,
+            19343,
+            19812,
+            20070,
+            19167
+          ],
+          [
+            14632,
+            12777,
+            8068
+          ]
+        ],
+        "star_count": 19,
+        "brightest_star": 15863
+      },
+      "Phe": {
+        "abbreviation": "Phe",
+        "name": "Phoenix",
+        "description": "The mythical bird that rises from its own ashes, representing renewal and eternal hope.",
+        "lines": [
+          [
+            2081,
+            5165,
+            6867
+          ],
+          [
+            2081,
+            765,
+            5165,
+            5348,
+            7083,
+            6867
+          ]
+        ],
+        "star_count": 6,
+        "brightest_star": 2081
+      },
+      "Pic": {
+        "abbreviation": "Pic",
+        "name": "Pictor",
+        "description": "An easel constellation, celebrating artistic creation and human creativity.",
+        "lines": [
+          [
+            32607,
+            27530,
+            27321
+          ]
+        ],
+        "star_count": 3,
+        "brightest_star": 32607
+      },
+      "PsA": {
+        "abbreviation": "PsA",
+        "name": "Piscis Austrinus",
+        "description": "The southern fish, drinking water poured by Aquarius, connecting celestial elements.",
+        "lines": [
+          [
+            113368,
+            113246,
+            112948,
+            111188,
+            109285,
+            107380,
+            107608,
+            109285,
+            111954,
+            113368
+          ]
+        ],
+        "star_count": 8,
+        "brightest_star": 113368
+      },
+      "Psc": {
+        "abbreviation": "Psc",
+        "name": "Pisces",
+        "description": "Two fish tied together, representing Venus and Cupid in mythological transformation.",
+        "lines": [
+          [
+            5742,
+            6193,
+            5586,
+            5742,
+            7097,
+            8198,
+            9487,
+            7884,
+            4906,
+            3786,
+            118268,
+            116771,
+            115830,
+            114971,
+            115738,
+            116928,
+            116771
+          ]
+        ],
+        "star_count": 15,
+        "brightest_star": 7097
+      },
+      "Pup": {
+        "abbreviation": "Pup",
+        "name": "Puppis",
+        "description": "The stern of the ship Argo Navis, continuing the maritime mythology in the stars.",
+        "lines": [
+          [
+            39953,
+            39429,
+            39757,
+            38170,
+            37229,
+            36917,
+            35264,
+            31685,
+            30438
+          ],
+          [
+            36917,
+            37677,
+            38070,
+            38170
+          ]
+        ],
+        "star_count": 11,
+        "brightest_star": 30438
+      },
+      "Pyx": {
+        "abbreviation": "Pyx",
+        "name": "Pyxis",
+        "description": "A mariner's compass constellation, guiding travelers through celestial and earthly journeys.",
+        "lines": [
+          [
+            39429,
+            42515,
+            42828,
+            43409
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 39429
+      },
+      "Ret": {
+        "abbreviation": "Ret",
+        "name": "Reticulum",
+        "description": "A net used by astronomers to measure star positions, representing scientific precision.",
+        "lines": [
+          [
+            19780,
+            17440,
+            18597,
+            19921,
+            19780
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 19780
+      },
+      "Scl": {
+        "abbreviation": "Scl",
+        "name": "Sculptor",
+        "description": "A sculptor's studio constellation, celebrating artistic creation.",
+        "lines": [
+          [
+            4577,
+            117452,
+            115102,
+            116231
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 4577
+      },
+      "Sco": {
+        "abbreviation": "Sco",
+        "name": "Scorpius",
+        "description": "The scorpion that killed Orion, a constellation of mythological revenge.",
+        "lines": [
+          [
+            78820,
+            78401,
+            78265,
+            78401,
+            80112,
+            80763,
+            81266,
+            82396,
+            82514,
+            82729,
+            84143,
+            86228,
+            87073,
+            86670,
+            85696,
+            85927,
+            87261
+          ],
+          [
+            78820,
+            79374
+          ],
+          [
+            78265,
+            78104
+          ]
+        ],
+        "star_count": 18,
+        "brightest_star": 80763
+      },
+      "Sct": {
+        "abbreviation": "Sct",
+        "name": "Scutum",
+        "description": "A shield constellation, representing protection and defensive strength.",
+        "lines": [
+          [
+            92175,
+            91117,
+            90595,
+            91726,
+            92175
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 91117
+      },
+      "Ser": {
+        "abbreviation": "Ser",
+        "name": "Serpens",
+        "description": "A serpent held by Ophiuchus, divided into two parts, symbolizing complexity and duality.",
+        "lines": [
+          [
+            77233,
+            78072,
+            77450,
+            76852,
+            77233,
+            76276,
+            77070,
+            77622,
+            77516,
+            79593
+          ],
+          [
+            84012,
+            86263,
+            88048,
+            89962,
+            92946
+          ]
+        ],
+        "star_count": 14,
+        "brightest_star": 84012
+      },
+      "Sex": {
+        "abbreviation": "Sex",
+        "name": "Sextans",
+        "description": "A sextant constellation, a tool of navigation and exploration.",
+        "lines": [
+          [
+            48437,
+            49641,
+            51437,
+            51362
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 49641
+      },
+      "Sge": {
+        "abbreviation": "Sge",
+        "name": "Sagitta",
+        "description": "An arrow constellation, possibly shot by Sagittarius or Hercules, symbolizing precision and power.",
+        "lines": [
+          [
+            98337,
+            97365,
+            96757,
+            97365,
+            96837
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 98337
+      },
+      "Sgr": {
+        "abbreviation": "Sgr",
+        "name": "Sagittarius",
+        "description": "A centaur archer from mythology, drawing his bow across the night sky.",
+        "lines": [
+          [
+            90185,
+            88635,
+            89931,
+            90185,
+            89931,
+            90496,
+            92041,
+            89931,
+            92041,
+            92855,
+            93864,
+            93506,
+            92041,
+            93506,
+            90185,
+            89642
+          ],
+          [
+            90496,
+            89341
+          ],
+          [
+            95168,
+            94141,
+            93683,
+            93085,
+            94141
+          ]
+        ],
+        "star_count": 14,
+        "brightest_star": 90185
+      },
+      "Tau": {
+        "abbreviation": "Tau",
+        "name": "Taurus",
+        "description": "The bull from Greek mythology, possibly Zeus in disguise, representing strength and divine transformation.",
+        "lines": [
+          [
+            26451,
+            21421,
+            20894,
+            20205,
+            20455,
+            20889,
+            25428
+          ],
+          [
+            16083,
+            18907
+          ],
+          [
+            15900,
+            16852
+          ],
+          [
+            20205,
+            18724,
+            16083
+          ]
+        ],
+        "star_count": 12,
+        "brightest_star": 21421
+      },
+      "Tel": {
+        "abbreviation": "Tel",
+        "name": "Telescopium",
+        "description": "A telescope constellation, symbolizing human curiosity and the expansion of knowledge.",
+        "lines": [
+          [
+            89112,
+            90422,
+            90568
+          ]
+        ],
+        "star_count": 3,
+        "brightest_star": 90422
+      },
+      "TrA": {
+        "abbreviation": "TrA",
+        "name": "Triangulum Australe",
+        "description": "A surveyor's level constellation, representing precision and measurement.",
+        "lines": [
+          [
+            82273,
+            77952,
+            76440,
+            74946,
+            82273
+          ]
+        ],
+        "star_count": 4,
+        "brightest_star": 82273
+      },
+      "Tri": {
+        "abbreviation": "Tri",
+        "name": "Triangulum",
+        "description": "A triangle representing the Nile delta or Sicily, connecting celestial geometry to earthly landscapes.",
+        "lines": [
+          [
+            8796,
+            10064,
+            10670,
+            8796
+          ]
+        ],
+        "star_count": 3,
+        "brightest_star": 10064
+      },
+      "Tuc": {
+        "abbreviation": "Tuc",
+        "name": "Tucana",
+        "description": "A toucan constellation, bringing the exotic beauty of tropical birds to the night sky.",
+        "lines": [
+          [
+            2484,
+            1599,
+            118322,
+            110838,
+            110130,
+            114996,
+            2484
+          ]
+        ],
+        "star_count": 6,
+        "brightest_star": 110130
+      },
+      "UMa": {
+        "abbreviation": "UMa",
+        "name": "Ursa Major",
+        "description": "The Great Bear from Greek mythology, a prominent and easily recognizable constellation.",
+        "lines": [
+          [
+            58001,
+            57399,
+            54539,
+            50801,
+            50372,
+            50801,
+            54539,
+            57399,
+            55219
+          ],
+          [
+            59774,
+            54061,
+            53910,
+            58001,
+            59774,
+            62956,
+            65378,
+            67301
+          ],
+          [
+            54061,
+            46733,
+            48319,
+            46733,
+            41704,
+            48319,
+            53910,
+            48319,
+            46853,
+            44471,
+            44127
+          ]
+        ],
+        "star_count": 18,
+        "brightest_star": 62956
+      },
+      "UMi": {
+        "abbreviation": "UMi",
+        "name": "Ursa Minor",
+        "description": "The Little Bear, home to Polaris, the North Star, guiding travelers for millennia.",
+        "lines": [
+          [
+            11767,
+            85822,
+            82080,
+            77055,
+            79822,
+            75097,
+            72607,
+            77055
+          ]
+        ],
+        "star_count": 7,
+        "brightest_star": 11767
+      },
+      "Vel": {
+        "abbreviation": "Vel",
+        "name": "Vela",
+        "description": "The sails of the ship Argo Navis, continuing the maritime mythological narrative.",
+        "lines": [
+          [
+            42913,
+            39953,
+            44816,
+            46651,
+            50191,
+            52727,
+            48774,
+            45941,
+            42913
+          ]
+        ],
+        "star_count": 8,
+        "brightest_star": 39953
+      },
+      "Vir": {
+        "abbreviation": "Vir",
+        "name": "Virgo",
+        "description": "A maiden or virgin constellation, associated with the goddess Astraea, representing purity and justice.",
+        "lines": [
+          [
+            60129,
+            58948,
+            57380,
+            57757,
+            60129,
+            61941,
+            63090,
+            63608,
+            63090,
+            61941,
+            64238,
+            65474,
+            64238,
+            61941,
+            66249,
+            68520,
+            72220,
+            68520,
+            66249,
+            69701,
+            71957
+          ]
+        ],
+        "star_count": 14,
+        "brightest_star": 65474
+      },
+      "Vol": {
+        "abbreviation": "Vol",
+        "name": "Volans",
+        "description": "A flying fish constellation, capturing the magic of marine life.",
+        "lines": [
+          [
+            44382,
+            41312,
+            39794,
+            35228,
+            34481,
+            39794,
+            44382
+          ]
+        ],
+        "star_count": 5,
+        "brightest_star": 34481
+      },
+      "Vul": {
+        "abbreviation": "Vul",
+        "name": "Vulpecula",
+        "description": "A fox constellation, adding cunning and agility to the stellar menagerie.",
+        "lines": [
+          [
+            95771,
+            97886
+          ]
+        ],
+        "star_count": 2,
+        "brightest_star": 95771
+      }
+    },
+    "stars": {
+      "71683": {
+        "hip": 71683,
+        "ra": 219.92040813,
+        "dec": -60.83514522,
+        "magnitude": 0.1373,
+        "b_v": 0.71,
+        "spectral_type": "G",
+        "name": "Rigil Kentaurus"
+      },
+      "53253": {
+        "hip": 53253,
+        "ra": 163.37319221,
+        "dec": -58.8532647,
+        "magnitude": 3.9412,
+        "b_v": 0.945,
+        "spectral_type": "K"
+      },
+      "8198": {
+        "hip": 8198,
+        "ra": 26.34828635,
+        "dec": 9.15764141,
+        "magnitude": 4.4267,
+        "b_v": 0.942,
+        "spectral_type": "K"
+      },
+      "26634": {
+        "hip": 26634,
+        "ra": 84.91224966,
+        "dec": -34.07404939,
+        "magnitude": 2.6124,
+        "b_v": -0.12,
+        "spectral_type": "B",
+        "name": "Phact"
+      },
+      "79882": {
+        "hip": 79882,
+        "ra": 244.58017054,
+        "dec": -4.69260821,
+        "magnitude": 3.3887,
+        "b_v": 0.966,
+        "spectral_type": "K",
+        "name": "Yed Posterior"
+      },
+      "92175": {
+        "hip": 92175,
+        "ra": 281.793656,
+        "dec": -4.74782885,
+        "magnitude": 4.3804,
+        "b_v": 1.087,
+        "spectral_type": "K"
+      },
+      "86032": {
+        "hip": 86032,
+        "ra": 263.73335361,
+        "dec": 12.56057593,
+        "magnitude": 2.1262,
+        "b_v": 0.155,
+        "spectral_type": "A",
+        "name": "Rasalhague"
+      },
+      "110609": {
+        "hip": 110609,
+        "ra": 336.12914858,
+        "dec": 49.47640071,
+        "magnitude": 4.6112,
+        "b_v": 0.092,
+        "spectral_type": "A"
+      },
+      "14354": {
+        "hip": 14354,
+        "ra": 46.29373783,
+        "dec": 38.8405331,
+        "magnitude": 3.2889,
+        "b_v": 1.528,
+        "spectral_type": "M"
+      },
+      "57363": {
+        "hip": 57363,
+        "ra": 176.40236385,
+        "dec": -66.72884361,
+        "magnitude": 3.684,
+        "b_v": 0.16,
+        "spectral_type": "A"
+      },
+      "22549": {
+        "hip": 22549,
+        "ra": 72.80152507,
+        "dec": 5.60510135,
+        "magnitude": 3.6236,
+        "b_v": -0.157,
+        "spectral_type": "B"
+      },
+      "102422": {
+        "hip": 102422,
+        "ra": 311.32195267,
+        "dec": 61.83679418,
+        "magnitude": 3.5692,
+        "b_v": 0.912,
+        "spectral_type": "K"
+      },
+      "24608": {
+        "hip": 24608,
+        "ra": 79.17206466,
+        "dec": 45.99902905,
+        "magnitude": 0.2385,
+        "b_v": 0.795,
+        "spectral_type": "G",
+        "name": "Capella"
+      },
+      "51233": {
+        "hip": 51233,
+        "ra": 156.97121876,
+        "dec": 36.70747813,
+        "magnitude": 4.3599,
+        "b_v": 0.908,
+        "spectral_type": "K"
+      },
+      "2081": {
+        "hip": 2081,
+        "ra": 6.5702816,
+        "dec": -42.30512119,
+        "magnitude": 2.5512,
+        "b_v": 1.083,
+        "spectral_type": "K",
+        "name": "Ankaa"
+      },
+      "116771": {
+        "hip": 116771,
+        "ra": 354.98675128,
+        "dec": 5.62735418,
+        "magnitude": 4.2373,
+        "b_v": 0.507,
+        "spectral_type": "G"
+      },
+      "114724": {
+        "hip": 114724,
+        "ra": 348.58055239,
+        "dec": -6.04852732,
+        "magnitude": 4.3152,
+        "b_v": 1.545,
+        "spectral_type": "M"
+      },
+      "98337": {
+        "hip": 98337,
+        "ra": 299.68911523,
+        "dec": 19.49209268,
+        "magnitude": 3.6215,
+        "b_v": 1.571,
+        "spectral_type": "M"
+      },
+      "57380": {
+        "hip": 57380,
+        "ra": 176.46487794,
+        "dec": 6.52981387,
+        "magnitude": 4.1388,
+        "b_v": 1.501,
+        "spectral_type": "M"
+      },
+      "69673": {
+        "hip": 69673,
+        "ra": 213.91811408,
+        "dec": 19.18727046,
+        "magnitude": 0.1114,
+        "b_v": 1.239,
+        "spectral_type": "K",
+        "name": "Arcturus"
+      },
+      "84012": {
+        "hip": 84012,
+        "ra": 257.59442738,
+        "dec": -15.72514768,
+        "magnitude": 2.4393,
+        "b_v": 0.059,
+        "spectral_type": "A",
+        "name": "Sabik"
+      },
+      "28716": {
+        "hip": 28716,
+        "ra": 90.97993188,
+        "dec": 20.13845834,
+        "magnitude": 4.6946,
+        "b_v": 0.236,
+        "spectral_type": "A"
+      },
+      "6193": {
+        "hip": 6193,
+        "ra": 19.8665742,
+        "dec": 27.2640869,
+        "magnitude": 4.7736,
+        "b_v": 0.032,
+        "spectral_type": "A"
+      },
+      "36917": {
+        "hip": 36917,
+        "ra": 113.84557238,
+        "dec": -28.36927801,
+        "magnitude": 4.6109,
+        "b_v": -0.111,
+        "spectral_type": "B"
+      },
+      "20535": {
+        "hip": 20535,
+        "ra": 66.00902221,
+        "dec": -34.0169862,
+        "magnitude": 4.0941,
+        "b_v": 1.468,
+        "spectral_type": "M",
+        "name": "Theemin"
+      },
+      "57399": {
+        "hip": 57399,
+        "ra": 176.51305883,
+        "dec": 47.77933685,
+        "magnitude": 3.855,
+        "b_v": 1.181,
+        "spectral_type": "K"
+      },
+      "59449": {
+        "hip": 59449,
+        "ra": 182.91312943,
+        "dec": -52.3684156,
+        "magnitude": 3.9086,
+        "b_v": -0.156,
+        "spectral_type": "B"
+      },
+      "28734": {
+        "hip": 28734,
+        "ra": 91.03006859,
+        "dec": 23.26363208,
+        "magnitude": 4.3198,
+        "b_v": 0.835,
+        "spectral_type": "K"
+      },
+      "116805": {
+        "hip": 116805,
+        "ra": 355.10184081,
+        "dec": 44.33397784,
+        "magnitude": 4.1257,
+        "b_v": -0.071,
+        "spectral_type": "B"
+      },
+      "69701": {
+        "hip": 69701,
+        "ra": 214.00368724,
+        "dec": -5.99952605,
+        "magnitude": 4.1854,
+        "b_v": 0.51,
+        "spectral_type": "G",
+        "name": "Syrma"
+      },
+      "104521": {
+        "hip": 104521,
+        "ra": 317.58529652,
+        "dec": 10.13194869,
+        "magnitude": 4.7812,
+        "b_v": 0.262,
+        "spectral_type": "A"
+      },
+      "90185": {
+        "hip": 90185,
+        "ra": 276.04310945,
+        "dec": -34.38431461,
+        "magnitude": 1.7986,
+        "b_v": -0.031,
+        "spectral_type": "B",
+        "name": "Kaus Australis"
+      },
+      "112716": {
+        "hip": 112716,
+        "ra": 342.39795748,
+        "dec": -13.59253754,
+        "magnitude": 4.1494,
+        "b_v": 1.57,
+        "spectral_type": "M"
+      },
+      "41037": {
+        "hip": 41037,
+        "ra": 125.62860249,
+        "dec": -59.50953781,
+        "magnitude": 1.9996,
+        "b_v": 1.196,
+        "spectral_type": "K",
+        "name": "Avior"
+      },
+      "110672": {
+        "hip": 110672,
+        "ra": 336.31921853,
+        "dec": 1.37739264,
+        "magnitude": 4.7397,
+        "b_v": -0.171,
+        "spectral_type": "B"
+      },
+      "112724": {
+        "hip": 112724,
+        "ra": 342.42046746,
+        "dec": 66.20071079,
+        "magnitude": 3.6704,
+        "b_v": 1.053,
+        "spectral_type": "K"
+      },
+      "102485": {
+        "hip": 102485,
+        "ra": 311.5240256,
+        "dec": -25.27051702,
+        "magnitude": 4.232,
+        "b_v": 0.426,
+        "spectral_type": "F"
+      },
+      "102488": {
+        "hip": 102488,
+        "ra": 311.55180082,
+        "dec": 33.96945339,
+        "magnitude": 2.6429,
+        "b_v": 1.021,
+        "spectral_type": "K"
+      },
+      "43103": {
+        "hip": 43103,
+        "ra": 131.67430935,
+        "dec": 28.76000523,
+        "magnitude": 4.1992,
+        "b_v": 1.007,
+        "spectral_type": "K"
+      },
+      "36962": {
+        "hip": 36962,
+        "ra": 113.98071676,
+        "dec": 26.89600305,
+        "magnitude": 4.1682,
+        "b_v": 1.54,
+        "spectral_type": "M"
+      },
+      "12387": {
+        "hip": 12387,
+        "ra": 39.87061789,
+        "dec": 0.32851674,
+        "magnitude": 4.0081,
+        "b_v": -0.212,
+        "spectral_type": "B"
+      },
+      "69732": {
+        "hip": 69732,
+        "ra": 214.09656815,
+        "dec": 46.08791912,
+        "magnitude": 4.2074,
+        "b_v": 0.087,
+        "spectral_type": "A"
+      },
+      "100453": {
+        "hip": 100453,
+        "ra": 305.55708337,
+        "dec": 40.25668137,
+        "magnitude": 2.3548,
+        "b_v": 0.673,
+        "spectral_type": "G",
+        "name": "Sadr"
+      },
+      "43109": {
+        "hip": 43109,
+        "ra": 131.6943589,
+        "dec": 6.41890803,
+        "magnitude": 3.5004,
+        "b_v": 0.685,
+        "spectral_type": "G"
+      },
+      "26727": {
+        "hip": 26727,
+        "ra": 85.18968667,
+        "dec": -1.94257852,
+        "magnitude": 1.6812,
+        "b_v": -0.199,
+        "spectral_type": "B",
+        "name": "Alnitak"
+      },
+      "18532": {
+        "hip": 18532,
+        "ra": 59.46342225,
+        "dec": 40.01027312,
+        "magnitude": 2.8348,
+        "b_v": -0.199,
+        "spectral_type": "B"
+      },
+      "112748": {
+        "hip": 112748,
+        "ra": 342.50041798,
+        "dec": 24.60168465,
+        "magnitude": 3.6685,
+        "b_v": 0.933,
+        "spectral_type": "K",
+        "name": "Sadalbari"
+      },
+      "18543": {
+        "hip": 18543,
+        "ra": 59.50720838,
+        "dec": -13.50824446,
+        "magnitude": 3.0703,
+        "b_v": 1.588,
+        "spectral_type": "M",
+        "name": "Zaurak"
+      },
+      "71795": {
+        "hip": 71795,
+        "ra": 220.28716825,
+        "dec": 13.72833156,
+        "magnitude": 3.7971,
+        "b_v": 0.044,
+        "spectral_type": "A"
+      },
+      "41075": {
+        "hip": 41075,
+        "ra": 125.70887553,
+        "dec": 43.18837241,
+        "magnitude": 4.3649,
+        "b_v": 1.55,
+        "spectral_type": "M"
+      },
+      "79992": {
+        "hip": 79992,
+        "ra": 244.93519967,
+        "dec": 46.31327099,
+        "magnitude": 3.8472,
+        "b_v": -0.151,
+        "spectral_type": "B"
+      },
+      "63608": {
+        "hip": 63608,
+        "ra": 195.54483555,
+        "dec": 10.95910189,
+        "magnitude": 2.998,
+        "b_v": 0.934,
+        "spectral_type": "K",
+        "name": "Vindemiatrix"
+      },
+      "12413": {
+        "hip": 12413,
+        "ra": 39.94966511,
+        "dec": -42.89163303,
+        "magnitude": 4.7613,
+        "b_v": 0.061,
+        "spectral_type": "A"
+      },
+      "63613": {
+        "hip": 63613,
+        "ra": 195.56574102,
+        "dec": -71.54879895,
+        "magnitude": 3.7698,
+        "b_v": 1.19,
+        "spectral_type": "K"
+      },
+      "80000": {
+        "hip": 80000,
+        "ra": 244.96069864,
+        "dec": -50.15537919,
+        "magnitude": 4.176,
+        "b_v": 1.08,
+        "spectral_type": "K"
+      },
+      "55425": {
+        "hip": 55425,
+        "ra": 170.25184231,
+        "dec": -54.49101398,
+        "magnitude": 3.8358,
+        "b_v": -0.157,
+        "spectral_type": "B"
+      },
+      "77952": {
+        "hip": 77952,
+        "ra": 238.78670046,
+        "dec": -63.42974982,
+        "magnitude": 2.9075,
+        "b_v": 0.315,
+        "spectral_type": "F"
+      },
+      "102532": {
+        "hip": 102532,
+        "ra": 311.6646587,
+        "dec": 16.12477499,
+        "magnitude": 4.4364,
+        "b_v": 1.042,
+        "spectral_type": "K"
+      },
+      "55434": {
+        "hip": 55434,
+        "ra": 170.28436678,
+        "dec": 6.02935317,
+        "magnitude": 4.0345,
+        "b_v": -0.058,
+        "spectral_type": "B"
+      },
+      "61585": {
+        "hip": 61585,
+        "ra": 189.29618221,
+        "dec": -69.13553368,
+        "magnitude": 2.6109,
+        "b_v": -0.176,
+        "spectral_type": "B"
+      },
+      "30867": {
+        "hip": 30867,
+        "ra": 97.20447391,
+        "dec": -7.03305166,
+        "magnitude": 3.7921,
+        "b_v": -0.113,
+        "spectral_type": "B"
+      },
+      "16537": {
+        "hip": 16537,
+        "ra": 53.23509022,
+        "dec": -9.45830604,
+        "magnitude": 3.8652,
+        "b_v": 0.881,
+        "spectral_type": "K"
+      },
+      "82080": {
+        "hip": 82080,
+        "ra": 251.49233206,
+        "dec": 82.03725012,
+        "magnitude": 4.3677,
+        "b_v": 0.897,
+        "spectral_type": "K"
+      },
+      "51362": {
+        "hip": 51362,
+        "ra": 157.36971146,
+        "dec": -2.73904687,
+        "magnitude": 5.1787,
+        "b_v": -0.05,
+        "spectral_type": "B"
+      },
+      "30883": {
+        "hip": 30883,
+        "ra": 97.24079322,
+        "dec": 20.21216674,
+        "magnitude": 4.0991,
+        "b_v": -0.115,
+        "spectral_type": "B"
+      },
+      "18597": {
+        "hip": 18597,
+        "ra": 59.68640628,
+        "dec": -61.40015061,
+        "magnitude": 4.6497,
+        "b_v": 1.59,
+        "spectral_type": "M"
+      },
+      "94376": {
+        "hip": 94376,
+        "ra": 288.13814594,
+        "dec": 67.66131702,
+        "magnitude": 3.2296,
+        "b_v": 0.99,
+        "spectral_type": "K",
+        "name": "Altais"
+      },
+      "80047": {
+        "hip": 80047,
+        "ra": 245.08681278,
+        "dec": -78.69565595,
+        "magnitude": 4.6689,
+        "b_v": 1.68,
+        "spectral_type": "M"
+      },
+      "84143": {
+        "hip": 84143,
+        "ra": 258.03823358,
+        "dec": -43.23849048,
+        "magnitude": 3.4149,
+        "b_v": 0.441,
+        "spectral_type": "F"
+      },
+      "71860": {
+        "hip": 71860,
+        "ra": 220.48239095,
+        "dec": -47.38814121,
+        "magnitude": 2.2296,
+        "b_v": -0.154,
+        "spectral_type": "B"
+      },
+      "45238": {
+        "hip": 45238,
+        "ra": 138.30100317,
+        "dec": -69.71747241,
+        "magnitude": 1.6625,
+        "b_v": 0.07,
+        "spectral_type": "A",
+        "name": "Miaplacidus"
+      },
+      "18614": {
+        "hip": 18614,
+        "ra": 59.7412487,
+        "dec": 35.79102722,
+        "magnitude": 4.0307,
+        "b_v": 0.016,
+        "spectral_type": "A",
+        "name": "Menkib"
+      },
+      "98495": {
+        "hip": 98495,
+        "ra": 300.14747184,
+        "dec": -72.91018427,
+        "magnitude": 3.9531,
+        "b_v": -0.032,
+        "spectral_type": "B"
+      },
+      "116928": {
+        "hip": 116928,
+        "ra": 355.51200755,
+        "dec": 1.78041748,
+        "magnitude": 4.5578,
+        "b_v": 0.2,
+        "spectral_type": "A"
+      },
+      "12484": {
+        "hip": 12484,
+        "ra": 40.16491588,
+        "dec": -54.54992418,
+        "magnitude": 5.3052,
+        "b_v": 0.411,
+        "spectral_type": "F"
+      },
+      "12486": {
+        "hip": 12486,
+        "ra": 40.16638218,
+        "dec": -39.85530924,
+        "magnitude": 4.2751,
+        "b_v": 1.006,
+        "spectral_type": "K"
+      },
+      "96468": {
+        "hip": 96468,
+        "ra": 294.18031904,
+        "dec": -1.28655074,
+        "magnitude": 4.3265,
+        "b_v": -0.079,
+        "spectral_type": "B"
+      },
+      "86228": {
+        "hip": 86228,
+        "ra": 264.32968931,
+        "dec": -42.99782041,
+        "magnitude": 1.9269,
+        "b_v": 0.406,
+        "spectral_type": "F",
+        "name": "Girtab"
+      },
+      "102618": {
+        "hip": 102618,
+        "ra": 311.91888544,
+        "dec": -9.49568985,
+        "magnitude": 3.7818,
+        "b_v": 0.0,
+        "spectral_type": "A",
+        "name": "Albali"
+      },
+      "43234": {
+        "hip": 43234,
+        "ra": 132.10825307,
+        "dec": 5.83788491,
+        "magnitude": 4.3465,
+        "b_v": -0.044,
+        "spectral_type": "B"
+      },
+      "106723": {
+        "hip": 106723,
+        "ra": 324.27009486,
+        "dec": -19.46601356,
+        "magnitude": 4.4457,
+        "b_v": -0.18,
+        "spectral_type": "B"
+      },
+      "71908": {
+        "hip": 71908,
+        "ra": 220.6278545,
+        "dec": -64.97456951,
+        "magnitude": 3.2465,
+        "b_v": 0.256,
+        "spectral_type": "A"
+      },
+      "16611": {
+        "hip": 16611,
+        "ra": 53.44686636,
+        "dec": -21.63281573,
+        "magnitude": 4.2359,
+        "b_v": -0.106,
+        "spectral_type": "B"
+      },
+      "51437": {
+        "hip": 51437,
+        "ra": 157.57292931,
+        "dec": -0.63697179,
+        "magnitude": 5.0315,
+        "b_v": -0.138,
+        "spectral_type": "B"
+      },
+      "28910": {
+        "hip": 28910,
+        "ra": 91.53889177,
+        "dec": -14.93528631,
+        "magnitude": 4.689,
+        "b_v": 0.046,
+        "spectral_type": "A"
+      },
+      "14576": {
+        "hip": 14576,
+        "ra": 47.04220893,
+        "dec": 40.95565071,
+        "magnitude": 2.0969,
+        "b_v": -0.003,
+        "spectral_type": "B",
+        "name": "Algol"
+      },
+      "18673": {
+        "hip": 18673,
+        "ra": 59.98115029,
+        "dec": -24.01625667,
+        "magnitude": 4.5935,
+        "b_v": -0.121,
+        "spectral_type": "B"
+      },
+      "80112": {
+        "hip": 80112,
+        "ra": 245.29717737,
+        "dec": -25.59275251,
+        "magnitude": 2.9227,
+        "b_v": 0.299,
+        "spectral_type": "A",
+        "name": "Al Niyat"
+      },
+      "110838": {
+        "hip": 110838,
+        "ra": 336.83280454,
+        "dec": -64.96637932,
+        "magnitude": 4.4819,
+        "b_v": -0.029,
+        "spectral_type": "B"
+      },
+      "86263": {
+        "hip": 86263,
+        "ra": 264.3967721,
+        "dec": -15.39840819,
+        "magnitude": 3.6075,
+        "b_v": 0.262,
+        "spectral_type": "A"
+      },
+      "78072": {
+        "hip": 78072,
+        "ra": 239.11247636,
+        "dec": 15.66473324,
+        "magnitude": 3.9456,
+        "b_v": 0.478,
+        "spectral_type": "F"
+      },
+      "33018": {
+        "hip": 33018,
+        "ra": 103.19725016,
+        "dec": 33.96136984,
+        "magnitude": 3.6405,
+        "b_v": 0.102,
+        "spectral_type": "A"
+      },
+      "49402": {
+        "hip": 49402,
+        "ra": 151.28121862,
+        "dec": -13.06467446,
+        "magnitude": 4.5736,
+        "b_v": -0.087,
+        "spectral_type": "B"
+      },
+      "53502": {
+        "hip": 53502,
+        "ra": 164.17915144,
+        "dec": -37.13746289,
+        "magnitude": 4.7656,
+        "b_v": 1.006,
+        "spectral_type": "K"
+      },
+      "22783": {
+        "hip": 22783,
+        "ra": 73.51254411,
+        "dec": 66.34266005,
+        "magnitude": 4.294,
+        "b_v": -0.008,
+        "spectral_type": "B"
+      },
+      "92420": {
+        "hip": 92420,
+        "ra": 282.51997467,
+        "dec": 33.36267802,
+        "magnitude": 3.5618,
+        "b_v": 0.003,
+        "spectral_type": "A",
+        "name": "Sheliak"
+      },
+      "24845": {
+        "hip": 24845,
+        "ra": 79.89385844,
+        "dec": -13.17677717,
+        "magnitude": 4.202,
+        "b_v": -0.235,
+        "spectral_type": "B"
+      },
+      "22797": {
+        "hip": 22797,
+        "ra": 73.56289884,
+        "dec": 2.4406716,
+        "magnitude": 3.647,
+        "b_v": -0.179,
+        "spectral_type": "B"
+      },
+      "71957": {
+        "hip": 71957,
+        "ra": 220.76484283,
+        "dec": -5.65742908,
+        "magnitude": 3.9589,
+        "b_v": 0.385,
+        "spectral_type": "F"
+      },
+      "45336": {
+        "hip": 45336,
+        "ra": 138.59080474,
+        "dec": 2.31502504,
+        "magnitude": 3.8713,
+        "b_v": -0.06,
+        "spectral_type": "B"
+      },
+      "78104": {
+        "hip": 78104,
+        "ra": 239.22119466,
+        "dec": -29.21401208,
+        "magnitude": 3.8095,
+        "b_v": -0.199,
+        "spectral_type": "B"
+      },
+      "114971": {
+        "hip": 114971,
+        "ra": 349.28955639,
+        "dec": 3.28224514,
+        "magnitude": 3.8482,
+        "b_v": 0.916,
+        "spectral_type": "K"
+      },
+      "104732": {
+        "hip": 104732,
+        "ra": 318.23408975,
+        "dec": 30.22708125,
+        "magnitude": 3.3743,
+        "b_v": 0.99,
+        "spectral_type": "K"
+      },
+      "57632": {
+        "hip": 57632,
+        "ra": 177.2661596,
+        "dec": 14.57233678,
+        "magnitude": 2.1605,
+        "b_v": 0.09,
+        "spectral_type": "A",
+        "name": "Denebola"
+      },
+      "18724": {
+        "hip": 18724,
+        "ra": 60.17008546,
+        "dec": 12.49037559,
+        "magnitude": 3.3774,
+        "b_v": -0.099,
+        "spectral_type": "B"
+      },
+      "14632": {
+        "hip": 14632,
+        "ra": 47.2620139,
+        "dec": 49.61350017,
+        "magnitude": 4.1758,
+        "b_v": 0.595,
+        "spectral_type": "G"
+      },
+      "80170": {
+        "hip": 80170,
+        "ra": 245.48018195,
+        "dec": 19.15302179,
+        "magnitude": 3.8125,
+        "b_v": 0.299,
+        "spectral_type": "A"
+      },
+      "112948": {
+        "hip": 112948,
+        "ra": 343.1314911,
+        "dec": -32.87545009,
+        "magnitude": 4.4671,
+        "b_v": -0.037,
+        "spectral_type": "B"
+      },
+      "114996": {
+        "hip": 114996,
+        "ra": 349.35754967,
+        "dec": -58.23592746,
+        "magnitude": 4.0856,
+        "b_v": 0.41,
+        "spectral_type": "F"
+      },
+      "90422": {
+        "hip": 90422,
+        "ra": 276.74345944,
+        "dec": -45.96832923,
+        "magnitude": 3.4234,
+        "b_v": -0.179,
+        "spectral_type": "B"
+      },
+      "22845": {
+        "hip": 22845,
+        "ra": 73.72376741,
+        "dec": 10.15114489,
+        "magnitude": 4.6861,
+        "b_v": 0.085,
+        "spectral_type": "A"
+      },
+      "112961": {
+        "hip": 112961,
+        "ra": 343.15360163,
+        "dec": -7.57967866,
+        "magnitude": 3.8072,
+        "b_v": 1.626,
+        "spectral_type": "M"
+      },
+      "47431": {
+        "hip": 47431,
+        "ra": 144.96389186,
+        "dec": -1.14265766,
+        "magnitude": 4.052,
+        "b_v": 1.313,
+        "spectral_type": "K"
+      },
+      "4427": {
+        "hip": 4427,
+        "ra": 14.17708782,
+        "dec": 60.71674955,
+        "magnitude": 2.1379,
+        "b_v": -0.046,
+        "spectral_type": "B"
+      },
+      "14668": {
+        "hip": 14668,
+        "ra": 47.37345501,
+        "dec": 44.85788919,
+        "magnitude": 3.9564,
+        "b_v": 0.98,
+        "spectral_type": "K"
+      },
+      "78159": {
+        "hip": 78159,
+        "ra": 239.39709112,
+        "dec": 26.87802608,
+        "magnitude": 4.2992,
+        "b_v": 1.231,
+        "spectral_type": "K"
+      },
+      "4436": {
+        "hip": 4436,
+        "ra": 14.18790714,
+        "dec": 38.49925521,
+        "magnitude": 3.9034,
+        "b_v": 0.13,
+        "spectral_type": "A"
+      },
+      "67927": {
+        "hip": 67927,
+        "ra": 208.67131829,
+        "dec": 18.3985867,
+        "magnitude": 2.7957,
+        "b_v": 0.58,
+        "spectral_type": "G",
+        "name": "Muphrid"
+      },
+      "115033": {
+        "hip": 115033,
+        "ra": 349.47584833,
+        "dec": -9.18249032,
+        "magnitude": 4.3607,
+        "b_v": -0.144,
+        "spectral_type": "B"
+      },
+      "55642": {
+        "hip": 55642,
+        "ra": 170.98070335,
+        "dec": 10.52969776,
+        "magnitude": 4.0331,
+        "b_v": 0.423,
+        "spectral_type": "F"
+      },
+      "61789": {
+        "hip": 61789,
+        "ra": 189.96900592,
+        "dec": -39.98724157,
+        "magnitude": 4.6037,
+        "b_v": -0.082,
+        "spectral_type": "B"
+      },
+      "76127": {
+        "hip": 76127,
+        "ra": 233.23248295,
+        "dec": 31.35915509,
+        "magnitude": 4.112,
+        "b_v": -0.127,
+        "spectral_type": "B"
+      },
+      "41312": {
+        "hip": 41312,
+        "ra": 126.4343594,
+        "dec": -66.13652029,
+        "magnitude": 3.9319,
+        "b_v": 1.132,
+        "spectral_type": "K"
+      },
+      "82273": {
+        "hip": 82273,
+        "ra": 252.16610734,
+        "dec": -69.02763509,
+        "magnitude": 2.0711,
+        "b_v": 1.447,
+        "spectral_type": "M",
+        "name": "Atria"
+      },
+      "59747": {
+        "hip": 59747,
+        "ra": 183.78648746,
+        "dec": -58.74890175,
+        "magnitude": 2.7066,
+        "b_v": -0.193,
+        "spectral_type": "B"
+      },
+      "12653": {
+        "hip": 12653,
+        "ra": 40.63816024,
+        "dec": -50.80082679,
+        "magnitude": 5.518,
+        "b_v": 0.561,
+        "spectral_type": "G"
+      },
+      "29038": {
+        "hip": 29038,
+        "ra": 91.89300744,
+        "dec": 14.76852309,
+        "magnitude": 4.3588,
+        "b_v": -0.164,
+        "spectral_type": "B"
+      },
+      "4463": {
+        "hip": 4463,
+        "ra": 14.30178257,
+        "dec": 23.41775993,
+        "magnitude": 4.5603,
+        "b_v": 0.94,
+        "spectral_type": "K"
+      },
+      "110960": {
+        "hip": 110960,
+        "ra": 337.2075006,
+        "dec": -0.02006525,
+        "magnitude": 3.745,
+        "b_v": 0.406,
+        "spectral_type": "F"
+      },
+      "37229": {
+        "hip": 37229,
+        "ra": 114.70784027,
+        "dec": -26.80389045,
+        "magnitude": 3.7439,
+        "b_v": -0.159,
+        "spectral_type": "B"
+      },
+      "51576": {
+        "hip": 51576,
+        "ra": 158.00618286,
+        "dec": -61.68536026,
+        "magnitude": 3.3225,
+        "b_v": -0.089,
+        "spectral_type": "B"
+      },
+      "84345": {
+        "hip": 84345,
+        "ra": 258.66192746,
+        "dec": 14.39025294,
+        "magnitude": 2.9137,
+        "b_v": 1.164,
+        "spectral_type": "K",
+        "name": "Rasalgethi"
+      },
+      "59774": {
+        "hip": 59774,
+        "ra": 183.85603762,
+        "dec": 57.0325977,
+        "magnitude": 3.3353,
+        "b_v": 0.077,
+        "spectral_type": "A",
+        "name": "Megrez"
+      },
+      "33152": {
+        "hip": 33152,
+        "ra": 103.5331451,
+        "dec": -24.18422314,
+        "magnitude": 4.0047,
+        "b_v": 1.74,
+        "spectral_type": "M"
+      },
+      "90496": {
+        "hip": 90496,
+        "ra": 276.99279012,
+        "dec": -25.42124724,
+        "magnitude": 2.9838,
+        "b_v": 1.025,
+        "spectral_type": "K",
+        "name": "Kaus Borealis"
+      },
+      "55687": {
+        "hip": 55687,
+        "ra": 171.15252261,
+        "dec": -10.85938263,
+        "magnitude": 4.9202,
+        "b_v": 1.556,
+        "spectral_type": "M"
+      },
+      "33160": {
+        "hip": 33160,
+        "ra": 103.54783598,
+        "dec": -12.03859248,
+        "magnitude": 4.2092,
+        "b_v": 1.418,
+        "spectral_type": "M"
+      },
+      "6537": {
+        "hip": 6537,
+        "ra": 21.00604673,
+        "dec": -8.18275392,
+        "magnitude": 3.7757,
+        "b_v": 1.065,
+        "spectral_type": "K"
+      },
+      "86414": {
+        "hip": 86414,
+        "ra": 264.8662182,
+        "dec": 46.00632235,
+        "magnitude": 3.7497,
+        "b_v": -0.179,
+        "spectral_type": "B"
+      },
+      "110991": {
+        "hip": 110991,
+        "ra": 337.29269968,
+        "dec": 58.41518974,
+        "magnitude": 4.2767,
+        "b_v": 0.778,
+        "spectral_type": "G"
+      },
+      "65936": {
+        "hip": 65936,
+        "ra": 202.76111844,
+        "dec": -39.40727978,
+        "magnitude": 4.0636,
+        "b_v": 1.186,
+        "spectral_type": "K"
+      },
+      "100751": {
+        "hip": 100751,
+        "ra": 306.41187379,
+        "dec": -56.73488065,
+        "magnitude": 1.8583,
+        "b_v": -0.118,
+        "spectral_type": "B",
+        "name": "Peacock"
+      },
+      "43409": {
+        "hip": 43409,
+        "ra": 132.6333805,
+        "dec": -27.71005865,
+        "magnitude": 4.1794,
+        "b_v": 1.272,
+        "spectral_type": "K"
+      },
+      "110997": {
+        "hip": 110997,
+        "ra": 337.31730887,
+        "dec": -43.4955543,
+        "magnitude": 4.1394,
+        "b_v": 1.021,
+        "spectral_type": "K"
+      },
+      "55705": {
+        "hip": 55705,
+        "ra": 171.22076361,
+        "dec": -17.6840172,
+        "magnitude": 4.1269,
+        "b_v": 0.216,
+        "spectral_type": "A"
+      },
+      "104858": {
+        "hip": 104858,
+        "ra": 318.61995916,
+        "dec": 10.00771876,
+        "magnitude": 4.5928,
+        "b_v": 0.529,
+        "spectral_type": "G"
+      },
+      "59803": {
+        "hip": 59803,
+        "ra": 183.95194935,
+        "dec": -17.54198359,
+        "magnitude": 2.5477,
+        "b_v": -0.107,
+        "spectral_type": "B",
+        "name": "Gienah"
+      },
+      "84379": {
+        "hip": 84379,
+        "ra": 258.75801747,
+        "dec": 24.8395873,
+        "magnitude": 3.1501,
+        "b_v": 0.08,
+        "spectral_type": "A"
+      },
+      "84380": {
+        "hip": 84380,
+        "ra": 258.76189269,
+        "dec": 36.80915546,
+        "magnitude": 3.3121,
+        "b_v": 1.437,
+        "spectral_type": "M"
+      },
+      "115102": {
+        "hip": 115102,
+        "ra": 349.70594515,
+        "dec": -32.53183581,
+        "magnitude": 4.5777,
+        "b_v": 1.109,
+        "spectral_type": "K"
+      },
+      "37279": {
+        "hip": 37279,
+        "ra": 114.82724202,
+        "dec": 5.22750758,
+        "magnitude": 0.4607,
+        "b_v": 0.432,
+        "spectral_type": "F",
+        "name": "Procyon"
+      },
+      "20894": {
+        "hip": 20894,
+        "ra": 67.16531227,
+        "dec": 15.87094681,
+        "magnitude": 3.4597,
+        "b_v": 0.179,
+        "spectral_type": "A"
+      },
+      "20889": {
+        "hip": 20889,
+        "ra": 67.15388847,
+        "dec": 19.18052103,
+        "magnitude": 3.6992,
+        "b_v": 1.014,
+        "spectral_type": "K",
+        "name": "Ain"
+      },
+      "68002": {
+        "hip": 68002,
+        "ra": 208.88514577,
+        "dec": -47.28826623,
+        "magnitude": 2.4419,
+        "b_v": -0.176,
+        "spectral_type": "B",
+        "name": "Alnair"
+      },
+      "12706": {
+        "hip": 12706,
+        "ra": 40.82551857,
+        "dec": 3.23617153,
+        "magnitude": 3.5001,
+        "b_v": 0.093,
+        "spectral_type": "A"
+      },
+      "57757": {
+        "hip": 57757,
+        "ra": 177.67202597,
+        "dec": 1.76537702,
+        "magnitude": 3.7136,
+        "b_v": 0.518,
+        "spectral_type": "G",
+        "name": "Zavijava"
+      },
+      "35228": {
+        "hip": 35228,
+        "ra": 109.20762816,
+        "dec": -67.95717269,
+        "magnitude": 4.1197,
+        "b_v": 0.76,
+        "spectral_type": "G"
+      },
+      "72105": {
+        "hip": 72105,
+        "ra": 221.24687848,
+        "dec": 27.07417376,
+        "magnitude": 2.5167,
+        "b_v": 0.966,
+        "spectral_type": "K",
+        "name": "Izar"
+      },
+      "22957": {
+        "hip": 22957,
+        "ra": 74.09300433,
+        "dec": 13.51457808,
+        "magnitude": 4.2355,
+        "b_v": 1.158,
+        "spectral_type": "K"
+      },
+      "111022": {
+        "hip": 111022,
+        "ra": 337.38259511,
+        "dec": 47.70689496,
+        "magnitude": 4.428,
+        "b_v": 1.679,
+        "spectral_type": "M"
+      },
+      "49583": {
+        "hip": 49583,
+        "ra": 151.83313986,
+        "dec": 16.76266561,
+        "magnitude": 3.5034,
+        "b_v": -0.031,
+        "spectral_type": "B"
+      },
+      "102831": {
+        "hip": 102831,
+        "ra": 312.49199826,
+        "dec": -33.7796729,
+        "magnitude": 5.0571,
+        "b_v": 1.003,
+        "spectral_type": "K"
+      },
+      "10670": {
+        "hip": 10670,
+        "ra": 34.328482,
+        "dec": 33.84732084,
+        "magnitude": 4.0211,
+        "b_v": 0.019,
+        "spectral_type": "A"
+      },
+      "2484": {
+        "hip": 2484,
+        "ra": 7.88566983,
+        "dec": -62.9580855,
+        "magnitude": 4.3328,
+        "b_v": -0.064,
+        "spectral_type": "B"
+      },
+      "49593": {
+        "hip": 49593,
+        "ra": 151.85718822,
+        "dec": 35.24469196,
+        "magnitude": 4.5375,
+        "b_v": 0.19,
+        "spectral_type": "A"
+      },
+      "78265": {
+        "hip": 78265,
+        "ra": 239.71300274,
+        "dec": -26.11404273,
+        "magnitude": 2.8274,
+        "b_v": -0.18,
+        "spectral_type": "B"
+      },
+      "82363": {
+        "hip": 82363,
+        "ra": 252.44629781,
+        "dec": -59.04131654,
+        "magnitude": 3.876,
+        "b_v": 1.562,
+        "spectral_type": "M"
+      },
+      "27072": {
+        "hip": 27072,
+        "ra": 86.11656244,
+        "dec": -22.44748675,
+        "magnitude": 3.6977,
+        "b_v": 0.481,
+        "spectral_type": "F"
+      },
+      "92609": {
+        "hip": 92609,
+        "ra": 283.05431913,
+        "dec": -62.18756068,
+        "magnitude": 4.1657,
+        "b_v": -0.15,
+        "spectral_type": "B"
+      },
+      "35264": {
+        "hip": 35264,
+        "ra": 109.28568388,
+        "dec": -37.09748688,
+        "magnitude": 2.8296,
+        "b_v": 1.616,
+        "spectral_type": "M"
+      },
+      "8645": {
+        "hip": 8645,
+        "ra": 27.8650443,
+        "dec": -10.33494527,
+        "magnitude": 3.9067,
+        "b_v": 1.136,
+        "spectral_type": "K",
+        "name": "Baten Kaitos"
+      },
+      "90568": {
+        "hip": 90568,
+        "ra": 277.2072331,
+        "dec": -49.07003096,
+        "magnitude": 4.2661,
+        "b_v": 0.995,
+        "spectral_type": "K"
+      },
+      "70090": {
+        "hip": 70090,
+        "ra": 215.13949734,
+        "dec": -37.88526721,
+        "magnitude": 4.0385,
+        "b_v": -0.03,
+        "spectral_type": "B"
+      },
+      "80331": {
+        "hip": 80331,
+        "ra": 245.99794481,
+        "dec": 61.51407545,
+        "magnitude": 2.8717,
+        "b_v": 0.91,
+        "spectral_type": "K"
+      },
+      "16852": {
+        "hip": 16852,
+        "ra": 54.21882882,
+        "dec": 0.40283325,
+        "magnitude": 4.4104,
+        "b_v": 0.575,
+        "spectral_type": "G"
+      },
+      "80343": {
+        "hip": 80343,
+        "ra": 246.02582184,
+        "dec": -20.03721152,
+        "magnitude": 4.6501,
+        "b_v": 0.996,
+        "spectral_type": "K"
+      },
+      "18907": {
+        "hip": 18907,
+        "ra": 60.78907039,
+        "dec": 5.98930896,
+        "magnitude": 3.9203,
+        "b_v": 0.032,
+        "spectral_type": "A"
+      },
+      "27100": {
+        "hip": 27100,
+        "ra": 86.1934131,
+        "dec": -65.73554065,
+        "magnitude": 4.3927,
+        "b_v": 0.217,
+        "spectral_type": "A"
+      },
+      "82396": {
+        "hip": 82396,
+        "ra": 252.54268726,
+        "dec": -34.29260943,
+        "magnitude": 2.4532,
+        "b_v": 1.144,
+        "spectral_type": "K"
+      },
+      "4577": {
+        "hip": 4577,
+        "ra": 14.65144096,
+        "dec": -29.35746422,
+        "magnitude": 4.2628,
+        "b_v": -0.154,
+        "spectral_type": "B"
+      },
+      "12770": {
+        "hip": 12770,
+        "ra": 41.03064358,
+        "dec": -13.85867601,
+        "magnitude": 4.2067,
+        "b_v": -0.122,
+        "spectral_type": "B"
+      },
+      "90595": {
+        "hip": 90595,
+        "ra": 277.29938309,
+        "dec": -14.56580464,
+        "magnitude": 4.7103,
+        "b_v": 0.076,
+        "spectral_type": "A"
+      },
+      "16870": {
+        "hip": 16870,
+        "ra": 54.27365866,
+        "dec": -40.27451059,
+        "magnitude": 4.7322,
+        "b_v": 1.023,
+        "spectral_type": "K"
+      },
+      "23015": {
+        "hip": 23015,
+        "ra": 74.24840149,
+        "dec": 33.16613574,
+        "magnitude": 2.8337,
+        "b_v": 1.49,
+        "spectral_type": "M"
+      },
+      "106985": {
+        "hip": 106985,
+        "ra": 325.02225947,
+        "dec": -16.66225299,
+        "magnitude": 3.766,
+        "b_v": 0.32,
+        "spectral_type": "F",
+        "name": "Nashira"
+      },
+      "12777": {
+        "hip": 12777,
+        "ra": 41.04870044,
+        "dec": 49.22866627,
+        "magnitude": 4.2097,
+        "b_v": 0.514,
+        "spectral_type": "G"
+      },
+      "76267": {
+        "hip": 76267,
+        "ra": 233.67162276,
+        "dec": 26.71491051,
+        "magnitude": 2.221,
+        "b_v": 0.032,
+        "spectral_type": "A",
+        "name": "Alphecca"
+      },
+      "61932": {
+        "hip": 61932,
+        "ra": 190.38002117,
+        "dec": -48.95988559,
+        "magnitude": 2.146,
+        "b_v": -0.023,
+        "spectral_type": "B",
+        "name": "Muhlifain"
+      },
+      "53740": {
+        "hip": 53740,
+        "ra": 164.94478697,
+        "dec": -18.2990973,
+        "magnitude": 4.2458,
+        "b_v": 1.079,
+        "spectral_type": "K",
+        "name": "Alkes"
+      },
+      "49641": {
+        "hip": 49641,
+        "ra": 151.98456482,
+        "dec": -0.37162836,
+        "magnitude": 4.4798,
+        "b_v": -0.032,
+        "spectral_type": "B"
+      },
+      "113136": {
+        "hip": 113136,
+        "ra": 343.66266392,
+        "dec": -15.8207595,
+        "magnitude": 3.2964,
+        "b_v": 0.066,
+        "spectral_type": "A",
+        "name": "Skat"
+      },
+      "31216": {
+        "hip": 31216,
+        "ra": 98.22595667,
+        "dec": 7.33297908,
+        "magnitude": 4.5019,
+        "b_v": 0.023,
+        "spectral_type": "A"
+      },
+      "45556": {
+        "hip": 45556,
+        "ra": 139.27261829,
+        "dec": -59.27526115,
+        "magnitude": 2.2822,
+        "b_v": 0.189,
+        "spectral_type": "A",
+        "name": "Aspidiske"
+      },
+      "76276": {
+        "hip": 76276,
+        "ra": 233.70079178,
+        "dec": 10.53885915,
+        "magnitude": 3.8677,
+        "b_v": 0.268,
+        "spectral_type": "A"
+      },
+      "96757": {
+        "hip": 96757,
+        "ra": 295.02409418,
+        "dec": 18.01393835,
+        "magnitude": 4.5281,
+        "b_v": 0.777,
+        "spectral_type": "G",
+        "name": "Sham"
+      },
+      "61941": {
+        "hip": 61941,
+        "ra": 190.41667567,
+        "dec": -1.44952191,
+        "magnitude": 2.8213,
+        "b_v": 0.368,
+        "spectral_type": "F",
+        "name": "Porrima"
+      },
+      "23040": {
+        "hip": 23040,
+        "ra": 74.32175114,
+        "dec": 53.75208276,
+        "magnitude": 4.4473,
+        "b_v": -0.017,
+        "spectral_type": "B"
+      },
+      "111104": {
+        "hip": 111104,
+        "ra": 337.62192345,
+        "dec": 43.12338982,
+        "magnitude": 4.4912,
+        "b_v": -0.086,
+        "spectral_type": "B"
+      },
+      "49669": {
+        "hip": 49669,
+        "ra": 152.09358042,
+        "dec": 11.96719519,
+        "magnitude": 1.3232,
+        "b_v": -0.087,
+        "spectral_type": "B",
+        "name": "Regulus"
+      },
+      "39429": {
+        "hip": 39429,
+        "ra": 120.89612568,
+        "dec": -40.00318834,
+        "magnitude": 2.1364,
+        "b_v": -0.269,
+        "spectral_type": "B",
+        "name": "Naos"
+      },
+      "76297": {
+        "hip": 76297,
+        "ra": 233.78525188,
+        "dec": -41.16669506,
+        "magnitude": 2.7,
+        "b_v": -0.216,
+        "spectral_type": "B"
+      },
+      "109074": {
+        "hip": 109074,
+        "ra": 331.44593869,
+        "dec": -0.31982628,
+        "magnitude": 3.108,
+        "b_v": 0.969,
+        "spectral_type": "K",
+        "name": "Sadalmelik"
+      },
+      "35350": {
+        "hip": 35350,
+        "ra": 109.5233617,
+        "dec": 16.54047524,
+        "magnitude": 3.6148,
+        "b_v": 0.106,
+        "spectral_type": "A"
+      },
+      "59929": {
+        "hip": 59929,
+        "ra": 184.39431802,
+        "dec": -67.9606716,
+        "magnitude": 4.0506,
+        "b_v": 1.603,
+        "spectral_type": "M"
+      },
+      "104987": {
+        "hip": 104987,
+        "ra": 318.95582018,
+        "dec": 5.24807397,
+        "magnitude": 4.0423,
+        "b_v": 0.549,
+        "spectral_type": "G",
+        "name": "Kitalpha"
+      },
+      "12828": {
+        "hip": 12828,
+        "ra": 41.23488946,
+        "dec": 10.11422043,
+        "magnitude": 4.3439,
+        "b_v": 0.311,
+        "spectral_type": "F"
+      },
+      "72220": {
+        "hip": 72220,
+        "ra": 221.56246631,
+        "dec": 1.89293837,
+        "magnitude": 3.7371,
+        "b_v": -0.005,
+        "spectral_type": "B"
+      },
+      "6686": {
+        "hip": 6686,
+        "ra": 21.45251246,
+        "dec": 60.23540367,
+        "magnitude": 2.7146,
+        "b_v": 0.16,
+        "spectral_type": "A",
+        "name": "Ruchbah"
+      },
+      "14879": {
+        "hip": 14879,
+        "ra": 48.01783347,
+        "dec": -28.98910634,
+        "magnitude": 3.9821,
+        "b_v": 0.543,
+        "spectral_type": "G"
+      },
+      "12843": {
+        "hip": 12843,
+        "ra": 41.27492268,
+        "dec": -18.5726501,
+        "magnitude": 4.5718,
+        "b_v": 0.481,
+        "spectral_type": "F"
+      },
+      "76333": {
+        "hip": 76333,
+        "ra": 233.88141411,
+        "dec": -14.78955362,
+        "magnitude": 4.0672,
+        "b_v": 1.007,
+        "spectral_type": "K"
+      },
+      "78384": {
+        "hip": 78384,
+        "ra": 240.03058533,
+        "dec": -38.39664104,
+        "magnitude": 3.3398,
+        "b_v": -0.206,
+        "spectral_type": "B"
+      },
+      "109111": {
+        "hip": 109111,
+        "ra": 331.52876536,
+        "dec": -39.54304883,
+        "magnitude": 4.6247,
+        "b_v": 1.349,
+        "spectral_type": "K"
+      },
+      "94779": {
+        "hip": 94779,
+        "ra": 289.27545802,
+        "dec": 53.36816073,
+        "magnitude": 3.9512,
+        "b_v": 0.95,
+        "spectral_type": "K"
+      },
+      "88635": {
+        "hip": 88635,
+        "ra": 271.45218573,
+        "dec": -30.42365016,
+        "magnitude": 3.1356,
+        "b_v": 0.981,
+        "spectral_type": "K",
+        "name": "Alnasl"
+      },
+      "111169": {
+        "hip": 111169,
+        "ra": 337.82239908,
+        "dec": 50.28244982,
+        "magnitude": 3.782,
+        "b_v": 0.031,
+        "spectral_type": "A"
+      },
+      "102978": {
+        "hip": 102978,
+        "ra": 312.95540128,
+        "dec": -26.91912619,
+        "magnitude": 4.2197,
+        "b_v": 1.633,
+        "spectral_type": "M"
+      },
+      "33347": {
+        "hip": 33347,
+        "ra": 104.03427624,
+        "dec": -17.05424685,
+        "magnitude": 4.369,
+        "b_v": -0.063,
+        "spectral_type": "B"
+      },
+      "21060": {
+        "hip": 21060,
+        "ra": 67.70874033,
+        "dec": -44.95374346,
+        "magnitude": 5.0008,
+        "b_v": -0.194,
+        "spectral_type": "B"
+      },
+      "78401": {
+        "hip": 78401,
+        "ra": 240.08338223,
+        "dec": -22.62162036,
+        "magnitude": 2.2617,
+        "b_v": -0.117,
+        "spectral_type": "B",
+        "name": "Dschubba"
+      },
+      "96837": {
+        "hip": 96837,
+        "ra": 295.26222386,
+        "dec": 17.47612364,
+        "magnitude": 4.5523,
+        "b_v": 1.041,
+        "spectral_type": "K"
+      },
+      "37447": {
+        "hip": 37447,
+        "ra": 115.31198626,
+        "dec": -9.55108324,
+        "magnitude": 4.0986,
+        "b_v": 1.021,
+        "spectral_type": "K"
+      },
+      "10826": {
+        "hip": 10826,
+        "ra": 34.83661105,
+        "dec": -2.97706076,
+        "magnitude": 4.9898,
+        "b_v": 0.966,
+        "spectral_type": "K",
+        "name": "Mira"
+      },
+      "102989": {
+        "hip": 102989,
+        "ra": 312.99481814,
+        "dec": -33.17796037,
+        "magnitude": 6.0786,
+        "b_v": 0.029,
+        "spectral_type": "A"
+      },
+      "80463": {
+        "hip": 80463,
+        "ra": 246.35387367,
+        "dec": 14.03341488,
+        "magnitude": 4.5821,
+        "b_v": 0.002,
+        "spectral_type": "A",
+        "name": "Cujam"
+      },
+      "57936": {
+        "hip": 57936,
+        "ra": 178.22733851,
+        "dec": -33.90813024,
+        "magnitude": 4.2517,
+        "b_v": -0.1,
+        "spectral_type": "B"
+      },
+      "107089": {
+        "hip": 107089,
+        "ra": 325.36863468,
+        "dec": -77.38946227,
+        "magnitude": 3.8981,
+        "b_v": 1.008,
+        "spectral_type": "K"
+      },
+      "82514": {
+        "hip": 82514,
+        "ra": 252.9676623,
+        "dec": -38.04732677,
+        "magnitude": 2.9245,
+        "b_v": -0.2,
+        "spectral_type": "B"
+      },
+      "109139": {
+        "hip": 109139,
+        "ra": 331.60918856,
+        "dec": -13.86954036,
+        "magnitude": 4.2648,
+        "b_v": -0.075,
+        "spectral_type": "B"
+      },
+      "23123": {
+        "hip": 23123,
+        "ra": 74.63709524,
+        "dec": 1.7140348,
+        "magnitude": 4.6307,
+        "b_v": 1.369,
+        "spectral_type": "K"
+      },
+      "111188": {
+        "hip": 111188,
+        "ra": 337.87620651,
+        "dec": -32.34602794,
+        "magnitude": 4.3003,
+        "b_v": 0.011,
+        "spectral_type": "A"
+      },
+      "29271": {
+        "hip": 29271,
+        "ra": 92.55918066,
+        "dec": -74.75252786,
+        "magnitude": 5.2164,
+        "b_v": 0.714,
+        "spectral_type": "G"
+      },
+      "80473": {
+        "hip": 80473,
+        "ra": 246.39633824,
+        "dec": -23.44711799,
+        "magnitude": 4.6152,
+        "b_v": 0.227,
+        "spectral_type": "A"
+      },
+      "8796": {
+        "hip": 8796,
+        "ra": 28.27041599,
+        "dec": 29.57939714,
+        "magnitude": 3.521,
+        "b_v": 0.488,
+        "spectral_type": "F",
+        "name": "Mothallah"
+      },
+      "113246": {
+        "hip": 113246,
+        "ra": 343.98704989,
+        "dec": -32.53970217,
+        "magnitude": 4.3677,
+        "b_v": 0.952,
+        "spectral_type": "K"
+      },
+      "60000": {
+        "hip": 60000,
+        "ra": 184.58726675,
+        "dec": -79.31226904,
+        "magnitude": 4.2039,
+        "b_v": -0.123,
+        "spectral_type": "B"
+      },
+      "92791": {
+        "hip": 92791,
+        "ra": 283.626203,
+        "dec": 36.89860495,
+        "magnitude": 4.2177,
+        "b_v": 1.575,
+        "spectral_type": "M"
+      },
+      "45688": {
+        "hip": 45688,
+        "ra": 139.71111414,
+        "dec": 36.80289789,
+        "magnitude": 3.8299,
+        "b_v": 0.066,
+        "spectral_type": "A"
+      },
+      "109176": {
+        "hip": 109176,
+        "ra": 331.75197737,
+        "dec": 25.34504611,
+        "magnitude": 3.8678,
+        "b_v": 0.435,
+        "spectral_type": "F"
+      },
+      "51839": {
+        "hip": 51839,
+        "ra": 158.86757611,
+        "dec": -78.60781362,
+        "magnitude": 4.2102,
+        "b_v": 1.58,
+        "spectral_type": "M"
+      },
+      "8832": {
+        "hip": 8832,
+        "ra": 28.38235766,
+        "dec": 19.29409257,
+        "magnitude": 3.8584,
+        "b_v": -0.047,
+        "spectral_type": "B",
+        "name": "Mesartim"
+      },
+      "88714": {
+        "hip": 88714,
+        "ra": 271.65782837,
+        "dec": -50.09145456,
+        "magnitude": 3.6327,
+        "b_v": -0.101,
+        "spectral_type": "B"
+      },
+      "86670": {
+        "hip": 86670,
+        "ra": 265.62199893,
+        "dec": -39.029921,
+        "magnitude": 2.3164,
+        "b_v": -0.171,
+        "spectral_type": "B"
+      },
+      "58001": {
+        "hip": 58001,
+        "ra": 178.45725512,
+        "dec": 53.69473297,
+        "magnitude": 2.4286,
+        "b_v": 0.044,
+        "spectral_type": "A",
+        "name": "Phecda"
+      },
+      "68245": {
+        "hip": 68245,
+        "ra": 209.56785293,
+        "dec": -42.10070505,
+        "magnitude": 3.7448,
+        "b_v": -0.224,
+        "spectral_type": "B"
+      },
+      "53910": {
+        "hip": 53910,
+        "ra": 165.45996142,
+        "dec": 56.38234469,
+        "magnitude": 2.3499,
+        "b_v": 0.033,
+        "spectral_type": "A",
+        "name": "Merak"
+      },
+      "27288": {
+        "hip": 27288,
+        "ra": 86.73895722,
+        "dec": -14.82194738,
+        "magnitude": 3.5778,
+        "b_v": 0.104,
+        "spectral_type": "A"
+      },
+      "76440": {
+        "hip": 76440,
+        "ra": 234.17994529,
+        "dec": -66.31690466,
+        "magnitude": 4.2736,
+        "b_v": 1.161,
+        "spectral_type": "K"
+      },
+      "74395": {
+        "hip": 74395,
+        "ra": 228.07167993,
+        "dec": -52.09907475,
+        "magnitude": 3.5711,
+        "b_v": 0.918,
+        "spectral_type": "K"
+      },
+      "78493": {
+        "hip": 78493,
+        "ra": 240.36079437,
+        "dec": 29.85107826,
+        "magnitude": 4.9684,
+        "b_v": -0.05,
+        "spectral_type": "B"
+      },
+      "677": {
+        "hip": 677,
+        "ra": 2.09653385,
+        "dec": 29.09082837,
+        "magnitude": 2.0371,
+        "b_v": -0.038,
+        "spectral_type": "B",
+        "name": "Alpheratz"
+      },
+      "33449": {
+        "hip": 33449,
+        "ra": 104.31916037,
+        "dec": 58.42305978,
+        "magnitude": 4.5021,
+        "b_v": 0.85,
+        "spectral_type": "K"
+      },
+      "49841": {
+        "hip": 49841,
+        "ra": 152.6474869,
+        "dec": -12.35383947,
+        "magnitude": 3.7748,
+        "b_v": 1.007,
+        "spectral_type": "K"
+      },
+      "72370": {
+        "hip": 72370,
+        "ra": 221.96552535,
+        "dec": -79.0447123,
+        "magnitude": 3.9796,
+        "b_v": 1.433,
+        "spectral_type": "M"
+      },
+      "8886": {
+        "hip": 8886,
+        "ra": 28.59868112,
+        "dec": 63.67014682,
+        "magnitude": 3.3107,
+        "b_v": -0.15,
+        "spectral_type": "B"
+      },
+      "76470": {
+        "hip": 76470,
+        "ra": 234.25607783,
+        "dec": -28.1350712,
+        "magnitude": 3.7471,
+        "b_v": 1.361,
+        "spectral_type": "K"
+      },
+      "92855": {
+        "hip": 92855,
+        "ra": 283.81631936,
+        "dec": -26.29659425,
+        "magnitude": 2.0095,
+        "b_v": -0.134,
+        "spectral_type": "B",
+        "name": "Nunki"
+      },
+      "80569": {
+        "hip": 80569,
+        "ra": 246.75599298,
+        "dec": -18.45619694,
+        "magnitude": 4.287,
+        "b_v": 0.217,
+        "spectral_type": "A"
+      },
+      "68282": {
+        "hip": 68282,
+        "ra": 209.66988043,
+        "dec": -44.80353128,
+        "magnitude": 3.7877,
+        "b_v": -0.208,
+        "spectral_type": "B"
+      },
+      "27321": {
+        "hip": 27321,
+        "ra": 86.82118072,
+        "dec": -51.06671341,
+        "magnitude": 3.9077,
+        "b_v": 0.171,
+        "spectral_type": "A"
+      },
+      "78527": {
+        "hip": 78527,
+        "ra": 240.47376555,
+        "dec": 58.56443741,
+        "magnitude": 4.119,
+        "b_v": 0.528,
+        "spectral_type": "G"
+      },
+      "25281": {
+        "hip": 25281,
+        "ra": 81.11923807,
+        "dec": -2.39713913,
+        "magnitude": 3.2919,
+        "b_v": -0.24,
+        "spectral_type": "B"
+      },
+      "80582": {
+        "hip": 80582,
+        "ra": 246.79603306,
+        "dec": -47.5547357,
+        "magnitude": 4.5129,
+        "b_v": -0.07,
+        "spectral_type": "B"
+      },
+      "8903": {
+        "hip": 8903,
+        "ra": 28.65978905,
+        "dec": 20.80829983,
+        "magnitude": 2.7044,
+        "b_v": 0.165,
+        "spectral_type": "A",
+        "name": "Sheratan"
+      },
+      "66249": {
+        "hip": 66249,
+        "ra": 203.67397824,
+        "dec": -0.5959383,
+        "magnitude": 3.4147,
+        "b_v": 0.114,
+        "spectral_type": "A"
+      },
+      "117452": {
+        "hip": 117452,
+        "ra": 357.23116625,
+        "dec": -28.13001466,
+        "magnitude": 4.5866,
+        "b_v": 0.001,
+        "spectral_type": "A"
+      },
+      "6867": {
+        "hip": 6867,
+        "ra": 22.09142395,
+        "dec": -43.31772907,
+        "magnitude": 3.5329,
+        "b_v": 1.542,
+        "spectral_type": "M"
+      },
+      "109268": {
+        "hip": 109268,
+        "ra": 332.05781852,
+        "dec": -46.96061595,
+        "magnitude": 1.6983,
+        "b_v": -0.07,
+        "spectral_type": "B",
+        "name": "Al Na'ir"
+      },
+      "86742": {
+        "hip": 86742,
+        "ra": 265.8682371,
+        "dec": 4.56691702,
+        "magnitude": 2.9279,
+        "b_v": 1.168,
+        "spectral_type": "K",
+        "name": "Cebalrai"
+      },
+      "113368": {
+        "hip": 113368,
+        "ra": 344.41177299,
+        "dec": -29.6218368,
+        "magnitude": 1.1808,
+        "b_v": 0.145,
+        "spectral_type": "A",
+        "name": "Fomalhaut"
+      },
+      "88794": {
+        "hip": 88794,
+        "ra": 271.88562808,
+        "dec": 28.76247029,
+        "magnitude": 3.8384,
+        "b_v": -0.018,
+        "spectral_type": "B"
+      },
+      "35550": {
+        "hip": 35550,
+        "ra": 110.03078875,
+        "dec": 21.98233983,
+        "magnitude": 3.6031,
+        "b_v": 0.374,
+        "spectral_type": "F",
+        "name": "Wasat"
+      },
+      "19167": {
+        "hip": 19167,
+        "ra": 61.64606355,
+        "dec": 50.35135041,
+        "magnitude": 4.2801,
+        "b_v": -0.011,
+        "spectral_type": "B"
+      },
+      "60129": {
+        "hip": 60129,
+        "ra": 184.97663092,
+        "dec": -0.66674697,
+        "magnitude": 3.8992,
+        "b_v": 0.026,
+        "spectral_type": "A",
+        "name": "Zaniah"
+      },
+      "101093": {
+        "hip": 101093,
+        "ra": 307.39511318,
+        "dec": 62.99413714,
+        "magnitude": 4.2715,
+        "b_v": 0.199,
+        "spectral_type": "A"
+      },
+      "27366": {
+        "hip": 27366,
+        "ra": 86.93911657,
+        "dec": -9.66960181,
+        "magnitude": 2.0065,
+        "b_v": -0.168,
+        "spectral_type": "B",
+        "name": "Saiph"
+      },
+      "109285": {
+        "hip": 109285,
+        "ra": 332.09563853,
+        "dec": -32.98839828,
+        "magnitude": 4.5232,
+        "b_v": 0.054,
+        "spectral_type": "A"
+      },
+      "41704": {
+        "hip": 41704,
+        "ra": 127.56679237,
+        "dec": 60.71843103,
+        "magnitude": 3.5041,
+        "b_v": 0.856,
+        "spectral_type": "K",
+        "name": "Muscida"
+      },
+      "746": {
+        "hip": 746,
+        "ra": 2.2920403,
+        "dec": 59.15021806,
+        "magnitude": 2.3579,
+        "b_v": 0.38,
+        "spectral_type": "F",
+        "name": "Caph"
+      },
+      "115438": {
+        "hip": 115438,
+        "ra": 350.74292248,
+        "dec": -20.10034511,
+        "magnitude": 4.118,
+        "b_v": 1.082,
+        "spectral_type": "K"
+      },
+      "105199": {
+        "hip": 105199,
+        "ra": 319.64408995,
+        "dec": 62.58545515,
+        "magnitude": 2.5141,
+        "b_v": 0.257,
+        "spectral_type": "A",
+        "name": "Alderamin"
+      },
+      "64238": {
+        "hip": 64238,
+        "ra": 197.4875497,
+        "dec": -5.53892927,
+        "magnitude": 4.369,
+        "b_v": -0.008,
+        "spectral_type": "B"
+      },
+      "64241": {
+        "hip": 64241,
+        "ra": 197.49812571,
+        "dec": 17.52911197,
+        "magnitude": 4.4292,
+        "b_v": 0.455,
+        "spectral_type": "F"
+      },
+      "29426": {
+        "hip": 29426,
+        "ra": 92.98498649,
+        "dec": 14.20881433,
+        "magnitude": 4.3991,
+        "b_v": -0.18,
+        "spectral_type": "B"
+      },
+      "80628": {
+        "hip": 80628,
+        "ra": 246.9509458,
+        "dec": -8.37170046,
+        "magnitude": 4.6837,
+        "b_v": 0.185,
+        "spectral_type": "A"
+      },
+      "25336": {
+        "hip": 25336,
+        "ra": 81.28278339,
+        "dec": 6.34973457,
+        "magnitude": 1.5493,
+        "b_v": -0.224,
+        "spectral_type": "B",
+        "name": "Bellatrix"
+      },
+      "11001": {
+        "hip": 11001,
+        "ra": 35.43759554,
+        "dec": -68.65942375,
+        "magnitude": 4.098,
+        "b_v": 0.034,
+        "spectral_type": "A"
+      },
+      "107259": {
+        "hip": 107259,
+        "ra": 325.87689594,
+        "dec": 58.78005303,
+        "magnitude": 3.9123,
+        "b_v": 2.242,
+        "spectral_type": "M",
+        "name": "Herschel's Garnet Star"
+      },
+      "765": {
+        "hip": 765,
+        "ra": 2.35224983,
+        "dec": -45.74698832,
+        "magnitude": 4.0452,
+        "b_v": 1.013,
+        "spectral_type": "K"
+      },
+      "21248": {
+        "hip": 21248,
+        "ra": 68.37762289,
+        "dec": -29.76583176,
+        "magnitude": 4.6619,
+        "b_v": 0.972,
+        "spectral_type": "K"
+      },
+      "92946": {
+        "hip": 92946,
+        "ra": 284.0548346,
+        "dec": 4.20353052,
+        "magnitude": 4.6864,
+        "b_v": 0.161,
+        "spectral_type": "A",
+        "name": "Alya"
+      },
+      "21281": {
+        "hip": 21281,
+        "ra": 68.49882662,
+        "dec": -55.04500553,
+        "magnitude": 3.2372,
+        "b_v": -0.079,
+        "spectral_type": "B"
+      },
+      "88866": {
+        "hip": 88866,
+        "ra": 272.14496204,
+        "dec": -63.66804844,
+        "magnitude": 4.3993,
+        "b_v": 0.228,
+        "spectral_type": "A"
+      },
+      "47908": {
+        "hip": 47908,
+        "ra": 146.46292656,
+        "dec": 23.77427817,
+        "magnitude": 3.1168,
+        "b_v": 0.808,
+        "spectral_type": "K"
+      },
+      "43813": {
+        "hip": 43813,
+        "ra": 133.84868675,
+        "dec": 5.94552781,
+        "magnitude": 3.2803,
+        "b_v": 0.978,
+        "spectral_type": "K"
+      },
+      "45860": {
+        "hip": 45860,
+        "ra": 140.26441179,
+        "dec": 34.39252548,
+        "magnitude": 3.252,
+        "b_v": 1.55,
+        "spectral_type": "M"
+      },
+      "82729": {
+        "hip": 82729,
+        "ra": 253.64627156,
+        "dec": -42.36075919,
+        "magnitude": 3.7651,
+        "b_v": 1.393,
+        "spectral_type": "K"
+      },
+      "4906": {
+        "hip": 4906,
+        "ra": 15.73606599,
+        "dec": 7.89007267,
+        "magnitude": 4.4267,
+        "b_v": 0.952,
+        "spectral_type": "K"
+      },
+      "33579": {
+        "hip": 33579,
+        "ra": 104.65644415,
+        "dec": -28.97208939,
+        "magnitude": 1.416,
+        "b_v": -0.211,
+        "spectral_type": "B",
+        "name": "Adhara"
+      },
+      "37677": {
+        "hip": 37677,
+        "ra": 115.95196715,
+        "dec": -28.95483504,
+        "magnitude": 4.0152,
+        "b_v": 0.16,
+        "spectral_type": "A"
+      },
+      "54061": {
+        "hip": 54061,
+        "ra": 165.93265337,
+        "dec": 61.75111903,
+        "magnitude": 1.9519,
+        "b_v": 1.061,
+        "spectral_type": "K",
+        "name": "Dubhe"
+      },
+      "9007": {
+        "hip": 9007,
+        "ra": 28.98680221,
+        "dec": -51.60958691,
+        "magnitude": 3.8511,
+        "b_v": 0.844,
+        "spectral_type": "K"
+      },
+      "78639": {
+        "hip": 78639,
+        "ra": 240.80358444,
+        "dec": -49.22972085,
+        "magnitude": 4.8061,
+        "b_v": 0.902,
+        "spectral_type": "K"
+      },
+      "107315": {
+        "hip": 107315,
+        "ra": 326.0464175,
+        "dec": 9.87500758,
+        "magnitude": 2.546,
+        "b_v": 1.52,
+        "spectral_type": "M",
+        "name": "Enif"
+      },
+      "76600": {
+        "hip": 76600,
+        "ra": 234.6641014,
+        "dec": -29.77768933,
+        "magnitude": 3.5999,
+        "b_v": -0.177,
+        "spectral_type": "B"
+      },
+      "103227": {
+        "hip": 103227,
+        "ra": 313.70241499,
+        "dec": -58.45409481,
+        "magnitude": 3.834,
+        "b_v": 1.25,
+        "spectral_type": "K"
+      },
+      "58188": {
+        "hip": 58188,
+        "ra": 179.00409833,
+        "dec": -17.15080883,
+        "magnitude": 5.1725,
+        "b_v": -0.022,
+        "spectral_type": "B"
+      },
+      "39757": {
+        "hip": 39757,
+        "ra": 121.88625905,
+        "dec": -24.30443679,
+        "magnitude": 2.9157,
+        "b_v": 0.458,
+        "spectral_type": "F",
+        "name": "Tureis"
+      },
+      "25428": {
+        "hip": 25428,
+        "ra": 81.57290832,
+        "dec": 28.60787362,
+        "magnitude": 1.6151,
+        "b_v": -0.13,
+        "spectral_type": "B",
+        "name": "Elnath"
+      },
+      "93015": {
+        "hip": 93015,
+        "ra": 284.23766931,
+        "dec": -67.23353533,
+        "magnitude": 4.4996,
+        "b_v": 0.53,
+        "spectral_type": "G"
+      },
+      "107354": {
+        "hip": 107354,
+        "ra": 326.161267,
+        "dec": 25.64500303,
+        "magnitude": 4.2347,
+        "b_v": 0.425,
+        "spectral_type": "F"
+      },
+      "13147": {
+        "hip": 13147,
+        "ra": 42.27233094,
+        "dec": -32.40628374,
+        "magnitude": 4.6193,
+        "b_v": 0.981,
+        "spectral_type": "K"
+      },
+      "2912": {
+        "hip": 2912,
+        "ra": 9.22016213,
+        "dec": 33.71935253,
+        "magnitude": 4.3098,
+        "b_v": -0.123,
+        "spectral_type": "B"
+      },
+      "70497": {
+        "hip": 70497,
+        "ra": 216.30008053,
+        "dec": 51.85171355,
+        "magnitude": 4.1514,
+        "b_v": 0.497,
+        "spectral_type": "F"
+      },
+      "109410": {
+        "hip": 109410,
+        "ra": 332.49688618,
+        "dec": 33.17826762,
+        "magnitude": 4.3853,
+        "b_v": 0.471,
+        "spectral_type": "F"
+      },
+      "90982": {
+        "hip": 90982,
+        "ra": 278.37566673,
+        "dec": -42.31245894,
+        "magnitude": 4.7824,
+        "b_v": 0.994,
+        "spectral_type": "K"
+      },
+      "105319": {
+        "hip": 105319,
+        "ra": 319.96618277,
+        "dec": -53.449264,
+        "magnitude": 4.4458,
+        "b_v": 0.191,
+        "spectral_type": "A"
+      },
+      "31592": {
+        "hip": 31592,
+        "ra": 99.17082881,
+        "dec": -19.25570935,
+        "magnitude": 4.12,
+        "b_v": 1.037,
+        "spectral_type": "K"
+      },
+      "37740": {
+        "hip": 37740,
+        "ra": 116.1119523,
+        "dec": 24.39812909,
+        "magnitude": 3.7285,
+        "b_v": 0.932,
+        "spectral_type": "K"
+      },
+      "62322": {
+        "hip": 62322,
+        "ra": 191.57029068,
+        "dec": -68.10809406,
+        "magnitude": 2.9789,
+        "b_v": -0.178,
+        "spectral_type": "B"
+      },
+      "109427": {
+        "hip": 109427,
+        "ra": 332.54924876,
+        "dec": 6.19778923,
+        "magnitude": 3.5534,
+        "b_v": 0.086,
+        "spectral_type": "A",
+        "name": "Biham"
+      },
+      "107380": {
+        "hip": 107380,
+        "ra": 326.23661583,
+        "dec": -33.02555295,
+        "magnitude": 4.3337,
+        "b_v": -0.053,
+        "spectral_type": "B"
+      },
+      "45941": {
+        "hip": 45941,
+        "ra": 140.52845503,
+        "dec": -55.01069513,
+        "magnitude": 2.4131,
+        "b_v": -0.141,
+        "spectral_type": "B",
+        "name": "Markeb"
+      },
+      "39794": {
+        "hip": 39794,
+        "ra": 121.98267009,
+        "dec": -68.6171364,
+        "magnitude": 4.3109,
+        "b_v": -0.113,
+        "spectral_type": "B"
+      },
+      "23416": {
+        "hip": 23416,
+        "ra": 75.49222145,
+        "dec": 43.82331367,
+        "magnitude": 3.1457,
+        "b_v": 0.537,
+        "spectral_type": "G"
+      },
+      "72571": {
+        "hip": 72571,
+        "ra": 222.57277823,
+        "dec": -27.96021967,
+        "magnitude": 4.5608,
+        "b_v": 1.366,
+        "spectral_type": "K"
+      },
+      "80763": {
+        "hip": 80763,
+        "ra": 247.35194829,
+        "dec": -26.43194598,
+        "magnitude": 0.9757,
+        "b_v": 1.865,
+        "spectral_type": "M",
+        "name": "Antares"
+      },
+      "111497": {
+        "hip": 111497,
+        "ra": 338.83887047,
+        "dec": -0.11736125,
+        "magnitude": 4.0159,
+        "b_v": -0.083,
+        "spectral_type": "B"
+      },
+      "64394": {
+        "hip": 64394,
+        "ra": 197.97051114,
+        "dec": 27.87603771,
+        "magnitude": 4.3607,
+        "b_v": 0.572,
+        "spectral_type": "G"
+      },
+      "27530": {
+        "hip": 27530,
+        "ra": 87.45657006,
+        "dec": -56.16648846,
+        "magnitude": 4.6622,
+        "b_v": 1.075,
+        "spectral_type": "K"
+      },
+      "97165": {
+        "hip": 97165,
+        "ra": 296.24350876,
+        "dec": 45.13069175,
+        "magnitude": 2.8683,
+        "b_v": -0.002,
+        "spectral_type": "B"
+      },
+      "19343": {
+        "hip": 19343,
+        "ra": 62.1653055,
+        "dec": 47.71259362,
+        "magnitude": 3.9864,
+        "b_v": -0.025,
+        "spectral_type": "B"
+      },
+      "21393": {
+        "hip": 21393,
+        "ra": 68.88779881,
+        "dec": -30.56231068,
+        "magnitude": 3.973,
+        "b_v": 0.957,
+        "spectral_type": "K"
+      },
+      "86929": {
+        "hip": 86929,
+        "ra": 266.43334328,
+        "dec": -64.72373456,
+        "magnitude": 3.77,
+        "b_v": 1.161,
+        "spectral_type": "K"
+      },
+      "56211": {
+        "hip": 56211,
+        "ra": 172.85120192,
+        "dec": 69.33112154,
+        "magnitude": 3.9165,
+        "b_v": 1.613,
+        "spectral_type": "M",
+        "name": "Giausar"
+      },
+      "13209": {
+        "hip": 13209,
+        "ra": 42.49578916,
+        "dec": 27.26079044,
+        "magnitude": 3.5831,
+        "b_v": -0.1,
+        "spectral_type": "B"
+      },
+      "23453": {
+        "hip": 23453,
+        "ra": 75.61950031,
+        "dec": 41.07588922,
+        "magnitude": 3.8549,
+        "b_v": 1.154,
+        "spectral_type": "K"
+      },
+      "33694": {
+        "hip": 33694,
+        "ra": 105.01603325,
+        "dec": 76.97744141,
+        "magnitude": 4.695,
+        "b_v": 1.365,
+        "spectral_type": "K"
+      },
+      "93085": {
+        "hip": 93085,
+        "ra": 284.43241354,
+        "dec": -21.10662351,
+        "magnitude": 3.688,
+        "b_v": 1.151,
+        "spectral_type": "K"
+      },
+      "72607": {
+        "hip": 72607,
+        "ra": 222.6766478,
+        "dec": 74.15547618,
+        "magnitude": 2.2044,
+        "b_v": 1.465,
+        "spectral_type": "M",
+        "name": "Kochab"
+      },
+      "99240": {
+        "hip": 99240,
+        "ra": 302.17441726,
+        "dec": -66.1793211,
+        "magnitude": 3.6876,
+        "b_v": 0.751,
+        "spectral_type": "G"
+      },
+      "68520": {
+        "hip": 68520,
+        "ra": 210.4115967,
+        "dec": 1.54458351,
+        "magnitude": 4.2777,
+        "b_v": 0.121,
+        "spectral_type": "A"
+      },
+      "74666": {
+        "hip": 74666,
+        "ra": 228.8754325,
+        "dec": 33.31510247,
+        "magnitude": 3.6268,
+        "b_v": 0.961,
+        "spectral_type": "K"
+      },
+      "23467": {
+        "hip": 23467,
+        "ra": 75.67918693,
+        "dec": -71.31432601,
+        "magnitude": 5.4696,
+        "b_v": 0.996,
+        "spectral_type": "K"
+      },
+      "7083": {
+        "hip": 7083,
+        "ra": 22.81242304,
+        "dec": -49.07307705,
+        "magnitude": 4.0987,
+        "b_v": 0.972,
+        "spectral_type": "K"
+      },
+      "21421": {
+        "hip": 21421,
+        "ra": 68.98000194,
+        "dec": 16.50976158,
+        "magnitude": 1.0024,
+        "b_v": 1.538,
+        "spectral_type": "M",
+        "name": "Aldebaran"
+      },
+      "72622": {
+        "hip": 72622,
+        "ra": 222.71990516,
+        "dec": -16.04161027,
+        "magnitude": 2.7892,
+        "b_v": 0.147,
+        "spectral_type": "A",
+        "name": "Zubenelgenubi"
+      },
+      "80816": {
+        "hip": 80816,
+        "ra": 247.5552571,
+        "dec": 21.48964873,
+        "magnitude": 2.9378,
+        "b_v": 0.947,
+        "spectral_type": "K",
+        "name": "Kornephoros"
+      },
+      "50099": {
+        "hip": 50099,
+        "ra": 153.43449551,
+        "dec": -70.03792176,
+        "magnitude": 3.2783,
+        "b_v": -0.074,
+        "spectral_type": "B"
+      },
+      "56243": {
+        "hip": 56243,
+        "ra": 172.94197158,
+        "dec": -59.44206374,
+        "magnitude": 5.234,
+        "b_v": 1.026,
+        "spectral_type": "K"
+      },
+      "109492": {
+        "hip": 109492,
+        "ra": 332.71359145,
+        "dec": 58.20124993,
+        "magnitude": 3.512,
+        "b_v": 1.558,
+        "spectral_type": "M"
+      },
+      "39863": {
+        "hip": 39863,
+        "ra": 122.1485734,
+        "dec": -2.98377686,
+        "magnitude": 4.522,
+        "b_v": 0.97,
+        "spectral_type": "K"
+      },
+      "7097": {
+        "hip": 7097,
+        "ra": 22.87080767,
+        "dec": 15.34583101,
+        "magnitude": 3.7914,
+        "b_v": 0.974,
+        "spectral_type": "K"
+      },
+      "86974": {
+        "hip": 86974,
+        "ra": 266.6154953,
+        "dec": 27.72249916,
+        "magnitude": 3.5596,
+        "b_v": 0.75,
+        "spectral_type": "G"
+      },
+      "95168": {
+        "hip": 95168,
+        "ra": 290.4182303,
+        "dec": -17.84725128,
+        "magnitude": 3.9884,
+        "b_v": 0.228,
+        "spectral_type": "A"
+      },
+      "31681": {
+        "hip": 31681,
+        "ra": 99.42792544,
+        "dec": 16.39941401,
+        "magnitude": 1.929,
+        "b_v": 0.001,
+        "spectral_type": "A",
+        "name": "Alhena"
+      },
+      "37826": {
+        "hip": 37826,
+        "ra": 116.33068294,
+        "dec": 28.02631022,
+        "magnitude": 1.2947,
+        "b_v": 0.991,
+        "spectral_type": "K",
+        "name": "Pollux"
+      },
+      "21444": {
+        "hip": 21444,
+        "ra": 69.07975228,
+        "dec": -3.35244801,
+        "magnitude": 3.8713,
+        "b_v": -0.21,
+        "spectral_type": "B"
+      },
+      "31685": {
+        "hip": 31685,
+        "ra": 99.44029877,
+        "dec": -43.19592397,
+        "magnitude": 3.1395,
+        "b_v": -0.103,
+        "spectral_type": "B"
+      },
+      "17358": {
+        "hip": 17358,
+        "ra": 55.7311752,
+        "dec": 47.78765317,
+        "magnitude": 2.9703,
+        "b_v": -0.125,
+        "spectral_type": "B"
+      },
+      "29651": {
+        "hip": 29651,
+        "ra": 93.71390174,
+        "dec": -6.27472754,
+        "magnitude": 4.1465,
+        "b_v": 1.319,
+        "spectral_type": "K"
+      },
+      "13268": {
+        "hip": 13268,
+        "ra": 42.67413627,
+        "dec": 55.89552946,
+        "magnitude": 3.896,
+        "b_v": 1.69,
+        "spectral_type": "M"
+      },
+      "3031": {
+        "hip": 3031,
+        "ra": 9.6395805,
+        "dec": 29.31236894,
+        "magnitude": 4.4994,
+        "b_v": 0.871,
+        "spectral_type": "K"
+      },
+      "29655": {
+        "hip": 29655,
+        "ra": 93.71956913,
+        "dec": 22.5068238,
+        "magnitude": 3.2945,
+        "b_v": 1.6,
+        "spectral_type": "M",
+        "name": "Propus"
+      },
+      "23522": {
+        "hip": 23522,
+        "ra": 75.85457216,
+        "dec": 60.44228148,
+        "magnitude": 4.1838,
+        "b_v": 0.921,
+        "spectral_type": "K"
+      },
+      "62434": {
+        "hip": 62434,
+        "ra": 191.9304935,
+        "dec": -59.68873267,
+        "magnitude": 1.1537,
+        "b_v": -0.238,
+        "spectral_type": "B",
+        "name": "Mimosa"
+      },
+      "17378": {
+        "hip": 17378,
+        "ra": 55.81231675,
+        "dec": -9.76519869,
+        "magnitude": 3.6796,
+        "b_v": 0.915,
+        "spectral_type": "K"
+      },
+      "78820": {
+        "hip": 78820,
+        "ra": 241.35931336,
+        "dec": -19.80539435,
+        "magnitude": 2.594,
+        "b_v": -0.065,
+        "spectral_type": "B",
+        "name": "Graffias"
+      },
+      "113638": {
+        "hip": 113638,
+        "ra": 345.22031025,
+        "dec": -52.75410554,
+        "magnitude": 4.2774,
+        "b_v": 0.96,
+        "spectral_type": "K"
+      },
+      "84970": {
+        "hip": 84970,
+        "ra": 260.50243371,
+        "dec": -24.99948819,
+        "magnitude": 3.1931,
+        "b_v": -0.186,
+        "spectral_type": "B"
+      },
+      "27628": {
+        "hip": 27628,
+        "ra": 87.73980343,
+        "dec": -35.76929221,
+        "magnitude": 3.2833,
+        "b_v": 1.146,
+        "spectral_type": "K",
+        "name": "Wazn"
+      },
+      "91117": {
+        "hip": 91117,
+        "ra": 278.8018241,
+        "dec": -8.24330822,
+        "magnitude": 4.0071,
+        "b_v": 1.317,
+        "spectral_type": "K"
+      },
+      "70638": {
+        "hip": 70638,
+        "ra": 216.73225343,
+        "dec": -83.66785298,
+        "magnitude": 4.4667,
+        "b_v": 1.3,
+        "spectral_type": "K"
+      },
+      "80883": {
+        "hip": 80883,
+        "ra": 247.72850509,
+        "dec": 1.98410093,
+        "magnitude": 3.8247,
+        "b_v": 0.022,
+        "spectral_type": "A",
+        "name": "Marfik"
+      },
+      "103413": {
+        "hip": 103413,
+        "ra": 314.29338166,
+        "dec": 41.16719394,
+        "magnitude": 3.9504,
+        "b_v": 0.027,
+        "spectral_type": "A"
+      },
+      "97278": {
+        "hip": 97278,
+        "ra": 296.56487586,
+        "dec": 10.61326857,
+        "magnitude": 2.8695,
+        "b_v": 1.507,
+        "spectral_type": "M",
+        "name": "Tarazed"
+      },
+      "80894": {
+        "hip": 80894,
+        "ra": 247.78497887,
+        "dec": -16.61263997,
+        "magnitude": 4.4439,
+        "b_v": 0.924,
+        "spectral_type": "K"
+      },
+      "25606": {
+        "hip": 25606,
+        "ra": 82.06135954,
+        "dec": -20.759232,
+        "magnitude": 2.9674,
+        "b_v": 0.807,
+        "spectral_type": "K",
+        "name": "Nihal"
+      },
+      "27654": {
+        "hip": 27654,
+        "ra": 87.82980354,
+        "dec": -20.87751377,
+        "magnitude": 3.9262,
+        "b_v": 0.984,
+        "spectral_type": "K"
+      },
+      "93194": {
+        "hip": 93194,
+        "ra": 284.73593565,
+        "dec": 32.68955294,
+        "magnitude": 3.2342,
+        "b_v": -0.049,
+        "spectral_type": "B",
+        "name": "Sulafat"
+      },
+      "50191": {
+        "hip": 50191,
+        "ra": 153.68447404,
+        "dec": -42.12206275,
+        "magnitude": 3.8653,
+        "b_v": 0.051,
+        "spectral_type": "A"
+      },
+      "39953": {
+        "hip": 39953,
+        "ra": 122.38314733,
+        "dec": -47.33661168,
+        "magnitude": 1.7034,
+        "b_v": -0.145,
+        "spectral_type": "B",
+        "name": "Regor"
+      },
+      "3092": {
+        "hip": 3092,
+        "ra": 9.83165586,
+        "dec": 30.86122597,
+        "magnitude": 3.4328,
+        "b_v": 1.268,
+        "spectral_type": "K"
+      },
+      "9236": {
+        "hip": 9236,
+        "ra": 29.69113173,
+        "dec": -61.56992473,
+        "magnitude": 2.9305,
+        "b_v": 0.29,
+        "spectral_type": "A"
+      },
+      "56343": {
+        "hip": 56343,
+        "ra": 173.25107925,
+        "dec": -31.85752392,
+        "magnitude": 3.7025,
+        "b_v": 0.947,
+        "spectral_type": "K"
+      },
+      "89112": {
+        "hip": 89112,
+        "ra": 272.80740089,
+        "dec": -45.95432714,
+        "magnitude": 4.683,
+        "b_v": 1.008,
+        "spectral_type": "K"
+      },
+      "115738": {
+        "hip": 115738,
+        "ra": 351.73293869,
+        "dec": 1.25583751,
+        "magnitude": 4.9527,
+        "b_v": 0.036,
+        "spectral_type": "A"
+      },
+      "54301": {
+        "hip": 54301,
+        "ra": 166.63530976,
+        "dec": -62.42413655,
+        "magnitude": 4.7809,
+        "b_v": 0.988,
+        "spectral_type": "K"
+      },
+      "17440": {
+        "hip": 17440,
+        "ra": 56.04814575,
+        "dec": -64.8070942,
+        "magnitude": 4.0019,
+        "b_v": 1.133,
+        "spectral_type": "K"
+      },
+      "74785": {
+        "hip": 74785,
+        "ra": 229.25196592,
+        "dec": -9.38286665,
+        "magnitude": 2.5739,
+        "b_v": -0.071,
+        "spectral_type": "B",
+        "name": "Zubeneschamali"
+      },
+      "44066": {
+        "hip": 44066,
+        "ra": 134.62165396,
+        "dec": 11.85777235,
+        "magnitude": 4.3023,
+        "b_v": 0.141,
+        "spectral_type": "A",
+        "name": "Acubens"
+      },
+      "87073": {
+        "hip": 87073,
+        "ra": 266.89617134,
+        "dec": -40.12698187,
+        "magnitude": 3.1092,
+        "b_v": 0.509,
+        "spectral_type": "G"
+      },
+      "107556": {
+        "hip": 107556,
+        "ra": 326.7595222,
+        "dec": -16.12656594,
+        "magnitude": 2.9409,
+        "b_v": 0.18,
+        "spectral_type": "A",
+        "name": "Deneb Algedi"
+      },
+      "17448": {
+        "hip": 17448,
+        "ra": 56.07969333,
+        "dec": 32.28827337,
+        "magnitude": 3.8583,
+        "b_v": 0.022,
+        "spectral_type": "A",
+        "name": "Atik"
+      },
+      "23595": {
+        "hip": 23595,
+        "ra": 76.10129915,
+        "dec": -35.48287056,
+        "magnitude": 4.701,
+        "b_v": 1.177,
+        "spectral_type": "K"
+      },
+      "1067": {
+        "hip": 1067,
+        "ra": 3.30895847,
+        "dec": 15.1836161,
+        "magnitude": 2.7544,
+        "b_v": -0.19,
+        "spectral_type": "B",
+        "name": "Algenib"
+      },
+      "101421": {
+        "hip": 101421,
+        "ra": 308.30318669,
+        "dec": 11.30333185,
+        "magnitude": 3.9978,
+        "b_v": -0.123,
+        "spectral_type": "B"
+      },
+      "5165": {
+        "hip": 5165,
+        "ra": 16.52128448,
+        "dec": -46.71849569,
+        "magnitude": 3.4646,
+        "b_v": 0.885,
+        "spectral_type": "K"
+      },
+      "76852": {
+        "hip": 76852,
+        "ra": 235.38788497,
+        "dec": 19.67050563,
+        "magnitude": 4.5337,
+        "b_v": 0.062,
+        "spectral_type": "A"
+      },
+      "23607": {
+        "hip": 23607,
+        "ra": 76.1422433,
+        "dec": 15.40418045,
+        "magnitude": 4.6541,
+        "b_v": -0.064,
+        "spectral_type": "B"
+      },
+      "83000": {
+        "hip": 83000,
+        "ra": 254.41779403,
+        "dec": 9.37505651,
+        "magnitude": 3.3612,
+        "b_v": 1.16,
+        "spectral_type": "K"
+      },
+      "93244": {
+        "hip": 93244,
+        "ra": 284.90578907,
+        "dec": 15.06847784,
+        "magnitude": 4.184,
+        "b_v": 1.082,
+        "spectral_type": "K"
+      },
+      "113726": {
+        "hip": 113726,
+        "ra": 345.48019356,
+        "dec": 42.32597936,
+        "magnitude": 3.6041,
+        "b_v": -0.099,
+        "spectral_type": "B"
+      },
+      "35904": {
+        "hip": 35904,
+        "ra": 111.02377104,
+        "dec": -29.30311963,
+        "magnitude": 2.4215,
+        "b_v": -0.083,
+        "spectral_type": "B",
+        "name": "Aludra"
+      },
+      "46146": {
+        "hip": 46146,
+        "ra": 141.16366378,
+        "dec": 26.18244076,
+        "magnitude": 4.6163,
+        "b_v": 1.222,
+        "spectral_type": "K"
+      },
+      "78914": {
+        "hip": 78914,
+        "ra": 241.622598,
+        "dec": -45.17327451,
+        "magnitude": 4.7948,
+        "b_v": 0.23,
+        "spectral_type": "A"
+      },
+      "87108": {
+        "hip": 87108,
+        "ra": 266.97322551,
+        "dec": 2.70745866,
+        "magnitude": 3.7637,
+        "b_v": 0.043,
+        "spectral_type": "A"
+      },
+      "74824": {
+        "hip": 74824,
+        "ra": 229.37900093,
+        "dec": -58.80087875,
+        "magnitude": 4.1042,
+        "b_v": 0.088,
+        "spectral_type": "A"
+      },
+      "97365": {
+        "hip": 97365,
+        "ra": 296.84693825,
+        "dec": 18.53425889,
+        "magnitude": 3.8364,
+        "b_v": 1.313,
+        "spectral_type": "K"
+      },
+      "107608": {
+        "hip": 107608,
+        "ra": 326.93405548,
+        "dec": -30.8983061,
+        "magnitude": 5.0443,
+        "b_v": 0.042,
+        "spectral_type": "A"
+      },
+      "68702": {
+        "hip": 68702,
+        "ra": 210.9560192,
+        "dec": -60.37297887,
+        "magnitude": 0.5366,
+        "b_v": -0.231,
+        "spectral_type": "B",
+        "name": "Hadar"
+      },
+      "44127": {
+        "hip": 44127,
+        "ra": 134.80349431,
+        "dec": 48.0423495,
+        "magnitude": 3.188,
+        "b_v": 0.223,
+        "spectral_type": "A",
+        "name": "Talitha"
+      },
+      "66657": {
+        "hip": 66657,
+        "ra": 204.9719697,
+        "dec": -53.46636266,
+        "magnitude": 2.2097,
+        "b_v": -0.171,
+        "spectral_type": "B"
+      },
+      "3179": {
+        "hip": 3179,
+        "ra": 10.1266135,
+        "dec": 56.53740925,
+        "magnitude": 2.4107,
+        "b_v": 1.17,
+        "spectral_type": "K",
+        "name": "Schedar"
+      },
+      "81008": {
+        "hip": 81008,
+        "ra": 248.15165982,
+        "dec": 11.48823376,
+        "magnitude": 4.9576,
+        "b_v": 1.495,
+        "spectral_type": "M"
+      },
+      "15474": {
+        "hip": 15474,
+        "ra": 49.87904019,
+        "dec": -21.7579425,
+        "magnitude": 3.7303,
+        "b_v": 1.614,
+        "spectral_type": "M"
+      },
+      "58484": {
+        "hip": 58484,
+        "ra": 179.90704842,
+        "dec": -78.22181813,
+        "magnitude": 4.8769,
+        "b_v": -0.054,
+        "spectral_type": "B"
+      },
+      "115830": {
+        "hip": 115830,
+        "ra": 351.99236594,
+        "dec": 6.37909729,
+        "magnitude": 4.4401,
+        "b_v": 1.062,
+        "spectral_type": "K"
+      },
+      "85112": {
+        "hip": 85112,
+        "ra": 260.9207206,
+        "dec": 37.14592405,
+        "magnitude": 4.1529,
+        "b_v": -0.011,
+        "spectral_type": "B"
+      },
+      "91262": {
+        "hip": 91262,
+        "ra": 279.23410825,
+        "dec": 38.78299326,
+        "magnitude": 0.0868,
+        "b_v": -0.001,
+        "spectral_type": "B",
+        "name": "Vega"
+      },
+      "19587": {
+        "hip": 19587,
+        "ra": 62.96638849,
+        "dec": -6.83777866,
+        "magnitude": 4.1285,
+        "b_v": 0.327,
+        "spectral_type": "F",
+        "name": "Beid"
+      },
+      "23685": {
+        "hip": 23685,
+        "ra": 76.36521684,
+        "dec": -22.37085672,
+        "magnitude": 3.3215,
+        "b_v": 1.46,
+        "spectral_type": "M"
+      },
+      "83081": {
+        "hip": 83081,
+        "ra": 254.65512805,
+        "dec": -55.9900554,
+        "magnitude": 3.2393,
+        "b_v": 1.552,
+        "spectral_type": "M"
+      },
+      "23693": {
+        "hip": 23693,
+        "ra": 76.37787653,
+        "dec": -57.47298941,
+        "magnitude": 4.8191,
+        "b_v": 0.526,
+        "spectral_type": "G"
+      },
+      "11407": {
+        "hip": 11407,
+        "ra": 36.74627095,
+        "dec": -47.70382674,
+        "magnitude": 4.2002,
+        "b_v": -0.136,
+        "spectral_type": "B"
+      },
+      "99473": {
+        "hip": 99473,
+        "ra": 302.82610296,
+        "dec": -0.82147572,
+        "magnitude": 3.2245,
+        "b_v": -0.066,
+        "spectral_type": "B"
+      },
+      "68756": {
+        "hip": 68756,
+        "ra": 211.09760812,
+        "dec": 64.3758087,
+        "magnitude": 3.6452,
+        "b_v": -0.049,
+        "spectral_type": "B",
+        "name": "Thuban"
+      },
+      "15510": {
+        "hip": 15510,
+        "ra": 49.97176989,
+        "dec": -43.07154908,
+        "magnitude": 4.395,
+        "b_v": 0.711,
+        "spectral_type": "G"
+      },
+      "76952": {
+        "hip": 76952,
+        "ra": 235.68599233,
+        "dec": 26.29551427,
+        "magnitude": 3.8233,
+        "b_v": 0.02,
+        "spectral_type": "A"
+      },
+      "97433": {
+        "hip": 97433,
+        "ra": 297.04255738,
+        "dec": 70.26783536,
+        "magnitude": 3.9974,
+        "b_v": 0.888,
+        "spectral_type": "K"
+      },
+      "50335": {
+        "hip": 50335,
+        "ra": 154.17251782,
+        "dec": 23.41732831,
+        "magnitude": 3.5096,
+        "b_v": 0.307,
+        "spectral_type": "F",
+        "name": "Adhafera"
+      },
+      "81065": {
+        "hip": 81065,
+        "ra": 248.36443325,
+        "dec": -78.89695904,
+        "magnitude": 4.0203,
+        "b_v": 0.923,
+        "spectral_type": "K"
+      },
+      "38070": {
+        "hip": 38070,
+        "ra": 117.02156224,
+        "dec": -25.93718043,
+        "magnitude": 4.4428,
+        "b_v": -0.07,
+        "spectral_type": "B"
+      },
+      "17593": {
+        "hip": 17593,
+        "ra": 56.53542672,
+        "dec": -12.10173525,
+        "magnitude": 4.5239,
+        "b_v": 1.604,
+        "spectral_type": "M"
+      },
+      "109754": {
+        "hip": 109754,
+        "ra": 333.4695896,
+        "dec": 39.714889,
+        "magnitude": 4.649,
+        "b_v": 1.385,
+        "spectral_type": "K"
+      },
+      "54463": {
+        "hip": 54463,
+        "ra": 167.14748177,
+        "dec": -58.97504176,
+        "magnitude": 4.089,
+        "b_v": 1.225,
+        "spectral_type": "K"
+      },
+      "48319": {
+        "hip": 48319,
+        "ra": 147.7487155,
+        "dec": 59.03910451,
+        "magnitude": 3.8476,
+        "b_v": 0.291,
+        "spectral_type": "A"
+      },
+      "74946": {
+        "hip": 74946,
+        "ra": 229.72787002,
+        "dec": -68.6794674,
+        "magnitude": 2.8816,
+        "b_v": 0.014,
+        "spectral_type": "A"
+      },
+      "52419": {
+        "hip": 52419,
+        "ra": 160.73927812,
+        "dec": -64.39447946,
+        "magnitude": 2.6536,
+        "b_v": -0.22,
+        "spectral_type": "B"
+      },
+      "50371": {
+        "hip": 50371,
+        "ra": 154.27085573,
+        "dec": -61.33231981,
+        "magnitude": 3.5298,
+        "b_v": 1.541,
+        "spectral_type": "M"
+      },
+      "50372": {
+        "hip": 50372,
+        "ra": 154.27469481,
+        "dec": 42.91446775,
+        "magnitude": 3.4586,
+        "b_v": 0.029,
+        "spectral_type": "A",
+        "name": "Tania Borealis"
+      },
+      "36046": {
+        "hip": 36046,
+        "ra": 111.43198418,
+        "dec": 27.79828559,
+        "magnitude": 3.9507,
+        "b_v": 1.024,
+        "spectral_type": "K"
+      },
+      "83153": {
+        "hip": 83153,
+        "ra": 254.89602791,
+        "dec": -53.16049004,
+        "magnitude": 4.2025,
+        "b_v": 1.452,
+        "spectral_type": "M"
+      },
+      "23767": {
+        "hip": 23767,
+        "ra": 76.62862074,
+        "dec": 41.23464072,
+        "magnitude": 3.116,
+        "b_v": -0.148,
+        "spectral_type": "B"
+      },
+      "44248": {
+        "hip": 44248,
+        "ra": 135.16146546,
+        "dec": 41.78344222,
+        "magnitude": 4.0591,
+        "b_v": 0.463,
+        "spectral_type": "F"
+      },
+      "113881": {
+        "hip": 113881,
+        "ra": 345.94305579,
+        "dec": 28.08245431,
+        "magnitude": 2.4861,
+        "b_v": 1.655,
+        "spectral_type": "M",
+        "name": "Scheat"
+      },
+      "13531": {
+        "hip": 13531,
+        "ra": 43.56442622,
+        "dec": 52.7624895,
+        "magnitude": 4.0759,
+        "b_v": 0.758,
+        "spectral_type": "G"
+      },
+      "11484": {
+        "hip": 11484,
+        "ra": 37.03965837,
+        "dec": 8.46008868,
+        "magnitude": 4.2725,
+        "b_v": -0.053,
+        "spectral_type": "B"
+      },
+      "87261": {
+        "hip": 87261,
+        "ra": 267.46437979,
+        "dec": -37.04337108,
+        "magnitude": 3.3521,
+        "b_v": 1.192,
+        "spectral_type": "K"
+      },
+      "48356": {
+        "hip": 48356,
+        "ra": 147.86951018,
+        "dec": -14.84654996,
+        "magnitude": 4.2725,
+        "b_v": 0.918,
+        "spectral_type": "K"
+      },
+      "5348": {
+        "hip": 5348,
+        "ra": 17.09608393,
+        "dec": -55.2458325,
+        "magnitude": 3.9219,
+        "b_v": -0.12,
+        "spectral_type": "B"
+      },
+      "81126": {
+        "hip": 81126,
+        "ra": 248.52578873,
+        "dec": 42.436896,
+        "magnitude": 4.2022,
+        "b_v": -0.013,
+        "spectral_type": "B"
+      },
+      "31978": {
+        "hip": 31978,
+        "ra": 100.24442156,
+        "dec": 9.89576028,
+        "magnitude": 4.5554,
+        "b_v": -0.233,
+        "spectral_type": "B"
+      },
+      "27890": {
+        "hip": 27890,
+        "ra": 88.52458412,
+        "dec": -63.09102105,
+        "magnitude": 4.8015,
+        "b_v": 1.021,
+        "spectral_type": "K"
+      },
+      "17651": {
+        "hip": 17651,
+        "ra": 56.71245432,
+        "dec": -23.24843785,
+        "magnitude": 4.3164,
+        "b_v": 0.434,
+        "spectral_type": "F"
+      },
+      "5364": {
+        "hip": 5364,
+        "ra": 17.14693207,
+        "dec": -10.18192793,
+        "magnitude": 3.6235,
+        "b_v": 1.161,
+        "spectral_type": "K"
+      },
+      "93429": {
+        "hip": 93429,
+        "ra": 285.42017243,
+        "dec": -5.73901845,
+        "magnitude": 4.1784,
+        "b_v": 1.079,
+        "spectral_type": "K"
+      },
+      "34045": {
+        "hip": 34045,
+        "ra": 105.93955472,
+        "dec": -15.63325849,
+        "magnitude": 4.0738,
+        "b_v": -0.112,
+        "spectral_type": "B",
+        "name": "Muliphein"
+      },
+      "68862": {
+        "hip": 68862,
+        "ra": 211.5116083,
+        "dec": -41.17958028,
+        "magnitude": 4.2873,
+        "b_v": -0.198,
+        "spectral_type": "B"
+      },
+      "79101": {
+        "hip": 79101,
+        "ra": 242.19249746,
+        "dec": 44.93481797,
+        "magnitude": 4.2233,
+        "b_v": -0.045,
+        "spectral_type": "B"
+      },
+      "89341": {
+        "hip": 89341,
+        "ra": 273.44086939,
+        "dec": -21.05883052,
+        "magnitude": 3.8729,
+        "b_v": 0.195,
+        "spectral_type": "A"
+      },
+      "77055": {
+        "hip": 77055,
+        "ra": 236.01443325,
+        "dec": 77.79449896,
+        "magnitude": 4.3064,
+        "b_v": 0.038,
+        "spectral_type": "A"
+      },
+      "25859": {
+        "hip": 25859,
+        "ra": 82.80306422,
+        "dec": -35.4704359,
+        "magnitude": 4.0314,
+        "b_v": 1.13,
+        "spectral_type": "K"
+      },
+      "83207": {
+        "hip": 83207,
+        "ra": 255.07252587,
+        "dec": 30.9263392,
+        "magnitude": 3.9111,
+        "b_v": -0.018,
+        "spectral_type": "B"
+      },
+      "27913": {
+        "hip": 27913,
+        "ra": 88.59618362,
+        "dec": 20.27641465,
+        "magnitude": 4.5219,
+        "b_v": 0.594,
+        "spectral_type": "G"
+      },
+      "85258": {
+        "hip": 85258,
+        "ra": 261.32498802,
+        "dec": -55.52982387,
+        "magnitude": 2.9935,
+        "b_v": 1.479,
+        "spectral_type": "M"
+      },
+      "21770": {
+        "hip": 21770,
+        "ra": 70.14092924,
+        "dec": -41.86357022,
+        "magnitude": 4.5287,
+        "b_v": 0.342,
+        "spectral_type": "F"
+      },
+      "54539": {
+        "hip": 54539,
+        "ra": 167.41608083,
+        "dec": 44.4985533,
+        "magnitude": 3.1638,
+        "b_v": 1.144,
+        "spectral_type": "K"
+      },
+      "95501": {
+        "hip": 95501,
+        "ra": 291.37396955,
+        "dec": 3.11457893,
+        "magnitude": 3.4408,
+        "b_v": 0.319,
+        "spectral_type": "F"
+      },
+      "17678": {
+        "hip": 17678,
+        "ra": 56.80929757,
+        "dec": -74.23924238,
+        "magnitude": 3.342,
+        "b_v": 1.59,
+        "spectral_type": "M"
+      },
+      "9487": {
+        "hip": 9487,
+        "ra": 30.51166985,
+        "dec": 2.76376128,
+        "magnitude": 3.8281,
+        "b_v": 0.024,
+        "spectral_type": "A",
+        "name": "Alrescha"
+      },
+      "77070": {
+        "hip": 77070,
+        "ra": 236.06664895,
+        "dec": 6.42551977,
+        "magnitude": 2.7971,
+        "b_v": 1.167,
+        "spectral_type": "K",
+        "name": "Unukalhai"
+      },
+      "85267": {
+        "hip": 85267,
+        "ra": 261.34858239,
+        "dec": -56.377688,
+        "magnitude": 3.271,
+        "b_v": -0.15,
+        "spectral_type": "B"
+      },
+      "38170": {
+        "hip": 38170,
+        "ra": 117.32357816,
+        "dec": -24.85978408,
+        "magnitude": 3.5109,
+        "b_v": 1.218,
+        "spectral_type": "K"
+      },
+      "68895": {
+        "hip": 68895,
+        "ra": 211.59278732,
+        "dec": -26.68201863,
+        "magnitude": 3.4187,
+        "b_v": 1.091,
+        "spectral_type": "K"
+      },
+      "109857": {
+        "hip": 109857,
+        "ra": 333.75699565,
+        "dec": 57.0434651,
+        "magnitude": 4.2584,
+        "b_v": 0.278,
+        "spectral_type": "A"
+      },
+      "19747": {
+        "hip": 19747,
+        "ra": 63.50033879,
+        "dec": -42.29387282,
+        "magnitude": 4.0124,
+        "b_v": 1.085,
+        "spectral_type": "K"
+      },
+      "34088": {
+        "hip": 34088,
+        "ra": 106.02723055,
+        "dec": 20.57029929,
+        "magnitude": 4.1689,
+        "b_v": 0.899,
+        "spectral_type": "K",
+        "name": "Mekbuda"
+      },
+      "113963": {
+        "hip": 113963,
+        "ra": 346.19007056,
+        "dec": 15.20536753,
+        "magnitude": 2.4784,
+        "b_v": -0.002,
+        "spectral_type": "B",
+        "name": "Markab"
+      },
+      "29997": {
+        "hip": 29997,
+        "ra": 94.71158252,
+        "dec": 69.32003429,
+        "magnitude": 4.7792,
+        "b_v": 0.025,
+        "spectral_type": "A"
+      },
+      "60718": {
+        "hip": 60718,
+        "ra": 186.64975588,
+        "dec": -63.09905674,
+        "magnitude": 0.6739,
+        "b_v": -0.243,
+        "spectral_type": "B",
+        "name": "Acrux"
+      },
+      "36145": {
+        "hip": 36145,
+        "ra": 111.67858748,
+        "dec": 49.21164499,
+        "magnitude": 4.6188,
+        "b_v": -0.001,
+        "spectral_type": "B"
+      },
+      "48437": {
+        "hip": 48437,
+        "ra": 148.1269626,
+        "dec": -8.10491551,
+        "magnitude": 5.0859,
+        "b_v": 0.038,
+        "spectral_type": "A"
+      },
+      "46390": {
+        "hip": 46390,
+        "ra": 141.89688204,
+        "dec": -8.65868307,
+        "magnitude": 2.135,
+        "b_v": 1.44,
+        "spectral_type": "M",
+        "name": "Alphard"
+      },
+      "56633": {
+        "hip": 56633,
+        "ra": 174.17061877,
+        "dec": -9.80225376,
+        "magnitude": 4.6695,
+        "b_v": -0.073,
+        "spectral_type": "B"
+      },
+      "5434": {
+        "hip": 5434,
+        "ra": 17.3755089,
+        "dec": 47.2418245,
+        "magnitude": 4.235,
+        "b_v": 0.012,
+        "spectral_type": "A"
+      },
+      "93506": {
+        "hip": 93506,
+        "ra": 285.65301241,
+        "dec": -29.88011461,
+        "magnitude": 2.6212,
+        "b_v": 0.062,
+        "spectral_type": "A",
+        "name": "Ascella"
+      },
+      "23875": {
+        "hip": 23875,
+        "ra": 76.96264165,
+        "dec": -5.08626273,
+        "magnitude": 2.8258,
+        "b_v": 0.161,
+        "spectral_type": "A",
+        "name": "Cursa"
+      },
+      "19780": {
+        "hip": 19780,
+        "ra": 63.60596318,
+        "dec": -62.47397892,
+        "magnitude": 3.4953,
+        "b_v": 0.915,
+        "spectral_type": "K"
+      },
+      "68933": {
+        "hip": 68933,
+        "ra": 211.67218593,
+        "dec": -36.36869558,
+        "magnitude": 2.2226,
+        "b_v": 1.011,
+        "spectral_type": "K",
+        "name": "Menkent"
+      },
+      "60742": {
+        "hip": 60742,
+        "ra": 186.73469865,
+        "dec": 28.26861971,
+        "magnitude": 4.5164,
+        "b_v": 1.128,
+        "spectral_type": "K"
+      },
+      "5447": {
+        "hip": 5447,
+        "ra": 17.43249023,
+        "dec": 35.62083036,
+        "magnitude": 2.1741,
+        "b_v": 1.576,
+        "spectral_type": "M",
+        "name": "Mirach"
+      },
+      "111944": {
+        "hip": 111944,
+        "ra": 340.12825984,
+        "dec": 44.2762807,
+        "magnitude": 4.6569,
+        "b_v": 1.318,
+        "spectral_type": "K"
+      },
+      "42313": {
+        "hip": 42313,
+        "ra": 129.41419757,
+        "dec": 5.70379857,
+        "magnitude": 4.1512,
+        "b_v": 0.003,
+        "spectral_type": "A"
+      },
+      "48455": {
+        "hip": 48455,
+        "ra": 148.19148996,
+        "dec": 26.00708518,
+        "magnitude": 4.0498,
+        "b_v": 1.222,
+        "spectral_type": "K",
+        "name": "Rasalas"
+      },
+      "25930": {
+        "hip": 25930,
+        "ra": 83.0016655,
+        "dec": -0.29909343,
+        "magnitude": 2.1361,
+        "b_v": -0.175,
+        "spectral_type": "B",
+        "name": "Mintaka"
+      },
+      "111954": {
+        "hip": 111954,
+        "ra": 340.16385643,
+        "dec": -27.04361507,
+        "magnitude": 4.1591,
+        "b_v": -0.105,
+        "spectral_type": "B"
+      },
+      "27989": {
+        "hip": 27989,
+        "ra": 88.79287149,
+        "dec": 7.40703653,
+        "magnitude": 0.4997,
+        "b_v": 1.5,
+        "spectral_type": "M",
+        "name": "Betelgeuse"
+      },
+      "75097": {
+        "hip": 75097,
+        "ra": 230.18228839,
+        "dec": 71.83397304,
+        "magnitude": 3.0449,
+        "b_v": 0.058,
+        "spectral_type": "A",
+        "name": "Pherkad"
+      },
+      "3419": {
+        "hip": 3419,
+        "ra": 10.89678447,
+        "dec": -17.98668407,
+        "magnitude": 2.2061,
+        "b_v": 1.019,
+        "spectral_type": "K",
+        "name": "Deneb Kaitos"
+      },
+      "36188": {
+        "hip": 36188,
+        "ra": 111.78780104,
+        "dec": 8.28940883,
+        "magnitude": 2.8546,
+        "b_v": -0.097,
+        "spectral_type": "B",
+        "name": "Gomeisa"
+      },
+      "44382": {
+        "hip": 44382,
+        "ra": 135.61166181,
+        "dec": -66.39584362,
+        "magnitude": 4.0505,
+        "b_v": 0.145,
+        "spectral_type": "A"
+      },
+      "19812": {
+        "hip": 19812,
+        "ra": 63.72440699,
+        "dec": 48.4093731,
+        "magnitude": 4.287,
+        "b_v": 0.935,
+        "spectral_type": "K"
+      },
+      "21861": {
+        "hip": 21861,
+        "ra": 70.51435914,
+        "dec": -37.14476605,
+        "magnitude": 5.1297,
+        "b_v": 0.391,
+        "spectral_type": "F"
+      },
+      "30060": {
+        "hip": 30060,
+        "ra": 94.90579434,
+        "dec": 59.01090542,
+        "magnitude": 4.4594,
+        "b_v": 0.032,
+        "spectral_type": "A"
+      },
+      "97649": {
+        "hip": 97649,
+        "ra": 297.69450819,
+        "dec": 8.86738473,
+        "magnitude": 0.8273,
+        "b_v": 0.221,
+        "spectral_type": "A",
+        "name": "Altair"
+      },
+      "109937": {
+        "hip": 109937,
+        "ra": 333.99237584,
+        "dec": 37.74873468,
+        "magnitude": 4.29,
+        "b_v": 1.447,
+        "spectral_type": "M"
+      },
+      "81266": {
+        "hip": 81266,
+        "ra": 248.97066417,
+        "dec": -28.2159616,
+        "magnitude": 2.7374,
+        "b_v": -0.206,
+        "spectral_type": "B"
+      },
+      "25985": {
+        "hip": 25985,
+        "ra": 83.18255807,
+        "dec": -17.82229214,
+        "magnitude": 2.6426,
+        "b_v": 0.211,
+        "spectral_type": "A",
+        "name": "Arneb"
+      },
+      "105858": {
+        "hip": 105858,
+        "ra": 321.61038372,
+        "dec": -65.36814437,
+        "magnitude": 4.3296,
+        "b_v": 0.494,
+        "spectral_type": "F"
+      },
+      "13701": {
+        "hip": 13701,
+        "ra": 44.10668253,
+        "dec": -8.89760992,
+        "magnitude": 4.0583,
+        "b_v": 1.088,
+        "spectral_type": "K",
+        "name": "Azha"
+      },
+      "75141": {
+        "hip": 75141,
+        "ra": 230.34306943,
+        "dec": -40.64745903,
+        "magnitude": 3.1417,
+        "b_v": -0.227,
+        "spectral_type": "B"
+      },
+      "101769": {
+        "hip": 101769,
+        "ra": 309.38695882,
+        "dec": 14.59520556,
+        "magnitude": 3.723,
+        "b_v": 0.425,
+        "spectral_type": "F",
+        "name": "Rotanev"
+      },
+      "101772": {
+        "hip": 101772,
+        "ra": 309.39162358,
+        "dec": -47.29166243,
+        "magnitude": 3.2707,
+        "b_v": 0.998,
+        "spectral_type": "K"
+      },
+      "71053": {
+        "hip": 71053,
+        "ra": 217.95774099,
+        "dec": 30.37114492,
+        "magnitude": 3.7331,
+        "b_v": 1.298,
+        "spectral_type": "K"
+      },
+      "60823": {
+        "hip": 60823,
+        "ra": 187.01004828,
+        "dec": -50.23060494,
+        "magnitude": 3.8436,
+        "b_v": -0.192,
+        "spectral_type": "B"
+      },
+      "50583": {
+        "hip": 50583,
+        "ra": 154.99234103,
+        "dec": 19.84186021,
+        "magnitude": 2.1684,
+        "b_v": 1.128,
+        "spectral_type": "K",
+        "name": "Algieba"
+      },
+      "105881": {
+        "hip": 105881,
+        "ra": 321.66678228,
+        "dec": -22.41137849,
+        "magnitude": 3.9246,
+        "b_v": 1.002,
+        "spectral_type": "K"
+      },
+      "52633": {
+        "hip": 52633,
+        "ra": 161.44639874,
+        "dec": -80.54020281,
+        "magnitude": 4.3818,
+        "b_v": -0.188,
+        "spectral_type": "B"
+      },
+      "54682": {
+        "hip": 54682,
+        "ra": 167.914526,
+        "dec": -22.82560622,
+        "magnitude": 4.4775,
+        "b_v": 0.025,
+        "spectral_type": "A"
+      },
+      "112029": {
+        "hip": 112029,
+        "ra": 340.3653119,
+        "dec": 10.83139097,
+        "magnitude": 3.3887,
+        "b_v": -0.086,
+        "spectral_type": "B",
+        "name": "Homam"
+      },
+      "42402": {
+        "hip": 42402,
+        "ra": 129.6893702,
+        "dec": 3.34147483,
+        "magnitude": 4.6208,
+        "b_v": 1.216,
+        "spectral_type": "K"
+      },
+      "71075": {
+        "hip": 71075,
+        "ra": 218.01982423,
+        "dec": 38.30788378,
+        "magnitude": 3.098,
+        "b_v": 0.191,
+        "spectral_type": "A",
+        "name": "Seginus"
+      },
+      "7588": {
+        "hip": 7588,
+        "ra": 24.42813208,
+        "dec": -57.23665985,
+        "magnitude": 0.4233,
+        "b_v": -0.158,
+        "spectral_type": "B",
+        "name": "Achernar"
+      },
+      "9640": {
+        "hip": 9640,
+        "ra": 30.97466207,
+        "dec": 42.32984825,
+        "magnitude": 2.2409,
+        "b_v": 1.37,
+        "spectral_type": "K",
+        "name": "Almach"
+      },
+      "75177": {
+        "hip": 75177,
+        "ra": 230.45181859,
+        "dec": -36.26116746,
+        "magnitude": 3.6909,
+        "b_v": 1.534,
+        "spectral_type": "M"
+      },
+      "85423": {
+        "hip": 85423,
+        "ra": 261.83860092,
+        "dec": -29.8666996,
+        "magnitude": 4.3741,
+        "b_v": 0.402,
+        "spectral_type": "F"
+      },
+      "77233": {
+        "hip": 77233,
+        "ra": 236.54672826,
+        "dec": 15.42192603,
+        "magnitude": 3.6836,
+        "b_v": 0.073,
+        "spectral_type": "A"
+      },
+      "46515": {
+        "hip": 46515,
+        "ra": 142.31140612,
+        "dec": -35.95134765,
+        "magnitude": 4.6623,
+        "b_v": 1.408,
+        "spectral_type": "M"
+      },
+      "110003": {
+        "hip": 110003,
+        "ra": 334.20819337,
+        "dec": -7.78323721,
+        "magnitude": 4.3335,
+        "b_v": 0.979,
+        "spectral_type": "K",
+        "name": "Ancha"
+      },
+      "19893": {
+        "hip": 19893,
+        "ra": 64.00621426,
+        "dec": -51.48709571,
+        "magnitude": 4.3338,
+        "b_v": 0.312,
+        "spectral_type": "F"
+      },
+      "7607": {
+        "hip": 7607,
+        "ra": 24.49792632,
+        "dec": 48.62848635,
+        "magnitude": 3.7515,
+        "b_v": 1.275,
+        "spectral_type": "K"
+      },
+      "44471": {
+        "hip": 44471,
+        "ra": 135.90649443,
+        "dec": 47.15665938,
+        "magnitude": 3.5778,
+        "b_v": 0.007,
+        "spectral_type": "A"
+      },
+      "64962": {
+        "hip": 64962,
+        "ra": 199.73022254,
+        "dec": -23.17141256,
+        "magnitude": 3.1521,
+        "b_v": 0.92,
+        "spectral_type": "K"
+      },
+      "28103": {
+        "hip": 28103,
+        "ra": 89.10132629,
+        "dec": -14.16803817,
+        "magnitude": 3.7888,
+        "b_v": 0.337,
+        "spectral_type": "F"
+      },
+      "9677": {
+        "hip": 9677,
+        "ra": 31.12262522,
+        "dec": -29.29683943,
+        "magnitude": 4.6405,
+        "b_v": -0.156,
+        "spectral_type": "B"
+      },
+      "19921": {
+        "hip": 19921,
+        "ra": 64.12118135,
+        "dec": -59.30174863,
+        "magnitude": 4.5977,
+        "b_v": 1.078,
+        "spectral_type": "K"
+      },
+      "17874": {
+        "hip": 17874,
+        "ra": 57.36367012,
+        "dec": -36.20011256,
+        "magnitude": 4.328,
+        "b_v": 0.927,
+        "spectral_type": "K"
+      },
+      "5586": {
+        "hip": 5586,
+        "ra": 17.91494441,
+        "dec": 30.08972944,
+        "magnitude": 4.6751,
+        "b_v": 1.092,
+        "spectral_type": "K"
+      },
+      "26069": {
+        "hip": 26069,
+        "ra": 83.40631789,
+        "dec": -62.48985574,
+        "magnitude": 3.903,
+        "b_v": 0.64,
+        "spectral_type": "G"
+      },
+      "17884": {
+        "hip": 17884,
+        "ra": 57.3803565,
+        "dec": 65.52600622,
+        "magnitude": 4.3978,
+        "b_v": 1.87,
+        "spectral_type": "M"
+      },
+      "54751": {
+        "hip": 54751,
+        "ra": 168.15008446,
+        "dec": -60.31763067,
+        "magnitude": 4.718,
+        "b_v": 0.541,
+        "spectral_type": "G"
+      },
+      "81377": {
+        "hip": 81377,
+        "ra": 249.28970833,
+        "dec": -10.56715177,
+        "magnitude": 2.5708,
+        "b_v": 0.038,
+        "spectral_type": "A"
+      },
+      "62956": {
+        "hip": 62956,
+        "ra": 193.50680405,
+        "dec": 55.95984299,
+        "magnitude": 1.7545,
+        "b_v": -0.022,
+        "spectral_type": "B",
+        "name": "Alioth"
+      },
+      "93683": {
+        "hip": 93683,
+        "ra": 286.1705576,
+        "dec": -21.74135444,
+        "magnitude": 3.9215,
+        "b_v": 1.011,
+        "spectral_type": "K"
+      },
+      "32246": {
+        "hip": 32246,
+        "ra": 100.98304103,
+        "dec": 25.13115545,
+        "magnitude": 3.1915,
+        "b_v": 1.377,
+        "spectral_type": "K",
+        "name": "Mebsuta"
+      },
+      "15863": {
+        "hip": 15863,
+        "ra": 51.08061917,
+        "dec": 49.86124305,
+        "magnitude": 1.8972,
+        "b_v": 0.481,
+        "spectral_type": "F",
+        "name": "Mirfak"
+      },
+      "11767": {
+        "hip": 11767,
+        "ra": 37.946143,
+        "dec": 89.26413778,
+        "magnitude": 2.1077,
+        "b_v": 0.636,
+        "spectral_type": "G",
+        "name": "Polaris"
+      },
+      "52727": {
+        "hip": 52727,
+        "ra": 161.69217532,
+        "dec": -49.42012503,
+        "magnitude": 2.8299,
+        "b_v": 0.901,
+        "spectral_type": "K"
+      },
+      "112122": {
+        "hip": 112122,
+        "ra": 340.66639547,
+        "dec": -46.8845658,
+        "magnitude": 2.0699,
+        "b_v": 1.61,
+        "spectral_type": "M"
+      },
+      "118268": {
+        "hip": 118268,
+        "ra": 359.82750958,
+        "dec": 6.86359368,
+        "magnitude": 4.1219,
+        "b_v": 0.419,
+        "spectral_type": "F"
+      },
+      "75264": {
+        "hip": 75264,
+        "ra": 230.67036256,
+        "dec": -44.68956931,
+        "magnitude": 3.3138,
+        "b_v": -0.191,
+        "spectral_type": "B"
+      },
+      "116231": {
+        "hip": 116231,
+        "ra": 353.24245046,
+        "dec": -37.8183589,
+        "magnitude": 4.3517,
+        "b_v": -0.095,
+        "spectral_type": "B"
+      },
+      "99848": {
+        "hip": 99848,
+        "ra": 303.86799288,
+        "dec": 47.71420571,
+        "magnitude": 4.0955,
+        "b_v": 1.451,
+        "spectral_type": "M"
+      },
+      "97804": {
+        "hip": 97804,
+        "ra": 298.11818215,
+        "dec": 1.00567818,
+        "magnitude": 4.044,
+        "b_v": 0.63,
+        "spectral_type": "G"
+      },
+      "79374": {
+        "hip": 79374,
+        "ra": 242.99891837,
+        "dec": -19.46064685,
+        "magnitude": 4.0076,
+        "b_v": 0.076,
+        "spectral_type": "A"
+      },
+      "42515": {
+        "hip": 42515,
+        "ra": 130.02556915,
+        "dec": -35.30830087,
+        "magnitude": 4.1264,
+        "b_v": 0.936,
+        "spectral_type": "K"
+      },
+      "13847": {
+        "hip": 13847,
+        "ra": 44.56548212,
+        "dec": -40.30473465,
+        "magnitude": 2.9378,
+        "b_v": 0.128,
+        "spectral_type": "A",
+        "name": "Acamar"
+      },
+      "1562": {
+        "hip": 1562,
+        "ra": 4.85701294,
+        "dec": -8.82382954,
+        "magnitude": 3.7314,
+        "b_v": 1.214,
+        "spectral_type": "K"
+      },
+      "95771": {
+        "hip": 95771,
+        "ra": 292.17671216,
+        "dec": 24.6651646,
+        "magnitude": 4.5419,
+        "b_v": 1.502,
+        "spectral_type": "M"
+      },
+      "15900": {
+        "hip": 15900,
+        "ra": 51.20348981,
+        "dec": 9.02906438,
+        "magnitude": 3.77,
+        "b_v": 0.887,
+        "spectral_type": "K"
+      },
+      "112158": {
+        "hip": 112158,
+        "ra": 340.75053559,
+        "dec": 30.22130744,
+        "magnitude": 3.0897,
+        "b_v": 0.852,
+        "spectral_type": "K",
+        "name": "Matar"
+      },
+      "87585": {
+        "hip": 87585,
+        "ra": 268.3817895,
+        "dec": 56.87245205,
+        "magnitude": 3.8948,
+        "b_v": 1.177,
+        "spectral_type": "K",
+        "name": "Grumium"
+      },
+      "60965": {
+        "hip": 60965,
+        "ra": 187.46659681,
+        "dec": -16.51509405,
+        "magnitude": 2.9449,
+        "b_v": -0.012,
+        "spectral_type": "B",
+        "name": "Algorab"
+      },
+      "17959": {
+        "hip": 17959,
+        "ra": 57.58948251,
+        "dec": 71.33236762,
+        "magnitude": 4.6368,
+        "b_v": 0.064,
+        "spectral_type": "A"
+      },
+      "28199": {
+        "hip": 28199,
+        "ra": 89.38421622,
+        "dec": -35.28330684,
+        "magnitude": 4.3092,
+        "b_v": -0.165,
+        "spectral_type": "B"
+      },
+      "89642": {
+        "hip": 89642,
+        "ra": 274.40720579,
+        "dec": -36.7612811,
+        "magnitude": 3.1512,
+        "b_v": 1.582,
+        "spectral_type": "M"
+      },
+      "106032": {
+        "hip": 106032,
+        "ra": 322.1648953,
+        "dec": 70.5606948,
+        "magnitude": 3.1438,
+        "b_v": -0.201,
+        "spectral_type": "B",
+        "name": "Alfirk"
+      },
+      "118322": {
+        "hip": 118322,
+        "ra": 359.97879164,
+        "dec": -65.57707765,
+        "magnitude": 4.4758,
+        "b_v": -0.075,
+        "spectral_type": "B"
+      },
+      "93747": {
+        "hip": 93747,
+        "ra": 286.35255155,
+        "dec": 13.86370954,
+        "magnitude": 2.9935,
+        "b_v": 0.014,
+        "spectral_type": "A"
+      },
+      "110130": {
+        "hip": 110130,
+        "ra": 334.62574143,
+        "dec": -60.25949478,
+        "magnitude": 3.0103,
+        "b_v": 1.39,
+        "spectral_type": "K"
+      },
+      "108085": {
+        "hip": 108085,
+        "ra": 328.48189257,
+        "dec": -37.36482314,
+        "magnitude": 2.9763,
+        "b_v": -0.084,
+        "spectral_type": "B"
+      },
+      "73273": {
+        "hip": 73273,
+        "ra": 224.63314152,
+        "dec": -43.13386704,
+        "magnitude": 2.5982,
+        "b_v": -0.184,
+        "spectral_type": "B"
+      },
+      "75323": {
+        "hip": 75323,
+        "ra": 230.84440736,
+        "dec": -59.3206982,
+        "magnitude": 4.537,
+        "b_v": 0.169,
+        "spectral_type": "A"
+      },
+      "13884": {
+        "hip": 13884,
+        "ra": 44.69902524,
+        "dec": -64.07129732,
+        "magnitude": 5.021,
+        "b_v": 0.126,
+        "spectral_type": "A"
+      },
+      "46651": {
+        "hip": 46651,
+        "ra": 142.675471,
+        "dec": -40.46688846,
+        "magnitude": 3.6577,
+        "b_v": 0.371,
+        "spectral_type": "F"
+      },
+      "1599": {
+        "hip": 1599,
+        "ra": 5.00797597,
+        "dec": -64.87762321,
+        "magnitude": 4.3442,
+        "b_v": 0.576,
+        "spectral_type": "G"
+      },
+      "58948": {
+        "hip": 58948,
+        "ra": 181.30278981,
+        "dec": 8.73284566,
+        "magnitude": 4.2802,
+        "b_v": 0.967,
+        "spectral_type": "K"
+      },
+      "30277": {
+        "hip": 30277,
+        "ra": 95.52852188,
+        "dec": -33.43627292,
+        "magnitude": 3.9932,
+        "b_v": 0.858,
+        "spectral_type": "K"
+      },
+      "101958": {
+        "hip": 101958,
+        "ra": 309.90939398,
+        "dec": 15.91205267,
+        "magnitude": 3.765,
+        "b_v": -0.057,
+        "spectral_type": "B",
+        "name": "Sualocin"
+      },
+      "20042": {
+        "hip": 20042,
+        "ra": 64.4734105,
+        "dec": -33.79833154,
+        "magnitude": 3.5167,
+        "b_v": -0.108,
+        "spectral_type": "B"
+      },
+      "40526": {
+        "hip": 40526,
+        "ra": 124.12895281,
+        "dec": 9.18566355,
+        "magnitude": 3.6714,
+        "b_v": 1.481,
+        "spectral_type": "M"
+      },
+      "91726": {
+        "hip": 91726,
+        "ra": 280.56842557,
+        "dec": -9.05255335,
+        "magnitude": 4.7879,
+        "b_v": 0.358,
+        "spectral_type": "F"
+      },
+      "65109": {
+        "hip": 65109,
+        "ra": 200.15027327,
+        "dec": -36.71208083,
+        "magnitude": 2.7717,
+        "b_v": 0.068,
+        "spectral_type": "A"
+      },
+      "54872": {
+        "hip": 54872,
+        "ra": 168.52671705,
+        "dec": 20.52403382,
+        "magnitude": 2.5932,
+        "b_v": 0.128,
+        "spectral_type": "A",
+        "name": "Zosma"
+      },
+      "32349": {
+        "hip": 32349,
+        "ra": 101.28854105,
+        "dec": -16.71314306,
+        "magnitude": -1.0876,
+        "b_v": 0.009,
+        "spectral_type": "A",
+        "name": "Sirius"
+      },
+      "22109": {
+        "hip": 22109,
+        "ra": 71.37558779,
+        "dec": -3.25462486,
+        "magnitude": 3.9696,
+        "b_v": -0.148,
+        "spectral_type": "B"
+      },
+      "54879": {
+        "hip": 54879,
+        "ra": 168.56017066,
+        "dec": 15.42976284,
+        "magnitude": 3.3288,
+        "b_v": -0.003,
+        "spectral_type": "B",
+        "name": "Chertan"
+      },
+      "26207": {
+        "hip": 26207,
+        "ra": 83.78449086,
+        "dec": 9.93416302,
+        "magnitude": 3.3298,
+        "b_v": -0.16,
+        "spectral_type": "B",
+        "name": "Meissa"
+      },
+      "97886": {
+        "hip": 97886,
+        "ra": 298.36533682,
+        "dec": 24.07952568,
+        "magnitude": 4.5682,
+        "b_v": -0.047,
+        "spectral_type": "B"
+      },
+      "20070": {
+        "hip": 20070,
+        "ra": 64.56073093,
+        "dec": 50.29563946,
+        "magnitude": 4.6223,
+        "b_v": 0.043,
+        "spectral_type": "A"
+      },
+      "32362": {
+        "hip": 32362,
+        "ra": 101.3226399,
+        "dec": 12.89605512,
+        "magnitude": 3.4417,
+        "b_v": 0.443,
+        "spectral_type": "F"
+      },
+      "3693": {
+        "hip": 3693,
+        "ra": 11.83495919,
+        "dec": 24.26737676,
+        "magnitude": 4.2487,
+        "b_v": 1.1,
+        "spectral_type": "K"
+      },
+      "93805": {
+        "hip": 93805,
+        "ra": 286.56229133,
+        "dec": -4.88233451,
+        "magnitude": 3.4026,
+        "b_v": -0.096,
+        "spectral_type": "B"
+      },
+      "95853": {
+        "hip": 95853,
+        "ra": 292.42641387,
+        "dec": 51.72946748,
+        "magnitude": 3.8136,
+        "b_v": 0.148,
+        "spectral_type": "A"
+      },
+      "5742": {
+        "hip": 5742,
+        "ra": 18.43722969,
+        "dec": 24.58376439,
+        "magnitude": 4.834,
+        "b_v": 1.047,
+        "spectral_type": "K"
+      },
+      "50801": {
+        "hip": 50801,
+        "ra": 155.58251341,
+        "dec": 41.4994333,
+        "magnitude": 3.1544,
+        "b_v": 1.603,
+        "spectral_type": "M",
+        "name": "Tania Australis"
+      },
+      "63090": {
+        "hip": 63090,
+        "ra": 193.90201354,
+        "dec": 3.39759875,
+        "magnitude": 3.4405,
+        "b_v": 1.571,
+        "spectral_type": "M"
+      },
+      "30324": {
+        "hip": 30324,
+        "ra": 95.67494722,
+        "dec": -17.95591681,
+        "magnitude": 1.8911,
+        "b_v": -0.24,
+        "spectral_type": "B",
+        "name": "Mirzam"
+      },
+      "73334": {
+        "hip": 73334,
+        "ra": 224.79041163,
+        "dec": -42.10414165,
+        "magnitude": 3.0671,
+        "b_v": -0.208,
+        "spectral_type": "B"
+      },
+      "93825": {
+        "hip": 93825,
+        "ra": 286.60433093,
+        "dec": -37.06275699,
+        "magnitude": 4.3123,
+        "b_v": 0.523,
+        "spectral_type": "G"
+      },
+      "13954": {
+        "hip": 13954,
+        "ra": 44.92873468,
+        "dec": 8.90740132,
+        "magnitude": 4.6767,
+        "b_v": -0.109,
+        "spectral_type": "B"
+      },
+      "48774": {
+        "hip": 48774,
+        "ra": 149.21564515,
+        "dec": -54.56779725,
+        "magnitude": 3.5031,
+        "b_v": -0.067,
+        "spectral_type": "B"
+      },
+      "30343": {
+        "hip": 30343,
+        "ra": 95.73996356,
+        "dec": 22.51385018,
+        "magnitude": 2.9141,
+        "b_v": 1.621,
+        "spectral_type": "M",
+        "name": "Tejat"
+      },
+      "77450": {
+        "hip": 77450,
+        "ra": 237.18503588,
+        "dec": 18.14177919,
+        "magnitude": 4.1929,
+        "b_v": 1.616,
+        "spectral_type": "M"
+      },
+      "34444": {
+        "hip": 34444,
+        "ra": 107.09785868,
+        "dec": -26.39320762,
+        "magnitude": 1.9628,
+        "b_v": 0.671,
+        "spectral_type": "G",
+        "name": "Wezen"
+      },
+      "46733": {
+        "hip": 46733,
+        "ra": 142.88154034,
+        "dec": 63.06179549,
+        "magnitude": 3.7327,
+        "b_v": 0.36,
+        "spectral_type": "F"
+      },
+      "91792": {
+        "hip": 91792,
+        "ra": 280.75889082,
+        "dec": -71.42772851,
+        "magnitude": 4.1674,
+        "b_v": 1.134,
+        "spectral_type": "K"
+      },
+      "63125": {
+        "hip": 63125,
+        "ra": 194.00767083,
+        "dec": 38.31824601,
+        "magnitude": 2.8471,
+        "b_v": -0.115,
+        "spectral_type": "B",
+        "name": "Cor Caroli"
+      },
+      "9884": {
+        "hip": 9884,
+        "ra": 31.79285751,
+        "dec": 23.46277747,
+        "magnitude": 2.1726,
+        "b_v": 1.151,
+        "spectral_type": "K",
+        "name": "Hamal"
+      },
+      "61084": {
+        "hip": 61084,
+        "ra": 187.79137201,
+        "dec": -57.11256917,
+        "magnitude": 1.6299,
+        "b_v": 1.6,
+        "spectral_type": "M",
+        "name": "Gacrux"
+      },
+      "46750": {
+        "hip": 46750,
+        "ra": 142.93016798,
+        "dec": 22.96806549,
+        "magnitude": 4.4252,
+        "b_v": 1.541,
+        "spectral_type": "M",
+        "name": "Alterf"
+      },
+      "44700": {
+        "hip": 44700,
+        "ra": 136.63245005,
+        "dec": 38.4522504,
+        "magnitude": 4.7278,
+        "b_v": 1.037,
+        "spectral_type": "K"
+      },
+      "114341": {
+        "hip": 114341,
+        "ra": 347.36150899,
+        "dec": -21.17248556,
+        "magnitude": 3.8484,
+        "b_v": 1.202,
+        "spectral_type": "K"
+      },
+      "85670": {
+        "hip": 85670,
+        "ra": 262.60823689,
+        "dec": 52.30135886,
+        "magnitude": 2.9466,
+        "b_v": 0.954,
+        "spectral_type": "K",
+        "name": "Rastaban"
+      },
+      "28328": {
+        "hip": 28328,
+        "ra": 89.78662737,
+        "dec": -42.81510752,
+        "magnitude": 4.1205,
+        "b_v": 1.146,
+        "spectral_type": "K"
+      },
+      "93864": {
+        "hip": 93864,
+        "ra": 286.73517625,
+        "dec": -27.66981476,
+        "magnitude": 3.4689,
+        "b_v": 1.169,
+        "spectral_type": "K"
+      },
+      "34481": {
+        "hip": 34481,
+        "ra": 107.18676973,
+        "dec": -70.49919404,
+        "magnitude": 3.9295,
+        "b_v": 1.006,
+        "spectral_type": "K"
+      },
+      "71352": {
+        "hip": 71352,
+        "ra": 218.87688121,
+        "dec": -42.15774569,
+        "magnitude": 2.2729,
+        "b_v": -0.157,
+        "spectral_type": "B"
+      },
+      "85693": {
+        "hip": 85693,
+        "ra": 262.68457501,
+        "dec": 26.11060441,
+        "magnitude": 4.5456,
+        "b_v": 1.434,
+        "spectral_type": "M",
+        "name": "Maasym"
+      },
+      "85696": {
+        "hip": 85696,
+        "ra": 262.69099525,
+        "dec": -37.29574034,
+        "magnitude": 2.6043,
+        "b_v": -0.179,
+        "spectral_type": "B",
+        "name": "Lesath"
+      },
+      "75458": {
+        "hip": 75458,
+        "ra": 231.23243369,
+        "dec": 58.96602361,
+        "magnitude": 3.4638,
+        "b_v": 1.166,
+        "spectral_type": "K",
+        "name": "Edasich"
+      },
+      "28358": {
+        "hip": 28358,
+        "ra": 89.88145942,
+        "dec": 54.28498163,
+        "magnitude": 3.8904,
+        "b_v": 1.01,
+        "spectral_type": "K"
+      },
+      "26311": {
+        "hip": 26311,
+        "ra": 84.05338544,
+        "dec": -1.20191724,
+        "magnitude": 1.6235,
+        "b_v": -0.184,
+        "spectral_type": "B",
+        "name": "Alnilam"
+      },
+      "28360": {
+        "hip": 28360,
+        "ra": 89.88237269,
+        "dec": 44.94743488,
+        "magnitude": 1.9038,
+        "b_v": 0.077,
+        "spectral_type": "A",
+        "name": "Menkalinan"
+      },
+      "77512": {
+        "hip": 77512,
+        "ra": 237.3987417,
+        "dec": 26.06854937,
+        "magnitude": 4.7388,
+        "b_v": 0.794,
+        "spectral_type": "G"
+      },
+      "3786": {
+        "hip": 3786,
+        "ra": 12.17039763,
+        "dec": 7.58520178,
+        "magnitude": 4.5555,
+        "b_v": 1.5,
+        "spectral_type": "M"
+      },
+      "67275": {
+        "hip": 67275,
+        "ra": 206.81681931,
+        "dec": 17.45677421,
+        "magnitude": 4.5949,
+        "b_v": 0.508,
+        "spectral_type": "G"
+      },
+      "104139": {
+        "hip": 104139,
+        "ra": 316.48658075,
+        "dec": -17.23271097,
+        "magnitude": 4.0838,
+        "b_v": -0.01,
+        "spectral_type": "B"
+      },
+      "95947": {
+        "hip": 95947,
+        "ra": 292.68035521,
+        "dec": 27.95969502,
+        "magnitude": 3.2177,
+        "b_v": 1.088,
+        "spectral_type": "K",
+        "name": "Albireo"
+      },
+      "7884": {
+        "hip": 7884,
+        "ra": 25.35794833,
+        "dec": 5.48760467,
+        "magnitude": 4.5914,
+        "b_v": 1.347,
+        "spectral_type": "K"
+      },
+      "52943": {
+        "hip": 52943,
+        "ra": 162.40596684,
+        "dec": -16.19413227,
+        "magnitude": 3.2707,
+        "b_v": 1.232,
+        "spectral_type": "K"
+      },
+      "77516": {
+        "hip": 77516,
+        "ra": 237.40527319,
+        "dec": -3.43014121,
+        "magnitude": 3.5411,
+        "b_v": -0.036,
+        "spectral_type": "B"
+      },
+      "102098": {
+        "hip": 102098,
+        "ra": 310.35797281,
+        "dec": 45.28033431,
+        "magnitude": 1.2966,
+        "b_v": 0.092,
+        "spectral_type": "A",
+        "name": "Deneb"
+      },
+      "30419": {
+        "hip": 30419,
+        "ra": 95.94207343,
+        "dec": 4.59283885,
+        "magnitude": 4.4559,
+        "b_v": 0.215,
+        "spectral_type": "A"
+      },
+      "16083": {
+        "hip": 16083,
+        "ra": 51.79216991,
+        "dec": 9.73277231,
+        "magnitude": 3.7082,
+        "b_v": -0.082,
+        "spectral_type": "B"
+      },
+      "28380": {
+        "hip": 28380,
+        "ra": 89.93015902,
+        "dec": 37.21276398,
+        "magnitude": 2.6103,
+        "b_v": -0.083,
+        "spectral_type": "B"
+      },
+      "85727": {
+        "hip": 85727,
+        "ra": 262.77490445,
+        "dec": -60.68360659,
+        "magnitude": 3.5681,
+        "b_v": -0.104,
+        "spectral_type": "B"
+      },
+      "100064": {
+        "hip": 100064,
+        "ra": 304.5134105,
+        "dec": -12.54485879,
+        "magnitude": 3.7388,
+        "b_v": 0.883,
+        "spectral_type": "K",
+        "name": "Algedi"
+      },
+      "67301": {
+        "hip": 67301,
+        "ra": 206.8856091,
+        "dec": 49.31330297,
+        "magnitude": 1.7994,
+        "b_v": -0.099,
+        "spectral_type": "B",
+        "name": "Alkaid"
+      },
+      "30438": {
+        "hip": 30438,
+        "ra": 95.9878779,
+        "dec": -52.69571787,
+        "magnitude": -0.5536,
+        "b_v": 0.164,
+        "spectral_type": "A",
+        "name": "Canopus"
+      },
+      "79593": {
+        "hip": 79593,
+        "ra": 243.58652632,
+        "dec": -3.69397565,
+        "magnitude": 2.8283,
+        "b_v": 1.584,
+        "spectral_type": "M",
+        "name": "Yed Prior"
+      },
+      "20205": {
+        "hip": 20205,
+        "ra": 64.94805797,
+        "dec": 15.6277001,
+        "magnitude": 3.8123,
+        "b_v": 0.981,
+        "spectral_type": "K"
+      },
+      "24305": {
+        "hip": 24305,
+        "ra": 78.23280447,
+        "dec": -16.2054292,
+        "magnitude": 3.2528,
+        "b_v": -0.11,
+        "spectral_type": "B"
+      },
+      "98036": {
+        "hip": 98036,
+        "ra": 298.82819162,
+        "dec": 6.40793311,
+        "magnitude": 3.8668,
+        "b_v": 0.855,
+        "spectral_type": "K",
+        "name": "Alshain"
+      },
+      "40702": {
+        "hip": 40702,
+        "ra": 124.63027823,
+        "dec": -76.91998249,
+        "magnitude": 4.1488,
+        "b_v": 0.413,
+        "spectral_type": "F"
+      },
+      "87808": {
+        "hip": 87808,
+        "ra": 269.06324411,
+        "dec": 37.25052159,
+        "magnitude": 4.0284,
+        "b_v": 1.35,
+        "spectral_type": "K"
+      },
+      "46853": {
+        "hip": 46853,
+        "ra": 143.21802163,
+        "dec": 51.67860217,
+        "magnitude": 3.277,
+        "b_v": 0.475,
+        "spectral_type": "F"
+      },
+      "24327": {
+        "hip": 24327,
+        "ra": 78.30785402,
+        "dec": -12.94128872,
+        "magnitude": 4.3328,
+        "b_v": -0.094,
+        "spectral_type": "B"
+      },
+      "110351": {
+        "hip": 110351,
+        "ra": 335.25636797,
+        "dec": 46.53656483,
+        "magnitude": 4.5201,
+        "b_v": -0.1,
+        "spectral_type": "B"
+      },
+      "91919": {
+        "hip": 91919,
+        "ra": 281.08473953,
+        "dec": 39.6699767,
+        "magnitude": 4.7286,
+        "b_v": 0.17,
+        "spectral_type": "A"
+      },
+      "61199": {
+        "hip": 61199,
+        "ra": 188.11712936,
+        "dec": -72.13297568,
+        "magnitude": 3.7903,
+        "b_v": -0.157,
+        "spectral_type": "B"
+      },
+      "44816": {
+        "hip": 44816,
+        "ra": 136.9990715,
+        "dec": -43.43262377,
+        "magnitude": 2.3385,
+        "b_v": 1.665,
+        "spectral_type": "M",
+        "name": "Suhail"
+      },
+      "112405": {
+        "hip": 112405,
+        "ra": 341.51551289,
+        "dec": -81.38161726,
+        "magnitude": 4.1964,
+        "b_v": 0.208,
+        "spectral_type": "A"
+      },
+      "87833": {
+        "hip": 87833,
+        "ra": 269.15157428,
+        "dec": 51.48895101,
+        "magnitude": 2.3617,
+        "b_v": 1.521,
+        "spectral_type": "M",
+        "name": "Eltanin"
+      },
+      "81693": {
+        "hip": 81693,
+        "ra": 250.3228214,
+        "dec": 31.60188678,
+        "magnitude": 2.9338,
+        "b_v": 0.65,
+        "spectral_type": "G"
+      },
+      "85792": {
+        "hip": 85792,
+        "ra": 262.96050685,
+        "dec": -49.87598163,
+        "magnitude": 2.7869,
+        "b_v": -0.136,
+        "spectral_type": "B"
+      },
+      "106278": {
+        "hip": 106278,
+        "ra": 322.88966964,
+        "dec": -5.5711556,
+        "magnitude": 3.0404,
+        "b_v": 0.828,
+        "spectral_type": "K",
+        "name": "Sadalsuud"
+      },
+      "18216": {
+        "hip": 18216,
+        "ra": 58.42784564,
+        "dec": -24.6122126,
+        "magnitude": 4.5955,
+        "b_v": -0.136,
+        "spectral_type": "B"
+      },
+      "3881": {
+        "hip": 3881,
+        "ra": 12.45345727,
+        "dec": 41.07895471,
+        "magnitude": 4.4853,
+        "b_v": -0.136,
+        "spectral_type": "B"
+      },
+      "42799": {
+        "hip": 42799,
+        "ra": 130.80619301,
+        "dec": 3.3986656,
+        "magnitude": 4.2274,
+        "b_v": -0.192,
+        "spectral_type": "B"
+      },
+      "89908": {
+        "hip": 89908,
+        "ra": 275.18933922,
+        "dec": 71.33772739,
+        "magnitude": 4.2004,
+        "b_v": -0.093,
+        "spectral_type": "B"
+      },
+      "94005": {
+        "hip": 94005,
+        "ra": 287.08722088,
+        "dec": -40.4966377,
+        "magnitude": 4.7339,
+        "b_v": 1.07,
+        "spectral_type": "K"
+      },
+      "42806": {
+        "hip": 42806,
+        "ra": 130.82172117,
+        "dec": 21.46859618,
+        "magnitude": 4.6734,
+        "b_v": 0.01,
+        "spectral_type": "A",
+        "name": "Asellus Borealis"
+      },
+      "14135": {
+        "hip": 14135,
+        "ra": 45.56991317,
+        "dec": 4.08992556,
+        "magnitude": 2.6196,
+        "b_v": 1.63,
+        "spectral_type": "M",
+        "name": "Menkar"
+      },
+      "112440": {
+        "hip": 112440,
+        "ra": 341.63267659,
+        "dec": 23.56567915,
+        "magnitude": 4.132,
+        "b_v": 1.07,
+        "spectral_type": "K"
+      },
+      "77622": {
+        "hip": 77622,
+        "ra": 237.7037134,
+        "dec": 4.47757979,
+        "magnitude": 3.7548,
+        "b_v": 0.147,
+        "spectral_type": "A"
+      },
+      "110395": {
+        "hip": 110395,
+        "ra": 335.41374933,
+        "dec": -1.38735307,
+        "magnitude": 3.8423,
+        "b_v": -0.057,
+        "spectral_type": "B",
+        "name": "Sadachbia"
+      },
+      "59196": {
+        "hip": 59196,
+        "ra": 182.08976522,
+        "dec": -50.72240992,
+        "magnitude": 2.5241,
+        "b_v": -0.128,
+        "spectral_type": "B"
+      },
+      "85822": {
+        "hip": 85822,
+        "ra": 263.05373781,
+        "dec": 86.58632948,
+        "magnitude": 4.3641,
+        "b_v": 0.021,
+        "spectral_type": "A",
+        "name": "Yildun"
+      },
+      "59199": {
+        "hip": 59199,
+        "ra": 182.10313587,
+        "dec": -24.72877985,
+        "magnitude": 4.0991,
+        "b_v": 0.334,
+        "spectral_type": "F",
+        "name": "Alchiba"
+      },
+      "14146": {
+        "hip": 14146,
+        "ra": 45.59830477,
+        "dec": -23.62433608,
+        "magnitude": 4.1328,
+        "b_v": 0.163,
+        "spectral_type": "A"
+      },
+      "77634": {
+        "hip": 77634,
+        "ra": 237.73975775,
+        "dec": -33.62710497,
+        "magnitude": 3.9547,
+        "b_v": -0.045,
+        "spectral_type": "B"
+      },
+      "91971": {
+        "hip": 91971,
+        "ra": 281.19306655,
+        "dec": 37.60505015,
+        "magnitude": 4.3992,
+        "b_v": 0.192,
+        "spectral_type": "A"
+      },
+      "85829": {
+        "hip": 85829,
+        "ra": 263.06616222,
+        "dec": 55.1728067,
+        "magnitude": 4.9413,
+        "b_v": 0.279,
+        "spectral_type": "A"
+      },
+      "32578": {
+        "hip": 32578,
+        "ra": 101.9652367,
+        "dec": 2.41218881,
+        "magnitude": 4.6471,
+        "b_v": 1.099,
+        "spectral_type": "K"
+      },
+      "18246": {
+        "hip": 18246,
+        "ra": 58.5329938,
+        "dec": 31.88365779,
+        "magnitude": 2.898,
+        "b_v": 0.271,
+        "spectral_type": "A"
+      },
+      "89931": {
+        "hip": 89931,
+        "ra": 275.24842359,
+        "dec": -29.82803949,
+        "magnitude": 2.8654,
+        "b_v": 1.38,
+        "spectral_type": "K",
+        "name": "Kaus Media"
+      },
+      "42828": {
+        "hip": 42828,
+        "ra": 130.89811459,
+        "dec": -33.1864114,
+        "magnitude": 3.6188,
+        "b_v": -0.18,
+        "spectral_type": "B"
+      },
+      "10064": {
+        "hip": 10064,
+        "ra": 32.38550383,
+        "dec": 34.9873921,
+        "magnitude": 3.0625,
+        "b_v": 0.14,
+        "spectral_type": "A"
+      },
+      "89937": {
+        "hip": 89937,
+        "ra": 275.25974417,
+        "dec": 72.73369776,
+        "magnitude": 3.6666,
+        "b_v": 0.489,
+        "spectral_type": "F"
+      },
+      "73555": {
+        "hip": 73555,
+        "ra": 225.48663804,
+        "dec": 40.39063698,
+        "magnitude": 3.6469,
+        "b_v": 0.956,
+        "spectral_type": "K",
+        "name": "Nekkar"
+      },
+      "26451": {
+        "hip": 26451,
+        "ra": 84.41118462,
+        "dec": 21.14259289,
+        "magnitude": 2.9184,
+        "b_v": -0.148,
+        "spectral_type": "B"
+      },
+      "32607": {
+        "hip": 32607,
+        "ra": 102.04807108,
+        "dec": -61.94197967,
+        "magnitude": 3.3114,
+        "b_v": 0.225,
+        "spectral_type": "A"
+      },
+      "61281": {
+        "hip": 61281,
+        "ra": 188.37101045,
+        "dec": 69.78820988,
+        "magnitude": 3.8414,
+        "b_v": -0.116,
+        "spectral_type": "B"
+      },
+      "65378": {
+        "hip": 65378,
+        "ra": 200.98091528,
+        "dec": 54.92541509,
+        "magnitude": 2.254,
+        "b_v": 0.057,
+        "spectral_type": "A",
+        "name": "Mizar"
+      },
+      "16228": {
+        "hip": 16228,
+        "ra": 52.26722736,
+        "dec": 59.94033468,
+        "magnitude": 4.3087,
+        "b_v": 0.419,
+        "spectral_type": "F"
+      },
+      "116584": {
+        "hip": 116584,
+        "ra": 354.3904488,
+        "dec": 46.45917606,
+        "magnitude": 3.9695,
+        "b_v": 0.984,
+        "spectral_type": "K"
+      },
+      "46952": {
+        "hip": 46952,
+        "ra": 143.55573745,
+        "dec": 36.39761341,
+        "magnitude": 4.697,
+        "b_v": 0.914,
+        "spectral_type": "K"
+      },
+      "89962": {
+        "hip": 89962,
+        "ra": 275.32883536,
+        "dec": -2.89712199,
+        "magnitude": 3.3995,
+        "b_v": 0.941,
+        "spectral_type": "K"
+      },
+      "69483": {
+        "hip": 69483,
+        "ra": 213.37062424,
+        "dec": 51.78999063,
+        "magnitude": 4.5711,
+        "b_v": 0.233,
+        "spectral_type": "A"
+      },
+      "51056": {
+        "hip": 51056,
+        "ra": 156.47861272,
+        "dec": 33.79626362,
+        "magnitude": 4.7931,
+        "b_v": 0.26,
+        "spectral_type": "A"
+      },
+      "24436": {
+        "hip": 24436,
+        "ra": 78.63446385,
+        "dec": -8.20163958,
+        "magnitude": 0.193,
+        "b_v": -0.03,
+        "spectral_type": "B",
+        "name": "Rigel"
+      },
+      "87933": {
+        "hip": 87933,
+        "ra": 269.44096081,
+        "dec": 29.24792539,
+        "magnitude": 3.8533,
+        "b_v": 0.935,
+        "spectral_type": "K"
+      },
+      "51069": {
+        "hip": 51069,
+        "ra": 156.52293759,
+        "dec": -16.83609582,
+        "magnitude": 3.9567,
+        "b_v": 1.456,
+        "spectral_type": "M"
+      },
+      "8068": {
+        "hip": 8068,
+        "ra": 25.91506366,
+        "dec": 50.68876539,
+        "magnitude": 3.9801,
+        "b_v": -0.098,
+        "spectral_type": "B"
+      },
+      "61317": {
+        "hip": 61317,
+        "ra": 188.4378855,
+        "dec": 41.35676763,
+        "magnitude": 4.3682,
+        "b_v": 0.588,
+        "spectral_type": "G",
+        "name": "Chara"
+      },
+      "34693": {
+        "hip": 34693,
+        "ra": 107.78496456,
+        "dec": 30.24528088,
+        "magnitude": 4.5603,
+        "b_v": 1.261,
+        "spectral_type": "K"
+      },
+      "67464": {
+        "hip": 67464,
+        "ra": 207.37623896,
+        "dec": -41.68765986,
+        "magnitude": 3.3237,
+        "b_v": -0.225,
+        "spectral_type": "B"
+      },
+      "102281": {
+        "hip": 102281,
+        "ra": 310.86477388,
+        "dec": 15.07468234,
+        "magnitude": 4.504,
+        "b_v": 0.302,
+        "spectral_type": "F"
+      },
+      "92041": {
+        "hip": 92041,
+        "ra": 281.41397072,
+        "dec": -26.9907792,
+        "magnitude": 3.1339,
+        "b_v": -0.107,
+        "spectral_type": "B"
+      },
+      "108431": {
+        "hip": 108431,
+        "ra": 329.47929537,
+        "dec": -54.99256657,
+        "magnitude": 4.4784,
+        "b_v": 0.297,
+        "spectral_type": "A"
+      },
+      "116631": {
+        "hip": 116631,
+        "ra": 354.53407981,
+        "dec": 43.26807606,
+        "magnitude": 4.264,
+        "b_v": -0.083,
+        "spectral_type": "B"
+      },
+      "42911": {
+        "hip": 42911,
+        "ra": 131.17129191,
+        "dec": 18.15486373,
+        "magnitude": 4.1036,
+        "b_v": 1.083,
+        "spectral_type": "K",
+        "name": "Asellus Australis"
+      },
+      "14240": {
+        "hip": 14240,
+        "ra": 45.90376559,
+        "dec": -59.73761999,
+        "magnitude": 5.2076,
+        "b_v": 0.349,
+        "spectral_type": "F"
+      },
+      "42913": {
+        "hip": 42913,
+        "ra": 131.17582214,
+        "dec": -54.70856805,
+        "magnitude": 1.9511,
+        "b_v": 0.043,
+        "spectral_type": "A"
+      },
+      "94114": {
+        "hip": 94114,
+        "ra": 287.36782596,
+        "dec": -37.90423953,
+        "magnitude": 4.126,
+        "b_v": 0.042,
+        "spectral_type": "A"
+      },
+      "8102": {
+        "hip": 8102,
+        "ra": 26.02136459,
+        "dec": -15.93955572,
+        "magnitude": 3.6295,
+        "b_v": 0.727,
+        "spectral_type": "G"
+      },
+      "85927": {
+        "hip": 85927,
+        "ra": 263.40219318,
+        "dec": -37.10374869,
+        "magnitude": 1.5244,
+        "b_v": -0.231,
+        "spectral_type": "B",
+        "name": "Shaula"
+      },
+      "81833": {
+        "hip": 81833,
+        "ra": 250.7239106,
+        "dec": 38.9224609,
+        "magnitude": 3.6411,
+        "b_v": 0.916,
+        "spectral_type": "K"
+      },
+      "38827": {
+        "hip": 38827,
+        "ra": 119.19475736,
+        "dec": -52.98240068,
+        "magnitude": 3.3939,
+        "b_v": -0.177,
+        "spectral_type": "B"
+      },
+      "75695": {
+        "hip": 75695,
+        "ra": 231.95771591,
+        "dec": 29.10549183,
+        "magnitude": 3.7373,
+        "b_v": 0.319,
+        "spectral_type": "F",
+        "name": "Nusakan"
+      },
+      "61359": {
+        "hip": 61359,
+        "ra": 188.59680889,
+        "dec": -23.39662293,
+        "magnitude": 2.8099,
+        "b_v": 0.893,
+        "spectral_type": "K"
+      },
+      "22449": {
+        "hip": 22449,
+        "ra": 72.45890914,
+        "dec": 6.96124728,
+        "magnitude": 3.2862,
+        "b_v": 0.484,
+        "spectral_type": "F"
+      },
+      "55219": {
+        "hip": 55219,
+        "ra": 169.61981388,
+        "dec": 33.09423879,
+        "magnitude": 3.6375,
+        "b_v": 1.4,
+        "spectral_type": "M",
+        "name": "Alula Borealis"
+      },
+      "59316": {
+        "hip": 59316,
+        "ra": 182.53135799,
+        "dec": -22.61979213,
+        "magnitude": 3.1761,
+        "b_v": 1.326,
+        "spectral_type": "K"
+      },
+      "83895": {
+        "hip": 83895,
+        "ra": 257.19677058,
+        "dec": 65.71463661,
+        "magnitude": 3.1359,
+        "b_v": -0.12,
+        "spectral_type": "B"
+      },
+      "81852": {
+        "hip": 81852,
+        "ra": 250.77258116,
+        "dec": -77.51657176,
+        "magnitude": 4.3954,
+        "b_v": 1.06,
+        "spectral_type": "K"
+      },
+      "102333": {
+        "hip": 102333,
+        "ra": 311.00911118,
+        "dec": -51.92084048,
+        "magnitude": 4.584,
+        "b_v": 0.278,
+        "spectral_type": "A"
+      },
+      "94141": {
+        "hip": 94141,
+        "ra": 287.44097407,
+        "dec": -21.02352539,
+        "magnitude": 2.9664,
+        "b_v": 0.377,
+        "spectral_type": "F"
+      },
+      "77760": {
+        "hip": 77760,
+        "ra": 238.16747676,
+        "dec": 42.44998794,
+        "magnitude": 4.7198,
+        "b_v": 0.563,
+        "spectral_type": "G"
+      },
+      "12225": {
+        "hip": 12225,
+        "ra": 39.35110365,
+        "dec": -52.54308836,
+        "magnitude": 5.3735,
+        "b_v": 0.289,
+        "spectral_type": "A"
+      },
+      "65474": {
+        "hip": 65474,
+        "ra": 201.29835228,
+        "dec": -11.16124494,
+        "magnitude": 0.8891,
+        "b_v": -0.235,
+        "spectral_type": "B",
+        "name": "Spica"
+      },
+      "57283": {
+        "hip": 57283,
+        "ra": 176.19066278,
+        "dec": -18.35061452,
+        "magnitude": 4.876,
+        "b_v": 0.958,
+        "spectral_type": "K"
+      },
+      "28614": {
+        "hip": 28614,
+        "ra": 90.59579379,
+        "dec": 9.6473678,
+        "magnitude": 4.1792,
+        "b_v": 0.17,
+        "spectral_type": "A"
+      },
+      "110538": {
+        "hip": 110538,
+        "ra": 335.89015152,
+        "dec": 52.22949969,
+        "magnitude": 4.5867,
+        "b_v": 1.015,
+        "spectral_type": "K"
+      },
+      "79822": {
+        "hip": 79822,
+        "ra": 244.37708764,
+        "dec": 75.75470388,
+        "magnitude": 5.0409,
+        "b_v": 0.393,
+        "spectral_type": "F"
+      },
+      "94160": {
+        "hip": 94160,
+        "ra": 287.50730211,
+        "dec": -39.34070658,
+        "magnitude": 4.2728,
+        "b_v": 1.163,
+        "spectral_type": "K"
+      },
+      "34769": {
+        "hip": 34769,
+        "ra": 107.96608466,
+        "dec": -0.49278066,
+        "magnitude": 4.1544,
+        "b_v": -0.005,
+        "spectral_type": "B"
+      },
+      "51172": {
+        "hip": 51172,
+        "ra": 156.78814978,
+        "dec": -31.0678023,
+        "magnitude": 4.4113,
+        "b_v": 1.429,
+        "spectral_type": "M"
+      },
+      "2021": {
+        "hip": 2021,
+        "ra": 6.41334187,
+        "dec": -77.25503494,
+        "magnitude": 2.9305,
+        "b_v": 0.618,
+        "spectral_type": "G"
+      },
+      "20455": {
+        "hip": 20455,
+        "ra": 65.73344726,
+        "dec": 17.54258445,
+        "magnitude": 3.9308,
+        "b_v": 0.983,
+        "spectral_type": "K"
+      },
+      "53229": {
+        "hip": 53229,
+        "ra": 163.3276665,
+        "dec": 34.21556623,
+        "magnitude": 3.9531,
+        "b_v": 1.04,
+        "spectral_type": "K"
+      },
+      "22509": {
+        "hip": 22509,
+        "ra": 72.65300896,
+        "dec": 8.90025307,
+        "magnitude": 4.3669,
+        "b_v": 0.01,
+        "spectral_type": "A"
+      },
+      "112623": {
+        "hip": 112623,
+        "ra": 342.13832136,
+        "dec": -51.31670358,
+        "magnitude": 3.519,
+        "b_v": 0.083,
+        "spectral_type": "A"
+      },
+      "88048": {
+        "hip": 88048,
+        "ra": 269.75665635,
+        "dec": -9.77334967,
+        "magnitude": 3.4871,
+        "b_v": 0.987,
+        "spectral_type": "K"
+      },
+      "55282": {
+        "hip": 55282,
+        "ra": 169.83551156,
+        "dec": -14.77904381,
+        "magnitude": 3.7179,
+        "b_v": 1.112,
+        "spectral_type": "K"
+      },
+      "36850": {
+        "hip": 36850,
+        "ra": 113.65001968,
+        "dec": 31.88863511,
+        "magnitude": 1.5811,
+        "b_v": 0.034,
+        "spectral_type": "A",
+        "name": "Castor"
+      },
+      "73714": {
+        "hip": 73714,
+        "ra": 226.01775826,
+        "dec": -25.28185595,
+        "magnitude": 3.3093,
+        "b_v": 1.674,
+        "spectral_type": "M"
+      },
+      "90098": {
+        "hip": 90098,
+        "ra": 275.80675357,
+        "dec": -61.49390498,
+        "magnitude": 4.4875,
+        "b_v": 1.462,
+        "spectral_type": "M"
+      },
+      "116727": {
+        "hip": 116727,
+        "ra": 354.83742562,
+        "dec": 77.63196666,
+        "magnitude": 3.3767,
+        "b_v": 1.031,
+        "spectral_type": "K",
+        "name": "Errai"
+      },
+      "14328": {
+        "hip": 14328,
+        "ra": 46.199126,
+        "dec": 53.50645015,
+        "magnitude": 3.0586,
+        "b_v": 0.716,
+        "spectral_type": "G"
+      },
+      "100345": {
+        "hip": 100345,
+        "ra": 305.25269233,
+        "dec": -14.78140101,
+        "magnitude": 3.2104,
+        "b_v": 0.79,
+        "spectral_type": "G",
+        "name": "Dabih"
+      },
+      "102395": {
+        "hip": 102395,
+        "ra": 311.23981532,
+        "dec": -66.20323826,
+        "magnitude": 3.4733,
+        "b_v": 0.163,
+        "spectral_type": "A"
+      }
+    }
+  }

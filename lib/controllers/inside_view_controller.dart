@@ -1,5 +1,3 @@
-// lib/controllers/inside_view_controller.dart
-import 'dart:math';
 import 'package:flutter/material.dart';
 import '../utils/celestial_projections_inside.dart';
 
@@ -10,21 +8,22 @@ class InsideViewController extends ChangeNotifier {
   double _pitch = 0.0;    // Vertical angle (-90=down, 0=horizon, 90=up)
   
   // Field of view in degrees
-  double _fieldOfView = 100.0;
+  double _fieldOfView = 110.0;
   
   // For smooth drag/rotation
   Offset? _dragStart;
-  double _dragSensitivity = 0.5;
+  final double _dragSensitivity = 0.2;
   
   // Auto-rotation
   bool _autoRotate = false;
-  double _autoRotateSpeed = 0.5; // degrees per frame
+  double _autoRotateSpeed = 0.01; // significantly reduced from default 0.5
   
   // Getters
   double get heading => _heading;
   double get pitch => _pitch;
   double get fieldOfView => _fieldOfView;
   bool get autoRotate => _autoRotate;
+  double get autoRotateSpeed => _autoRotateSpeed;
   
   // Create the projection
   CelestialProjectionInside get projection => CelestialProjectionInside(
@@ -45,25 +44,26 @@ class InsideViewController extends ChangeNotifier {
   
   // Update during drag
   void updateDrag(Offset currentPosition) {
-    if (_dragStart == null) return;
-    
-    // Calculate the change in position
-    final double dx = currentPosition.dx - _dragStart!.dx;
-    final double dy = currentPosition.dy - _dragStart!.dy;
-    
-    // Update the view direction
-    // Negative dx because we want to rotate opposite of drag direction
-    _heading = (_heading - dx * _dragSensitivity) % 360.0;
-    if (_heading < 0) _heading += 360.0;
-    
-    // Update pitch, with clamping to avoid flipping over
-    _pitch = (_pitch + dy * _dragSensitivity).clamp(-80.0, 80.0);
-    
-    // Update drag start for next frame
-    _dragStart = currentPosition;
-    
-    notifyListeners();
-  }
+  if (_dragStart == null) return;
+  
+  // Calculate the change in position
+  final double dx = currentPosition.dx - _dragStart!.dx;
+  final double dy = currentPosition.dy - _dragStart!.dy;
+  
+  // Update the view direction
+  // Positive dx means dragging right, so we should increase heading (rotate right)
+  // Positive dy means dragging down, so we should decrease pitch (look down)
+  _heading = (_heading + dx * _dragSensitivity) % 360.0;
+  if (_heading < 0) _heading += 360.0;
+  
+  // Update pitch, with clamping to avoid flipping over
+  _pitch = (_pitch + dy * _dragSensitivity).clamp(-80.0, 80.0);
+  
+  // Update drag start for next frame
+  _dragStart = currentPosition;
+  
+  notifyListeners();
+}
   
   // End the drag operation
   void endDrag() {
@@ -76,14 +76,22 @@ class InsideViewController extends ChangeNotifier {
     notifyListeners();
   }
   
+  // Set auto-rotation speed
+  void setAutoRotateSpeed(double speed) {
+    if (_autoRotateSpeed != speed) {
+      _autoRotateSpeed = speed;
+      notifyListeners();
+    }
+  }
+  
   // Update for auto-rotation
   void updateAutoRotation() {
-  if (_autoRotate) {
-    // Much slower rotation - reduced from 0.5 to 0.05 degrees per frame
-    _heading = (_heading + 0.05) % 360.0;
-    notifyListeners();
+    if (_autoRotate) {
+      // Use the configured rotation speed
+      _heading = (_heading + _autoRotateSpeed) % 360.0;
+      notifyListeners();
+    }
   }
-}
   
   // Set the field of view
   void setFieldOfView(double fov) {
@@ -93,9 +101,11 @@ class InsideViewController extends ChangeNotifier {
   
   // Zoom in or out
   void zoom(double factor) {
-    _fieldOfView = (_fieldOfView / factor).clamp(30.0, 150.0);
-    notifyListeners();
-  }
+  // Dampen the zoom factor to make it less sensitive
+  double dampened = 1.0 + (factor - 1.0) * 0.1; // Adjust the 0.3 multiplier to change pinch zoom'ness
+  _fieldOfView = (_fieldOfView / dampened).clamp(30.0, 150.0);
+  notifyListeners();
+}
   
   // Reset to the initial view
   void resetView() {

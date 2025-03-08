@@ -147,7 +147,7 @@ class CelestialProjectionInside {
     final y = upDot * scale;
     
     // Scale to screen size with a factor based on FOV
-    final scaleFactor = (screenSize.width / 2) / tan(fieldOfView * pi / 360);
+    final scaleFactor = (screenSize.width / 1) / tan(fieldOfView * pi / 360); // Increase scaling
     
     return Offset(
       screenSize.width / 2 + x * scaleFactor,
