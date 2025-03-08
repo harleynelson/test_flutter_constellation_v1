@@ -4,11 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/gestures.dart';
 import '../models/enhanced_constellation.dart';
+import '../models/constellation_center.dart';
 import '../controllers/inside_view_controller.dart';
 import '../utils/celestial_projections_inside.dart';
+import '../services/constellation_centers_service.dart';
+import '../services/constellation_lines_service.dart';
 import '../utils/star_renderer.dart';
 import '../utils/constellation_renderer.dart';
 import '../utils/celestial_grid_renderer.dart';
+import '../utils/constellation_centers_renderer.dart';
+import '../utils/constellation_lines_renderer.dart';
 import '../utils/twinkle_manager.dart';
 
 /// A comprehensive night sky view with constellation visualization and user interaction
@@ -41,12 +46,22 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
   // View settings
   bool _showStarNames = true;
   bool _showConstellationNames = true;
-  bool _showLines = true;
+  bool _showConstellationLines = true;
   bool _showGrid = true;
   bool _showBackground = true;
+  bool _showConstellationCenters = true;
+  bool _showCustomLines = true;
   
   // To track visible constellations
   Map<String, ConstellationPositionInfo> _visibleConstellations = {};
+  
+  // Constellation centers data
+  List<ConstellationCenter> _constellationCenters = [];
+  bool _loadingCenters = true;
+  
+  // Constellation lines data
+  Map<String, List<List<double>>> _constellationPolylines = {};
+  bool _loadingLines = true;
   
   @override
   void initState() {
@@ -96,6 +111,9 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
       });
     });
     
+    // Load constellation centers and lines
+    _loadConstellationData();
+    
     // Default to looking at the first constellation
     if (widget.constellations.isNotEmpty && 
         widget.constellations[0].rightAscension != null && 
@@ -104,6 +122,39 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
         widget.constellations[0].rightAscension!,
         widget.constellations[0].declination!
       );
+    }
+  }
+  
+  // Load constellation centers and lines data
+  Future<void> _loadConstellationData() async {
+    try {
+      // Load centers
+      final centers = await ConstellationCentersService.loadConstellationCenters();
+      
+      setState(() {
+        _constellationCenters = centers;
+        _loadingCenters = false;
+      });
+    } catch (e) {
+      print('Error loading constellation centers: $e');
+      setState(() {
+        _loadingCenters = false;
+      });
+    }
+    
+    try {
+      // Load lines
+      final polylines = await ConstellationLinesService.getPolylines();
+      
+      setState(() {
+        _constellationPolylines = polylines;
+        _loadingLines = false;
+      });
+    } catch (e) {
+      print('Error loading constellation lines: $e');
+      setState(() {
+        _loadingLines = false;
+      });
     }
   }
   
@@ -193,9 +244,6 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
             onScaleEnd: (details) {
               _controller.endDrag();
             },
-            onTapDown: (details) {
-            // _handleTap(details.localPosition);
-            },
             onTapUp: (details) {
               _handleTap(details.localPosition);
             },
@@ -213,11 +261,15 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
                   constellations: widget.constellations,
                   controller: _controller,
                   twinklePhase: _twinklePhase,
+                  constellationCenters: _constellationCenters,
+                  constellationPolylines: _constellationPolylines,
                   showGrid: _showGrid,
                   showBackground: _showBackground,
                   showStarNames: _showStarNames,
                   showConstellationNames: _showConstellationNames,
-                  showLines: _showLines,
+                  showConstellationCenters: _showConstellationCenters,
+                  showConstellationLines: _showConstellationLines,
+                  showCustomLines: _showCustomLines,
                   hoveredConstellation: _hoveredConstellation,
                   centerConstellation: _centerConstellation,
                   onPositionsCalculated: (constellations) {
@@ -252,8 +304,14 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
                 _buildSettingCheckbox('Constellation Names', _showConstellationNames, (value) {
                   setState(() => _showConstellationNames = value!);
                 }),
-                _buildSettingCheckbox('Lines', _showLines, (value) {
-                  setState(() => _showLines = value!);
+                _buildSettingCheckbox('Constellation Centers', _showConstellationCenters, (value) {
+                  setState(() => _showConstellationCenters = value!);
+                }),
+                _buildSettingCheckbox('Built-in Lines', _showConstellationLines, (value) {
+                  setState(() => _showConstellationLines = value!);
+                }),
+                _buildSettingCheckbox('Custom Lines', _showCustomLines, (value) {
+                  setState(() => _showCustomLines = value!);
                 }),
                 _buildSettingCheckbox('Grid', _showGrid, (value) {
                   setState(() => _showGrid = value!);
@@ -339,6 +397,41 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
             ),
           ),
         ),
+        
+        // Loading indicator for data
+        if (_loadingCenters || _loadingLines)
+          Positioned(
+            top: 20,
+            right: 20,
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.6),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  SizedBox(
+                    width: 16, 
+                    height: 16, 
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white70),
+                    )
+                  ),
+                  SizedBox(width: 8),
+                  Text(
+                    "Loading data...",
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
       ],
     );
   }
@@ -415,9 +508,9 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
             value: value,
             onChanged: onChanged,
             checkColor: Colors.black,
-            fillColor: WidgetStateProperty.resolveWith<Color>(
-              (Set<WidgetState> states) {
-                if (states.contains(WidgetState.selected)) {
+            fillColor: MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+                if (states.contains(MaterialState.selected)) {
                   return Colors.lightBlue;
                 }
                 return Colors.grey.withOpacity(0.5);
@@ -469,16 +562,20 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
   }
 }
 
-/// Custom painter for the night sky - refactored to use utility classes
+/// Custom painter for the night sky with constellation centers and lines
 class SkyPainter extends CustomPainter {
   final List<EnhancedConstellation> constellations;
+  final List<ConstellationCenter> constellationCenters;
+  final Map<String, List<List<double>>> constellationPolylines;
   final InsideViewController controller;
   final double twinklePhase;
   final bool showGrid;
   final bool showBackground;
   final bool showStarNames;
   final bool showConstellationNames;
-  final bool showLines;
+  final bool showConstellationCenters;
+  final bool showConstellationLines;
+  final bool showCustomLines;  // Flag for the new line data
   final String? hoveredConstellation;
   final String? centerConstellation;
   final Function(Map<String, ConstellationPositionInfo>)? onPositionsCalculated;
@@ -488,11 +585,15 @@ class SkyPainter extends CustomPainter {
     required this.constellations,
     required this.controller,
     required this.twinklePhase,
+    this.constellationCenters = const [],
+    this.constellationPolylines = const {},
     this.showGrid = true,
     this.showBackground = true,
     this.showStarNames = true,
     this.showConstellationNames = true,
-    this.showLines = true,
+    this.showConstellationCenters = true,
+    this.showConstellationLines = true,
+    this.showCustomLines = true,
     this.hoveredConstellation,
     this.centerConstellation,
     this.onPositionsCalculated,
@@ -511,6 +612,22 @@ class SkyPainter extends CustomPainter {
     
     // Map to track visible constellations
     final Map<String, ConstellationPositionInfo> visibleConstellations = {};
+    
+    // Draw the custom constellation lines if enabled
+    if (showCustomLines && constellationPolylines.isNotEmpty) {
+      ConstellationLinesRenderer.drawConstellationLines(
+        canvas,
+        constellationPolylines,
+        size,
+        viewDir,
+        controller.projection.celestialToDirection,
+        controller.projection.projectToScreen,
+        controller.projection.isPointVisible,
+        lineColor: Colors.cyan.shade400,
+        opacity: 0.6,
+        strokeWidth: 1.2,
+      );
+    }
     
     // Draw the constellations
     for (final constellation in constellations) {
@@ -546,7 +663,7 @@ class SkyPainter extends CustomPainter {
           viewDir
         );
         
-        // Use extended bounds for visibility - allows stars to be visible even if they're off-screen
+        // Use extended bounds for visibility
         if (screenPos.dx < -viewBoundsPadding || screenPos.dx > size.width + viewBoundsPadding ||
             screenPos.dy < -viewBoundsPadding || screenPos.dy > size.height + viewBoundsPadding) {
           continue;
@@ -583,13 +700,29 @@ class SkyPainter extends CustomPainter {
           starPositions,
           twinklePhase,
           size,
-          drawLines: showLines,
+          drawLines: showConstellationLines,
           drawStarNames: showStarNames,
           drawConstellationName: showConstellationNames && isHighlighted,
           isHighlighted: isHighlighted,
           lineColor: isHighlighted ? Colors.lightBlue : Colors.blue,
         );
       }
+    }
+    
+    // Draw constellation centers if enabled
+    if (showConstellationCenters && constellationCenters.isNotEmpty) {
+      ConstellationCentersRenderer.drawConstellationCenters(
+        canvas,
+        constellationCenters,
+        size,
+        viewDir,
+        controller.projection.celestialToDirection,
+        controller.projection.projectToScreen,
+        controller.projection.isPointVisible,
+        textColor: Colors.yellow,
+        opacity: 0.8,
+        fontSize: 16.0,
+      );
     }
     
     // Draw the celestial grid if enabled
@@ -612,11 +745,10 @@ class SkyPainter extends CustomPainter {
   
   /// Draw background stars using the utility function
   void _drawBackgroundStars(Canvas canvas, Size size) {
+    // Implementation for drawing background stars
     final Random random = Random(42);
     final int starCount = (size.width * size.height / 2000).round().clamp(500, 3000);
     
-    // For consistent but realistic-looking random stars, we'll create them in 3D space
-    // and then project them to the screen
     for (int i = 0; i < starCount; i++) {
       // Create a random 3D direction
       final double theta = random.nextDouble() * 2 * pi; // Azimuth
@@ -655,8 +787,6 @@ class SkyPainter extends CustomPainter {
         random.nextDouble() * 0.5 + 0.2, // Random opacity between 0.2-0.7
         twinklePhase,
         size, // Pass screen size for proper scaling
-        glowProbability: 0.2,
-        twinkleIntensity: 0.3
       );
     }
   }
@@ -669,7 +799,9 @@ class SkyPainter extends CustomPainter {
            oldDelegate.showBackground != showBackground ||
            oldDelegate.showStarNames != showStarNames ||
            oldDelegate.showConstellationNames != showConstellationNames ||
-           oldDelegate.showLines != showLines ||
+           oldDelegate.showConstellationLines != showConstellationLines ||
+           oldDelegate.showConstellationCenters != showConstellationCenters ||
+           oldDelegate.showCustomLines != showCustomLines ||
            oldDelegate.hoveredConstellation != hoveredConstellation ||
            oldDelegate.centerConstellation != centerConstellation;
   }
