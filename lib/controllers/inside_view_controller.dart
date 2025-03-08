@@ -1,5 +1,3 @@
-// lib/controllers/inside_view_controller.dart
-import 'dart:math';
 import 'package:flutter/material.dart';
 import '../utils/celestial_projections_inside.dart';
 

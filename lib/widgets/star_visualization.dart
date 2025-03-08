@@ -2,7 +2,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/enhanced_constellation.dart';
-import '../utils/celestial_projections.dart';
 
 /// Widget that visualizes celestial stars with proper astronomical data
 class StarVisualization extends StatefulWidget {
@@ -139,7 +138,7 @@ void paint(Canvas canvas, Size size) {
   }
   
   // Draw constellation lines if provided
-  // if (lines != null && showLines) {
+  // if (lines != null && _showLines) {
   //   _drawConstellationLines(canvas, starPositions);
   // }
   if (lines != null) {

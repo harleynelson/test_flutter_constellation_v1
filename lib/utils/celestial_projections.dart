@@ -1,7 +1,6 @@
 // lib/utils/celestial_projections.dart
 import 'dart:math';
 import 'package:flutter/material.dart';
-import '../models/enhanced_constellation.dart';
 
 /// Utility class for celestial coordinate calculations and projections
 class CelestialProjection {

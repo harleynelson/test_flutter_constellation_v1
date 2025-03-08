@@ -1,6 +1,5 @@
 // lib/screens/enhanced_constellation_screen.dart
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../models/enhanced_constellation.dart';
 import '../services/constellation_data_service.dart';
 import '../widgets/improved_night_sky_view.dart';

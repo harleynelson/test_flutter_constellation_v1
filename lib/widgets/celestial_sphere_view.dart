@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vector_math/vector_math.dart' as vm;
 import 'package:vector_math/vector_math.dart' hide Colors;
 import '../controllers/celestial_sphere_controller.dart';
 import '../models/celestial_coordinate.dart';

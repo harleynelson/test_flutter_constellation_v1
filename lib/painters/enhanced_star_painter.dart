@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/enhanced_constellation.dart';
 import '../controllers/celestial_projection_controller.dart';
-import '../utils/celestial_projections.dart';
 
 /// Painter for rendering stars with accurate celestial coordinates
 class EnhancedStarPainter extends CustomPainter {
