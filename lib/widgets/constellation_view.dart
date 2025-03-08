@@ -223,10 +223,10 @@ class ConstellationView extends StatelessWidget {
   final Map<String, dynamic> constellation;
   
   const ConstellationView({
-    Key? key,
+    super.key,
     required this.controller,
     required this.constellation,
-  }) : super(key: key);
+  });
   
   @override
   Widget build(BuildContext context) {

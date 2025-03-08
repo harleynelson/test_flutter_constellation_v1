@@ -9,9 +9,9 @@ class ConstellationDetailScreen extends StatefulWidget {
   final EnhancedConstellation constellation;
   
   const ConstellationDetailScreen({
-    Key? key,
+    super.key,
     required this.constellation,
-  }) : super(key: key);
+  });
 
   @override
   State<ConstellationDetailScreen> createState() => _ConstellationDetailScreenState();

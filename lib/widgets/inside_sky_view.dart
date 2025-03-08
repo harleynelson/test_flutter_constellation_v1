@@ -17,11 +17,11 @@ class InsideSkyView extends StatefulWidget {
   final Function(InsideViewController)? onControllerCreated;
   
   const InsideSkyView({
-    Key? key,
+    super.key,
     required this.constellations,
     this.onConstellationSelected,
     this.onControllerCreated,
-  }) : super(key: key);
+  });
   
   @override
   State<InsideSkyView> createState() => _InsideSkyViewState();

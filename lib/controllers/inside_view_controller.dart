@@ -12,7 +12,7 @@ class InsideViewController extends ChangeNotifier {
   
   // For smooth drag/rotation
   Offset? _dragStart;
-  double _dragSensitivity = 0.2;
+  final double _dragSensitivity = 0.2;
   
   // Auto-rotation
   bool _autoRotate = false;

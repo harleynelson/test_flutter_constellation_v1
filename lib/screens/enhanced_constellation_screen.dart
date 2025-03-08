@@ -7,7 +7,7 @@ import '../controllers/inside_view_controller.dart';
 import 'constellation_detail_screen.dart';
 
 class EnhancedConstellationScreen extends StatefulWidget {
-  const EnhancedConstellationScreen({Key? key}) : super(key: key);
+  const EnhancedConstellationScreen({super.key});
 
   @override
   State<EnhancedConstellationScreen> createState() => _EnhancedConstellationScreenState();
@@ -15,7 +15,7 @@ class EnhancedConstellationScreen extends StatefulWidget {
 
 class _EnhancedConstellationScreenState extends State<EnhancedConstellationScreen> 
     with WidgetsBindingObserver {
-  String _currentConstellation = "Ursa Major";
+  final String _currentConstellation = "Ursa Major";
   bool _enable3DMode = true;  // Default to 3D mode
   bool _isLoading = true;
   List<EnhancedConstellation> _constellations = [];

@@ -16,14 +16,14 @@ class StarVisualization extends StatefulWidget {
   final Function(CelestialStar)? onStarTapped;
   
   const StarVisualization({
-    Key? key,
+    super.key,
     required this.stars,
     this.lines,
     this.showStarNames = true,
     this.showMagnitudes = false,
     this.showSpectralTypes = false,
     this.onStarTapped,
-  }) : super(key: key);
+  });
   
   @override
   State<StarVisualization> createState() => _StarVisualizationState();

@@ -18,11 +18,11 @@ class SkyView extends StatefulWidget {
   final Function(InsideViewController)? onControllerCreated;
   
   const SkyView({
-    Key? key,
+    super.key,
     required this.constellations,
     this.onConstellationSelected,
     this.onControllerCreated,
-  }) : super(key: key);
+  });
   
   @override
   State<SkyView> createState() => _SkyViewState();
@@ -412,9 +412,9 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
             value: value,
             onChanged: onChanged,
             checkColor: Colors.black,
-            fillColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
-                if (states.contains(MaterialState.selected)) {
+            fillColor: WidgetStateProperty.resolveWith<Color>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.selected)) {
                   return Colors.lightBlue;
                 }
                 return Colors.grey.withOpacity(0.5);

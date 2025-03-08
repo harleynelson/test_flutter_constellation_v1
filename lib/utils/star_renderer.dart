@@ -1,7 +1,6 @@
 // lib/utils/star_renderer.dart
 import 'dart:math';
 import 'package:flutter/material.dart';
-import '../models/enhanced_constellation.dart';
 
 /// Utility class for rendering stars with consistent appearance and behavior
 class StarRenderer {

@@ -26,7 +26,7 @@ class CelestialProjectionController extends ChangeNotifier {
   
   // Auto rotation
   bool _autoRotate = false;
-  double _autoRotateSpeed = 0.001; // radians per frame
+  final double _autoRotateSpeed = 0.001; // radians per frame
   
   // Getters
   double get fieldOfView => _fieldOfView * (1.0 / _zoomFactor);
