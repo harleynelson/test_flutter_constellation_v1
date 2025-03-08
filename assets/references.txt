@@ -1,0 +1,3 @@
+https://pbarbier.com/constellations/boundaries.html
+    - centers_20.txt 	Constellation centers (J2000, dec)
+    
