@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'animated_sky_view.dart';
 
 class NightSkyView extends StatefulWidget {
   final List<Map<String, dynamic>> constellations;

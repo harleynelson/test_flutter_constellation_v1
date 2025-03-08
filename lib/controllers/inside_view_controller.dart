@@ -18,13 +18,14 @@ class InsideViewController extends ChangeNotifier {
   
   // Auto-rotation
   bool _autoRotate = false;
-  double _autoRotateSpeed = 0.5; // degrees per frame
+  double _autoRotateSpeed = 0.01; // significantly reduced from default 0.5
   
   // Getters
   double get heading => _heading;
   double get pitch => _pitch;
   double get fieldOfView => _fieldOfView;
   bool get autoRotate => _autoRotate;
+  double get autoRotateSpeed => _autoRotateSpeed;
   
   // Create the projection
   CelestialProjectionInside get projection => CelestialProjectionInside(
@@ -76,14 +77,22 @@ class InsideViewController extends ChangeNotifier {
     notifyListeners();
   }
   
+  // Set auto-rotation speed
+  void setAutoRotateSpeed(double speed) {
+    if (_autoRotateSpeed != speed) {
+      _autoRotateSpeed = speed;
+      notifyListeners();
+    }
+  }
+  
   // Update for auto-rotation
   void updateAutoRotation() {
-  if (_autoRotate) {
-    // Much slower rotation - reduced from 0.5 to 0.05 degrees per frame
-    _heading = (_heading + 0.05) % 360.0;
-    notifyListeners();
+    if (_autoRotate) {
+      // Use the configured rotation speed
+      _heading = (_heading + _autoRotateSpeed) % 360.0;
+      notifyListeners();
+    }
   }
-}
   
   // Set the field of view
   void setFieldOfView(double fov) {

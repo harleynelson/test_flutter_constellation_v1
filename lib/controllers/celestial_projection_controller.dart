@@ -2,6 +2,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../utils/celestial_projections.dart';
+import '../models/enhanced_constellation.dart';
 
 /// Controller for managing celestial projections and view transformations
 class CelestialProjectionController extends ChangeNotifier {
@@ -61,6 +62,13 @@ class CelestialProjectionController extends ChangeNotifier {
     _rotationAngle = rotationAngle,
     _perspectiveDepth = perspectiveDepth,
     _is3DMode = is3DMode;
+  
+  // Set the center of the view to a specific constellation
+  void centerOnConstellation(EnhancedConstellation constellation) {
+    if (constellation.rightAscension != null && constellation.declination != null) {
+      setViewCenter(constellation.rightAscension!, constellation.declination!);
+    }
+  }
   
   // Set the center of the view (in degrees)
   void setViewCenter(double rightAscension, double declination) {
@@ -138,41 +146,6 @@ class CelestialProjectionController extends ChangeNotifier {
       _dragY = _dragY.clamp(-90.0 - _centerDeclination, 90.0 - _centerDeclination);
       
       notifyListeners();
-    }
-  }
-  
-  // Convert rotation angles to new view center
-  void _updateViewCenterFromRotation() {
-    // Calculate the new center RA and Dec based on rotations around X, Y, Z axes
-    // Start with a point at (0, 0, 1) - the center of view
-    double x = 0.0;
-    double y = 0.0;
-    double z = 1.0;
-    
-    // Apply Y-axis rotation (horizontal movement)
-    final double cosY = cos(_rotationAngles.y);
-    final double sinY = sin(_rotationAngles.y);
-    final double newX = x * cosY + z * sinY;
-    final double newZ = -x * sinY + z * cosY;
-    x = newX;
-    z = newZ;
-    
-    // Apply X-axis rotation (vertical movement)
-    final double cosX = cos(_rotationAngles.x);
-    final double sinX = sin(_rotationAngles.x);
-    final double newY = y * cosX - z * sinX;
-    z = y * sinX + z * cosX;
-    y = newY;
-    
-    // Convert back to spherical coordinates (RA, Dec)
-    // Dec = asin(y)
-    // RA = atan2(x, z)
-    _centerDeclination = asin(y) * 180.0 / pi;
-    _centerRightAscension = atan2(x, z) * 180.0 / pi;
-    
-    // Normalize RA to 0-360
-    if (_centerRightAscension < 0) {
-      _centerRightAscension += 360.0;
     }
   }
   
@@ -268,4 +241,5 @@ class CelestialProjectionController extends ChangeNotifier {
     _dragY = 0.0;
     resetRotation();
     notifyListeners();
-  }}
+  }
+}

@@ -1,5 +1,426 @@
 
 [
+  {
+    "name": "Andromeda",
+    "abbreviation": "And",
+    "description": "Named after the mythological princess, contains the Andromeda Galaxy",
+    "season": "Autumn",
+    "rightAscension": 10.0,
+    "declination": 40.0,
+    "stars": [
+      {
+        "id": "alpha",
+        "name": "Alpheratz",
+        "magnitude": 2.06,
+        "rightAscension": 2.097,
+        "declination": 29.0906,
+        "spectralType": "B8IVpMnHg",
+        "distance": 97.0,
+        "x": 0.65,
+        "y": 0.15
+      },
+      {
+        "id": "beta",
+        "name": "Mirach",
+        "magnitude": 2.05,
+        "rightAscension": 17.4329,
+        "declination": 35.6206,
+        "spectralType": "M0III",
+        "distance": 199.0,
+        "x": 0.68,
+        "y": 0.25
+      },
+      {
+        "id": "gamma",
+        "name": "Almach",
+        "magnitude": 2.10,
+        "rightAscension": 30.9748,
+        "declination": 42.3297,
+        "spectralType": "K3IIb",
+        "distance": 355.0,
+        "x": 0.72,
+        "y": 0.35
+      },
+      {
+        "id": "delta",
+        "name": "Delta Andromedae",
+        "magnitude": 3.27,
+        "rightAscension": 9.8321,
+        "declination": 30.8612,
+        "spectralType": "K3III",
+        "distance": 101.0,
+        "x": 0.67,
+        "y": 0.20
+      },
+      {
+        "id": "mu",
+        "name": "Mu Andromedae",
+        "magnitude": 3.87,
+        "rightAscension": 14.1883,
+        "declination": 38.5002,
+        "spectralType": "A5V",
+        "distance": 136.0,
+        "x": 0.70,
+        "y": 0.30
+      }
+    ],
+    "lines": [
+      ["alpha", "delta"],
+      ["delta", "beta"],
+      ["beta", "mu"],
+      ["mu", "gamma"]
+    ]
+  },
+  {
+    "name": "Perseus",
+    "abbreviation": "Per",
+    "description": "Named after the Greek hero who slew Medusa, contains the famous variable star Algol",
+    "season": "Winter",
+    "rightAscension": 55.0,
+    "declination": 45.0,
+    "stars": [
+      {
+        "id": "alpha",
+        "name": "Mirfak",
+        "magnitude": 1.79,
+        "rightAscension": 51.0807,
+        "declination": 49.8612,
+        "spectralType": "F5Ib",
+        "distance": 592.0,
+        "x": 0.55,
+        "y": 0.20
+      },
+      {
+        "id": "beta",
+        "name": "Algol",
+        "magnitude": 2.09,
+        "rightAscension": 47.0421,
+        "declination": 40.9556,
+        "spectralType": "B8V",
+        "distance": 93.0,
+        "x": 0.50,
+        "y": 0.15
+      },
+      {
+        "id": "gamma",
+        "name": "Gamma Persei",
+        "magnitude": 2.93,
+        "rightAscension": 53.5046,
+        "declination": 53.5064,
+        "spectralType": "G8III+A2V",
+        "distance": 243.0,
+        "x": 0.57,
+        "y": 0.23
+      },
+      {
+        "id": "delta",
+        "name": "Delta Persei",
+        "magnitude": 3.01,
+        "rightAscension": 55.7312,
+        "declination": 47.7876,
+        "spectralType": "B5III",
+        "distance": 528.0,
+        "x": 0.58,
+        "y": 0.18
+      },
+      {
+        "id": "epsilon",
+        "name": "Epsilon Persei",
+        "magnitude": 2.89,
+        "rightAscension": 59.4633,
+        "declination": 40.0103,
+        "spectralType": "B0.5V",
+        "distance": 538.0,
+        "x": 0.52,
+        "y": 0.17
+      },
+      {
+        "id": "zeta",
+        "name": "Zeta Persei",
+        "magnitude": 2.85,
+        "rightAscension": 58.5329,
+        "declination": 31.8836,
+        "spectralType": "B1Ib",
+        "distance": 750.0,
+        "x": 0.49,
+        "y": 0.19
+      }
+    ],
+    "lines": [
+      ["alpha", "gamma"],
+      ["gamma", "beta"],
+      ["beta", "zeta"],
+      ["zeta", "epsilon"],
+      ["epsilon", "delta"],
+      ["delta", "alpha"]
+    ]
+  },
+  {
+    "name": "Pegasus",
+    "abbreviation": "Peg",
+    "description": "Named after the winged horse from Greek mythology, contains the Great Square of Pegasus",
+    "season": "Autumn",
+    "rightAscension": 340.0,
+    "declination": 20.0,
+    "stars": [
+      {
+        "id": "alpha",
+        "name": "Markab",
+        "magnitude": 2.49,
+        "rightAscension": 346.1901,
+        "declination": 15.2053,
+        "spectralType": "B9III",
+        "distance": 140.0,
+        "x": 0.85,
+        "y": 0.40
+      },
+      {
+        "id": "beta",
+        "name": "Scheat",
+        "magnitude": 2.42,
+        "rightAscension": 345.9434,
+        "declination": 28.0827,
+        "spectralType": "M2.5II-III",
+        "distance": 196.0,
+        "x": 0.85,
+        "y": 0.30
+      },
+      {
+        "id": "gamma",
+        "name": "Algenib",
+        "magnitude": 2.83,
+        "rightAscension": 3.3088,
+        "declination": 15.1835,
+        "spectralType": "B2IV",
+        "distance": 333.0,
+        "x": 0.90,
+        "y": 0.40
+      },
+      {
+        "id": "epsilon",
+        "name": "Enif",
+        "magnitude": 2.38,
+        "rightAscension": 326.0467,
+        "declination": 9.8751,
+        "spectralType": "K2Ib",
+        "distance": 672.0,
+        "x": 0.80,
+        "y": 0.45
+      },
+      {
+        "id": "eta",
+        "name": "Matar",
+        "magnitude": 2.94,
+        "rightAscension": 330.8254,
+        "declination": 30.2214,
+        "spectralType": "G2II-III+F0V",
+        "distance": 215.0,
+        "x": 0.82,
+        "y": 0.32
+      }
+    ],
+    "lines": [
+      ["alpha", "gamma"],
+      ["gamma", "andromeda-alpha"],
+      ["andromeda-alpha", "beta"],
+      ["beta", "alpha"],
+      ["alpha", "epsilon"],
+      ["beta", "eta"]
+    ]
+  },
+  {
+    "name": "Draco",
+    "abbreviation": "Dra",
+    "description": "A large dragon-shaped constellation that winds between the Big and Little Dippers",
+    "season": "Summer",
+    "rightAscension": 240.0,
+    "declination": 65.0,
+    "stars": [
+      {
+        "id": "alpha",
+        "name": "Thuban",
+        "magnitude": 3.65,
+        "rightAscension": 211.0975,
+        "declination": 64.3758,
+        "spectralType": "A0III",
+        "distance": 309.0,
+        "x": 0.42,
+        "y": 0.15
+      },
+      {
+        "id": "beta",
+        "name": "Rastaban",
+        "magnitude": 2.79,
+        "rightAscension": 262.6083,
+        "declination": 52.3014,
+        "spectralType": "G2Ib-IIa",
+        "distance": 362.0,
+        "x": 0.48,
+        "y": 0.12
+      },
+      {
+        "id": "gamma",
+        "name": "Eltanin",
+        "magnitude": 2.24,
+        "rightAscension": 269.1517,
+        "declination": 51.4889,
+        "spectralType": "K5III",
+        "distance": 154.0,
+        "x": 0.52,
+        "y": 0.12
+      },
+      {
+        "id": "delta",
+        "name": "Altais",
+        "magnitude": 3.07,
+        "rightAscension": 285.4433,
+        "declination": 67.6614,
+        "spectralType": "G9III",
+        "distance": 100.0,
+        "x": 0.58,
+        "y": 0.17
+      },
+      {
+        "id": "epsilon",
+        "name": "Aldibain",
+        "magnitude": 3.83,
+        "rightAscension": 244.5804,
+        "declination": 70.2678,
+        "spectralType": "G8III",
+        "distance": 148.0,
+        "x": 0.45,
+        "y": 0.18
+      },
+      {
+        "id": "eta",
+        "name": "Aldhibah",
+        "magnitude": 2.74,
+        "rightAscension": 245.9979,
+        "declination": 61.5142,
+        "spectralType": "G8III-IV",
+        "distance": 92.0,
+        "x": 0.46,
+        "y": 0.14
+      },
+      {
+        "id": "zeta",
+        "name": "Aldhibain",
+        "magnitude": 3.17,
+        "rightAscension": 255.2483,
+        "declination": 65.7147,
+        "spectralType": "B6III",
+        "distance": 330.0,
+        "x": 0.47,
+        "y": 0.16
+      }
+    ],
+    "lines": [
+      ["gamma", "beta"],
+      ["beta", "zeta"],
+      ["zeta", "epsilon"],
+      ["epsilon", "delta"],
+      ["delta", "alpha"],
+      ["alpha", "eta"],
+      ["eta", "zeta"]
+    ]
+  },
+  {
+    "name": "Taurus",
+    "abbreviation": "Tau",
+    "description": "The Bull, contains the bright star Aldebaran and the Pleiades star cluster",
+    "season": "Winter",
+    "rightAscension": 65.0,
+    "declination": 15.0,
+    "stars": [
+      {
+        "id": "alpha",
+        "name": "Aldebaran",
+        "magnitude": 0.87,
+        "rightAscension": 68.9800,
+        "declination": 16.5092,
+        "spectralType": "K5III",
+        "distance": 65.0,
+        "x": 0.57,
+        "y": 0.50
+      },
+      {
+        "id": "beta",
+        "name": "Elnath",
+        "magnitude": 1.65,
+        "rightAscension": 81.5729,
+        "declination": 28.6072,
+        "spectralType": "B7III",
+        "distance": 131.0,
+        "x": 0.63,
+        "y": 0.45
+      },
+      {
+        "id": "gamma",
+        "name": "Gamma Tauri",
+        "magnitude": 3.65,
+        "rightAscension": 65.9846,
+        "declination": 15.6275,
+        "spectralType": "G8III",
+        "distance": 154.0,
+        "x": 0.55,
+        "y": 0.50
+      },
+      {
+        "id": "delta",
+        "name": "Delta Tauri",
+        "magnitude": 3.76,
+        "rightAscension": 69.1900,
+        "declination": 17.5428,
+        "spectralType": "K0+III",
+        "distance": 155.0,
+        "x": 0.58,
+        "y": 0.51
+      },
+      {
+        "id": "epsilon",
+        "name": "Epsilon Tauri",
+        "magnitude": 3.53,
+        "rightAscension": 67.1541,
+        "declination": 19.1803,
+        "spectralType": "K0III",
+        "distance": 146.0,
+        "x": 0.56,
+        "y": 0.48
+      },
+      {
+        "id": "zeta",
+        "name": "Zeta Tauri",
+        "magnitude": 3.00,
+        "rightAscension": 84.4113,
+        "declination": 21.1425,
+        "spectralType": "B4III",
+        "distance": 417.0,
+        "x": 0.65,
+        "y": 0.52
+      },
+      {
+        "id": "eta",
+        "name": "Alcyone",
+        "magnitude": 2.87,
+        "rightAscension": 56.8713,
+        "declination": 24.1050,
+        "spectralType": "B7III",
+        "distance": 368.0,
+        "x": 0.53,
+        "y": 0.46
+      }
+    ],
+    "lines": [
+      ["alpha", "gamma"],
+      ["gamma", "epsilon"],
+      ["epsilon", "delta"],
+      ["delta", "alpha"],
+      ["alpha", "zeta"],
+      ["beta", "zeta"],
+      ["gamma", "beta"],
+      ["gamma", "eta"]
+    ]
+  },
     {
       "name": "Ursa Major",
       "abbreviation": "UMa",
