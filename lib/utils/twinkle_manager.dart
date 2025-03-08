@@ -22,6 +22,9 @@ class TwinkleManager {
   /// Get the current phase value
   double get currentPhase => _twinklePhase;
   
+  /// Whether the manager is currently running
+  bool get isRunning => _timer != null && _timer!.isActive;
+  
   /// Factory constructor to return the singleton instance
   factory TwinkleManager() {
     return _instance;

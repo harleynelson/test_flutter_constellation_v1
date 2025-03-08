@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import '../models/enhanced_constellation.dart';
 import '../services/constellation_data_service.dart';
-import '../widgets/improved_night_sky_view.dart';
+import '../widgets/sky_view.dart';
 import '../controllers/inside_view_controller.dart';
 import 'constellation_detail_screen.dart';
 
@@ -110,7 +110,7 @@ class _EnhancedConstellationScreenState extends State<EnhancedConstellationScree
                 ? const Center(child: CircularProgressIndicator())
                 : _constellations.isEmpty
                   ? const Center(child: Text('No constellation data available', style: TextStyle(color: Colors.white)))
-                  : ImprovedNightSkyView(
+                  : SkyView(
                       constellations: _constellations,
                       onConstellationSelected: _showConstellationDetail,
                       onControllerCreated: (controller) {
