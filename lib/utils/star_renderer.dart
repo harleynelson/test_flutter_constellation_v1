@@ -5,18 +5,25 @@ import '../models/enhanced_constellation.dart';
 
 /// Utility class for rendering stars with consistent appearance and behavior
 class StarRenderer {
-  /// Calculate star size based on magnitude and screen size
+  /// Calculate star size based on magnitude, screen size, and device pixel ratio
   static double calculateStarSize(double magnitude, Size screenSize) {
     // Base size calculation based on magnitude (brighter = larger)
     double baseSize = max(2.0, 8.0 - magnitude * 0.7);
     
-    // Scale factor based on screen size
-    // Use the smaller dimension to ensure stars don't get too large on any device
-    double smallerDimension = min(screenSize.width, screenSize.height);
-    double scaleFactor = smallerDimension / 1000.0; // Normalize to a reference size of 1000px
+    // Calculate diagonal size of screen for consistent scaling across devices
+    double screenDiagonal = sqrt(screenSize.width * screenSize.width + 
+                               screenSize.height * screenSize.height);
     
-    // Apply scale factor with lower and upper bounds
-    return max(1.5, min(baseSize * scaleFactor, 7.0));
+    // Scale factor based on screen diagonal (normalize to a reference size)
+    // Reference: 1500px diagonal (typical tablet)
+    double scaleFactor = screenDiagonal / 1500.0;
+    
+    // Apply logarithmic scaling to prevent stars from being too large on large screens
+    // or too small on small screens
+    double sizeScale = 0.7 + (log(scaleFactor + 0.5) / log(2));
+    
+    // Apply scale with lower and upper bounds
+    return max(1.5, min(baseSize * sizeScale, 10.0));
   }
   
   /// Get star color based on spectral type
@@ -73,6 +80,26 @@ class StarRenderer {
     );
   }
   
+/// Calculate appropriate star sizes for background stars based on screen size
+static double calculateBackgroundStarSize(int starIndex, Size screenSize) {
+  // Use the star index to create different sized background stars
+  final Random random = Random(starIndex);
+   
+  // Extremely small base size variation
+  double baseSize = random.nextDouble() * 0.2 + 0.01;
+   
+  // Calculate diagonal size for consistent scaling
+  double screenDiagonal = sqrt(screenSize.width * screenSize.width +
+                             screenSize.height * screenSize.height);
+   
+  // Scale factor that grows more slowly for larger screens
+  double scaleFactor = screenDiagonal / 1500.0;
+  double sizeScale = 0.1 + (log(scaleFactor + 0.2) / log(3));
+   
+  // Apply scale with extremely tight bounds
+  return max(0.01, min(baseSize * sizeScale, 1.5));
+}
+  
   /// Draw a star with appropriate twinkling
   static void drawStar(
     Canvas canvas, 
@@ -88,7 +115,7 @@ class StarRenderer {
       double twinkleIntensity = 0.3,
     }
   ) {
-    // Calculate base star size
+    // Calculate base star size with screen-aware scaling
     final double size = calculateStarSize(magnitude, screenSize) * sizeMultiplier;
     
     // Calculate twinkling effect
@@ -120,7 +147,7 @@ class StarRenderer {
     canvas.drawCircle(position, currentSize, starPaint);
   }
   
-  /// Draw a background star with simpler appearance
+  /// Draw a background star with simpler appearance and size scaled by screen
   static void drawBackgroundStar(
     Canvas canvas,
     int starIndex,
@@ -128,11 +155,15 @@ class StarRenderer {
     double radius,
     double baseOpacity,
     double phase,
+    Size screenSize,
     {
       double glowProbability = 0.2,
       double twinkleIntensity = 0.3,
     }
   ) {
+    // Apply screen-aware scaling to background stars
+    final double scaledRadius = calculateBackgroundStarSize(starIndex, screenSize);
+    
     // Apply twinkling - but make sure opacity stays in valid range 0-1
     final double starSeed = starIndex * 17.0; // Use star index as seed
     
@@ -146,7 +177,7 @@ class StarRenderer {
     final Paint starPaint = Paint()
       ..color = Colors.white.withOpacity(opacity);
     
-    canvas.drawCircle(position, radius, starPaint);
+    canvas.drawCircle(position, scaledRadius, starPaint);
     
     // Draw subtle glow for some stars based on probability
     final Random random = Random(starIndex);
@@ -156,7 +187,7 @@ class StarRenderer {
         ..color = Colors.white.withOpacity(glowOpacity)
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2.0);
       
-      canvas.drawCircle(position, radius * 1.5, glowPaint);
+      canvas.drawCircle(position, scaledRadius * 1.5, glowPaint);
     }
   }
   

@@ -2,6 +2,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/gestures.dart';
 import '../models/enhanced_constellation.dart';
 import '../controllers/inside_view_controller.dart';
 import '../utils/celestial_projections_inside.dart';
@@ -30,7 +31,10 @@ class SkyView extends StatefulWidget {
 class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
   late InsideViewController _controller;
   late AnimationController _animationController;
+  
+  // Separate twinkling state from rotation
   double _twinklePhase = 0.0;
+  
   String? _hoveredConstellation;
   String? _centerConstellation;
   
@@ -51,36 +55,32 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
     // Create the controller
     _controller = InsideViewController();
     
-    // Significantly slow down the auto-rotation
-    _updateRotationSpeed(0.01); // Reduced from default (usually 0.5)
+    // Slower auto-rotation
+    _controller.setAutoRotateSpeed(0.01);
     
     // Notify parent
     if (widget.onControllerCreated != null) {
       widget.onControllerCreated!(_controller);
     }
     
-    // Create animation controller for effects
+    // Create animation controller for handling rotation updates
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 50),
     );
     
     _animationController.addListener(() {
-      setState(() {
-        // Use the TwinkleManager's current phase
-        _twinklePhase = TwinkleManager().currentPhase;
-      });
-      
-      // Update auto-rotation
+      // Only handle rotation updates here
       _controller.updateAutoRotation();
-      
-      // Check which constellation is at the center
       _updateCenterConstellation();
+      
+      // Force render refresh
+      setState(() {});
     });
     
     _animationController.repeat();
     
-    // Start the TwinkleManager if it's not already running
+    // Subscribe to the shared twinkle manager
     final twinkleManager = TwinkleManager();
     if (!twinkleManager.isRunning) {
       twinkleManager.start(
@@ -88,6 +88,13 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
         increment: 0.003, // Subtle twinkling
       );
     }
+    
+    // Listen to phase updates
+    twinkleManager.phaseStream.listen((phase) {
+      setState(() {
+        _twinklePhase = phase;
+      });
+    });
     
     // Default to looking at the first constellation
     if (widget.constellations.isNotEmpty && 
@@ -104,11 +111,6 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
   void dispose() {
     _animationController.dispose();
     super.dispose();
-  }
-  
-  // Update the rotation speed
-  void _updateRotationSpeed(double speed) {
-    _controller.setAutoRotateSpeed(speed);
   }
   
   // Find the constellation at the center of view
@@ -160,53 +162,68 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Main sky view
-        GestureDetector(
-          onScaleStart: (details) {
-            _controller.startDrag(details.focalPoint);
-          },
-          onScaleUpdate: (details) {
-            // Handle both drag and scale
-            if (details.scale != 1.0) {
-              _controller.zoom(details.scale);
-            } else {
-              _controller.updateDrag(details.focalPoint);
+        // Main sky view with Listener for mouse wheel
+        Listener(
+          onPointerSignal: (PointerSignalEvent event) {
+            // Handle mouse wheel events
+            if (event is PointerScrollEvent) {
+              // Calculate zoom factor based on scroll direction
+              final scrollUp = event.scrollDelta.dy < 0;
+              final zoomFactor = scrollUp ? 1.1 : 0.9; // 10% zoom in/out
+              
+              // Apply zoom
+              _controller.zoom(zoomFactor);
+              
+              // Optional: Add haptic feedback for zoom
+              HapticFeedback.lightImpact();
             }
           },
-          onScaleEnd: (details) {
-            _controller.endDrag();
-          },
-          onTapDown: (details) {
-            _handleTap(details.localPosition);
-          },
-          child: MouseRegion(
-            onHover: (event) {
-              _handleHover(event.localPosition);
+          child: GestureDetector(
+            onScaleStart: (details) {
+              _controller.startDrag(details.focalPoint);
             },
-            onExit: (_) {
-              setState(() {
-                _hoveredConstellation = null;
-              });
+            onScaleUpdate: (details) {
+              // Handle both drag and scale
+              if (details.scale != 1.0) {
+                _controller.zoom(details.scale);
+              } else {
+                _controller.updateDrag(details.focalPoint);
+              }
             },
-            child: CustomPaint(
-              painter: SkyPainter(
-                constellations: widget.constellations,
-                controller: _controller,
-                twinklePhase: _twinklePhase,
-                showGrid: _showGrid,
-                showBackground: _showBackground,
-                showStarNames: _showStarNames,
-                showConstellationNames: _showConstellationNames,
-                showLines: _showLines,
-                hoveredConstellation: _hoveredConstellation,
-                centerConstellation: _centerConstellation,
-                onPositionsCalculated: (constellations) {
-                  _visibleConstellations = constellations;
-                },
-                // Extend the view bounds significantly 
-                viewBoundsPadding: 5000, // Large value to avoid clipping
+            onScaleEnd: (details) {
+              _controller.endDrag();
+            },
+            onTapDown: (details) {
+              _handleTap(details.localPosition);
+            },
+            child: MouseRegion(
+              onHover: (event) {
+                _handleHover(event.localPosition);
+              },
+              onExit: (_) {
+                setState(() {
+                  _hoveredConstellation = null;
+                });
+              },
+              child: CustomPaint(
+                painter: SkyPainter(
+                  constellations: widget.constellations,
+                  controller: _controller,
+                  twinklePhase: _twinklePhase,
+                  showGrid: _showGrid,
+                  showBackground: _showBackground,
+                  showStarNames: _showStarNames,
+                  showConstellationNames: _showConstellationNames,
+                  showLines: _showLines,
+                  hoveredConstellation: _hoveredConstellation,
+                  centerConstellation: _centerConstellation,
+                  onPositionsCalculated: (constellations) {
+                    _visibleConstellations = constellations;
+                  },
+                  viewBoundsPadding: 5000, // Large value to avoid clipping
+                ),
+                size: Size.infinite,
               ),
-              size: Size.infinite,
             ),
           ),
         ),
@@ -291,6 +308,34 @@ class _SkyViewState extends State<SkyView> with SingleTickerProviderStateMixin {
               ),
             ),
           ),
+          
+        // Zoom instructions tooltip
+        Positioned(
+          bottom: 20,
+          right: 20,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.6),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.white24),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(Icons.mouse, color: Colors.white70, size: 16),
+                SizedBox(width: 8),
+                Text(
+                  "Scroll to zoom",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -439,7 +484,7 @@ class SkyPainter extends CustomPainter {
   SkyPainter({
     required this.constellations,
     required this.controller,
-    this.twinklePhase = 0.0,
+    required this.twinklePhase,
     this.showGrid = true,
     this.showBackground = true,
     this.showStarNames = true,
@@ -598,7 +643,7 @@ class SkyPainter extends CustomPainter {
         continue;
       }
       
-      // Use the utility function to draw background stars
+      // Use the utility function to draw background stars with size scaled to screen
       StarRenderer.drawBackgroundStar(
         canvas,
         i, // Use index as identifier
@@ -606,6 +651,7 @@ class SkyPainter extends CustomPainter {
         random.nextDouble() * 1.0 + 0.3, // Random radius between 0.3-1.3 pixels
         random.nextDouble() * 0.5 + 0.2, // Random opacity between 0.2-0.7
         twinklePhase,
+        size, // Pass screen size for proper scaling
         glowProbability: 0.2,
         twinkleIntensity: 0.3
       );
