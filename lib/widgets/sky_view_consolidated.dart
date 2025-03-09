@@ -1,5 +1,6 @@
 // lib/widgets/sky_view_consolidated.dart
 import 'dart:math';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../models/celestial_data.dart';
 import '../controllers/sky_view_controller.dart';
@@ -31,12 +32,14 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
   
   // View settings
   bool _showStarNames = false;
+  bool _showConstellationNames = true;
   bool _showConstellationLines = true;
   bool _showConstellationBoundaries = false;
   bool _showGrid = false;
   bool _showBackgroundStars = true;
   bool _showAutoRotate = true;
   bool _showBrightStarsOnly = false;
+  bool _showConstellationStars = true;
 
   @override
   void initState() {
@@ -62,31 +65,46 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Main sky view
-        GestureDetector(
-          onScaleStart: _controller.handleScaleStart,
-          onScaleUpdate: _controller.handleScaleUpdate,
-          onScaleEnd: _controller.handleScaleEnd,
-          onTapUp: _handleTap,
-          child: AnimatedBuilder(
-            animation: _controller,
-            builder: (context, _) {
-              return CustomPaint(
-                painter: SkyPainter(
-                  data: widget.data,
-                  controller: _controller,
-                  showStarNames: _showStarNames,
-                  showConstellationLines: _showConstellationLines,
-                  showConstellationBoundaries: _showConstellationBoundaries,
-                  showGrid: _showGrid,
-                  brightStarsOnly: _showBrightStarsOnly,
-                  showBackground: _showBackgroundStars,
-                  hoveredConstellation: _hoveredConstellation,
-                  selectedConstellation: _selectedConstellation,
-                ),
-                size: Size.infinite,
-              );
-            },
+        // Main sky view with Listener for mouse wheel
+        Listener(
+          onPointerSignal: (PointerSignalEvent event) {
+            // Handle mouse wheel events
+            if (event is PointerScrollEvent) {
+              // Calculate zoom factor based on scroll direction
+              final scrollUp = event.scrollDelta.dy < 0;
+              final zoomFactor = scrollUp ? 1.1 : 0.9; // 10% zoom in/out
+              
+              // Apply zoom
+              _controller.zoom(zoomFactor);
+            }
+          },
+          child: GestureDetector(
+            onScaleStart: _controller.handleScaleStart,
+            onScaleUpdate: _controller.handleScaleUpdate,
+            onScaleEnd: _controller.handleScaleEnd,
+            onTapUp: _handleTap,
+            child: AnimatedBuilder(
+              animation: _controller,
+              builder: (context, _) {
+                return CustomPaint(
+                  painter: SkyPainter(
+                    data: widget.data,
+                    controller: _controller,
+                    showStarNames: _showStarNames,
+                    showConstellationNames: _showConstellationNames,
+                    showConstellationLines: _showConstellationLines,
+                    showConstellationBoundaries: _showConstellationBoundaries,
+                    showGrid: _showGrid,
+                    brightStarsOnly: _showBrightStarsOnly,
+                    showBackground: _showBackgroundStars,
+                    showConstellationStars: _showConstellationStars,
+                    hoveredConstellation: _hoveredConstellation,
+                    selectedConstellation: _selectedConstellation,
+                  ),
+                  size: Size.infinite,
+                );
+              },
+            ),
           ),
         ),
         
@@ -126,41 +144,31 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
           child: _buildControlPanel(),
         ),
         
-        // Zoom indicator
+        // Zoom hint overlay - only show briefly or on first launch
         Positioned(
           bottom: 20,
-          right: 16,
-          child: AnimatedBuilder(
-            animation: _controller,
-            builder: (context, _) {
-              return Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(8),
+          right: 20,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.6),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.white24),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(Icons.pinch, color: Colors.white70, size: 16),
+                SizedBox(width: 8),
+                Text(
+                  "Pinch or scroll to zoom",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                  ),
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.zoom_in, color: Colors.white70, size: 16),
-                    Slider(
-                      value: _controller.fieldOfView,
-                      min: 30.0,
-                      max: 120.0,
-                      divisions: 9,
-                      onChanged: (value) {
-                        setState(() {
-                          _controller.zoom(90.0 / value);
-                        });
-                      },
-                      activeColor: Colors.blue,
-                      inactiveColor: Colors.blue.withOpacity(0.3),
-                    ),
-                    const Icon(Icons.zoom_out, color: Colors.white70, size: 16),
-                  ],
-                ),
-              );
-            },
+              ],
+            ),
           ),
         ),
       ],
@@ -220,14 +228,26 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
               _buildIconToggle(
                 Icons.star_border, 
                 "Stars", 
-                !_showBrightStarsOnly, 
-                (value) => setState(() => _showBrightStarsOnly = !value)
+                _showConstellationStars, 
+                (value) => setState(() => _showConstellationStars = value)
               ),
               _buildIconToggle(
-                Icons.auto_awesome, 
-                "Background", 
-                _showBackgroundStars, 
-                (value) => setState(() => _showBackgroundStars = value)
+                Icons.filter_list, 
+                "Bright Only", 
+                _showBrightStarsOnly, 
+                (value) => setState(() => _showBrightStarsOnly = value)
+              ),
+              _buildIconToggle(
+                Icons.text_fields, 
+                "Star Names", 
+                _showStarNames, 
+                (value) => setState(() => _showStarNames = value)
+              ),
+              _buildIconToggle(
+                Icons.label_outline, 
+                "Const Names", 
+                _showConstellationNames, 
+                (value) => setState(() => _showConstellationNames = value)
               ),
               _buildIconToggle(
                 Icons.polyline, 
@@ -236,17 +256,18 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
                 (value) => setState(() => _showConstellationLines = value)
               ),
               _buildIconToggle(
+                Icons.auto_awesome, 
+                "Background", 
+                _showBackgroundStars, 
+                (value) => setState(() => _showBackgroundStars = value)
+              ),
+              _buildIconToggle(
                 Icons.grid_4x4, 
                 "Grid", 
                 _showGrid, 
                 (value) => setState(() => _showGrid = value)
               ),
-              _buildIconToggle(
-                Icons.text_fields, 
-                "Names", 
-                _showStarNames, 
-                (value) => setState(() => _showStarNames = value)
-              ),
+              
             ],
           ),
           

@@ -6,18 +6,19 @@ import '../controllers/sky_view_controller.dart';
 import '../utils/color_utils.dart';
 
 /// Custom painter for rendering the night sky with stars and constellations
-/// from inside the celestial sphere looking outward
 class SkyPainter extends CustomPainter {
   final CelestialData data;
   final SkyViewController controller;
   
   // Display options
   final bool showStarNames;
+  final bool showConstellationNames;
   final bool showConstellationLines;
   final bool showConstellationBoundaries;
   final bool showGrid;
   final bool brightStarsOnly;
   final bool showBackground;
+  final bool showConstellationStars;
   
   // Highlighted constellation
   final String? hoveredConstellation;
@@ -30,11 +31,13 @@ class SkyPainter extends CustomPainter {
     required this.data,
     required this.controller,
     this.showStarNames = false,
+    this.showConstellationNames = false,
     this.showConstellationLines = true,
     this.showConstellationBoundaries = false,
     this.showGrid = false,
     this.brightStarsOnly = false,
     this.showBackground = true,
+    this.showConstellationStars = true,
     this.hoveredConstellation,
     this.selectedConstellation,
   }) : super(repaint: controller);
@@ -62,12 +65,19 @@ class SkyPainter extends CustomPainter {
       _drawConstellationLines(canvas, size, starPositions);
     }
     
+    // Draw constellation boundaries if enabled
+    if (showConstellationBoundaries) {
+      _drawConstellationBoundaries(canvas, size);
+    }
+    
     // Draw stars
-    _drawStars(canvas, size, starPositions);
+    if (showConstellationStars) {
+      _drawStars(canvas, size, starPositions);
+    }
     
     // Draw labels last so they appear on top
-    if (showStarNames) {
-      _drawStarLabels(canvas, size, starPositions);
+    if (showStarNames || showConstellationNames) {
+      _drawLabels(canvas, size, starPositions);
     }
   }
   
@@ -216,6 +226,54 @@ class SkyPainter extends CustomPainter {
     }
   }
   
+  /// Draw constellation boundaries (simplified placeholder)
+  void _drawConstellationBoundaries(Canvas canvas, Size size) {
+    // This is a placeholder for constellation boundaries
+    // In a real implementation, this would load and draw actual IAU constellation boundaries
+    
+    final Paint boundaryPaint = Paint()
+      ..color = Colors.purple.withOpacity(0.3)
+      ..strokeWidth = 1.0
+      ..style = PaintingStyle.stroke;
+      
+    // For now, just draw a simplified boundary around highlighted constellation
+    if (selectedConstellation != null || hoveredConstellation != null) {
+      final String constellationAbbr = selectedConstellation ?? hoveredConstellation!;
+      final Constellation? constellation = data.findConstellationByAbbr(constellationAbbr);
+      
+      if (constellation != null) {
+        final List<Offset> boundaryPoints = [];
+        
+        // Get all star positions for this constellation
+        for (final starId in constellation.starIds) {
+          final Offset? pos = _projectToScreen(
+            data.stars[starId]?.ra ?? 0, 
+            data.stars[starId]?.dec ?? 0, 
+            size
+          );
+          
+          if (pos != null) {
+            boundaryPoints.add(pos);
+          }
+        }
+        
+        if (boundaryPoints.length >= 3) {
+          // Calculate convex hull or just connect outer points
+          // For simplicity, just draw a polygon connecting all points
+          final Path path = Path();
+          path.moveTo(boundaryPoints[0].dx, boundaryPoints[0].dy);
+          
+          for (int i = 1; i < boundaryPoints.length; i++) {
+            path.lineTo(boundaryPoints[i].dx, boundaryPoints[i].dy);
+          }
+          
+          path.close();
+          canvas.drawPath(path, boundaryPaint);
+        }
+      }
+    }
+  }
+  
   /// Draw all visible stars
   void _drawStars(Canvas canvas, Size size, Map<int, Offset> starPositions) {
     // Set cutoff magnitude based on user setting
@@ -261,44 +319,106 @@ class SkyPainter extends CustomPainter {
     }
   }
   
-  /// Draw star names for brighter stars
-  void _drawStarLabels(Canvas canvas, Size size, Map<int, Offset> starPositions) {
-    // Only label stars brighter than magnitude 3
-    for (final entry in starPositions.entries) {
-      final int starId = entry.key;
-      final Offset position = entry.value;
-      final Star star = data.stars[starId]!;
-      
-      // Only label named stars brighter than magnitude 3
-      if (star.name == null || star.magnitude > 3.0) continue;
-      
-      // Calculate star radius for positioning
-      final double radius = ColorUtils.calculateStarSize(star.magnitude, 0.5, 1.0);
-      
-      // Create text painter
-      final TextPainter textPainter = TextPainter(
-        text: TextSpan(
-          text: star.name,
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.9),
-            fontSize: 12,
-            shadows: const [
-              Shadow(
-                color: Colors.black,
-                offset: Offset(1, 1),
-                blurRadius: 2,
-              ),
-            ],
+  /// Draw star names and constellation labels
+  void _drawLabels(Canvas canvas, Size size, Map<int, Offset> starPositions) {
+    // Draw star names for brighter stars
+    if (showStarNames) {
+      // Only label stars brighter than magnitude 3
+      for (final entry in starPositions.entries) {
+        final int starId = entry.key;
+        final Offset position = entry.value;
+        final Star star = data.stars[starId]!;
+        
+        // Only label named stars brighter than magnitude 3
+        if (star.name == null || star.magnitude > 3.0) continue;
+        
+        // Calculate star radius for positioning
+        final double radius = ColorUtils.calculateStarSize(star.magnitude, 0.5, 1.0);
+        
+        // Create text painter
+        final TextPainter textPainter = TextPainter(
+          text: TextSpan(
+            text: star.name,
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.9),
+              fontSize: 12,
+              shadows: const [
+                Shadow(
+                  color: Colors.black,
+                  offset: Offset(1, 1),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
           ),
-        ),
-        textDirection: TextDirection.ltr,
-      );
-      
-      textPainter.layout();
-      textPainter.paint(canvas, Offset(
-        position.dx + radius + 4,
-        position.dy - textPainter.height / 2,
-      ));
+          textDirection: TextDirection.ltr,
+        );
+        
+        textPainter.layout();
+        textPainter.paint(canvas, Offset(
+          position.dx + radius + 4,
+          position.dy - textPainter.height / 2,
+        ));
+      }
+    }
+    
+    // Draw constellation names if enabled
+    if (showConstellationNames) {
+      for (final constellation in data.constellations.values) {
+        // Only display names for visible constellations
+        bool isVisible = false;
+        Offset centerPos = Offset.zero;
+        int visibleStarCount = 0;
+        
+        for (final starId in constellation.starIds) {
+          if (starPositions.containsKey(starId)) {
+            isVisible = true;
+            centerPos += starPositions[starId]!;
+            visibleStarCount++;
+          }
+        }
+        
+        // Only display name if we have visible stars
+        if (isVisible && visibleStarCount > 0) {
+          // Calculate center position
+          centerPos = Offset(
+            centerPos.dx / visibleStarCount,
+            centerPos.dy / visibleStarCount
+          );
+          
+          // Check if this constellation is highlighted
+          final bool isHighlighted = constellation.abbreviation == selectedConstellation || 
+                                  constellation.abbreviation == hoveredConstellation;
+          
+          // Create text painter
+          final TextPainter textPainter = TextPainter(
+            text: TextSpan(
+              text: constellation.name,
+              style: TextStyle(
+                color: isHighlighted 
+                    ? Colors.lightBlue.withOpacity(0.9) 
+                    : Colors.white.withOpacity(0.7),
+                fontSize: isHighlighted ? 16 : 14,
+                fontWeight: isHighlighted ? FontWeight.bold : FontWeight.normal,
+                shadows: const [
+                  Shadow(
+                    color: Colors.black,
+                    offset: Offset(1, 1),
+                    blurRadius: 3,
+                  ),
+                ],
+              ),
+            ),
+            textDirection: TextDirection.ltr,
+          );
+          
+          textPainter.layout();
+          textPainter.paint(canvas, Offset(
+            centerPos.dx - textPainter.width / 2,
+            centerPos.dy - textPainter.height / 2,
+          ));
+        }
+      }
     }
   }
   
@@ -381,7 +501,7 @@ class SkyPainter extends CustomPainter {
     // Convert to screen coordinates with perspective
     final double tanHalfFov = tan(fovRad / 2);
     final double screenX = size.width / 2 + size.width / 2 * (rightComponent / (dot * tanHalfFov));
-    // Invert the Y coordinate to fix the upside-down issue
+    // Don't invert the Y coordinate - we want the natural orientation
     final double screenY = size.height / 2 + size.height / 2 * (upComponent / (dot * tanHalfFov));
     
     return Offset(screenX, screenY);
@@ -410,11 +530,13 @@ class SkyPainter extends CustomPainter {
   bool shouldRepaint(covariant SkyPainter oldDelegate) {
     return oldDelegate.controller != controller ||
            oldDelegate.showStarNames != showStarNames ||
+           oldDelegate.showConstellationNames != showConstellationNames ||
            oldDelegate.showConstellationLines != showConstellationLines ||
            oldDelegate.showConstellationBoundaries != showConstellationBoundaries ||
            oldDelegate.showGrid != showGrid ||
            oldDelegate.brightStarsOnly != brightStarsOnly ||
            oldDelegate.showBackground != showBackground ||
+           oldDelegate.showConstellationStars != showConstellationStars ||
            oldDelegate.hoveredConstellation != hoveredConstellation ||
            oldDelegate.selectedConstellation != selectedConstellation;
   }
