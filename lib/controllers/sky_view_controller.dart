@@ -16,7 +16,7 @@ class SkyViewController extends ChangeNotifier {
   
   // Auto-rotation
   bool _autoRotate = false;
-  double _autoRotateSpeed = 0.2;
+  double _autoRotateSpeed = 0.01;
   late Ticker _ticker;
   final TickerProvider _tickerProvider;
   
@@ -131,7 +131,7 @@ class SkyViewController extends ChangeNotifier {
     // Positive dx means dragging right, which should decrease heading (rotate left)
     // Positive dy means dragging down, which should decrease pitch (look down)
     _heading = (_heading - dx * _dragSensitivity) % 360.0;
-    _pitch = (_pitch - dy * _dragSensitivity).clamp(-85.0, 85.0);
+    _pitch = (_pitch + dy * _dragSensitivity).clamp(-85.0, 85.0);
     
     notifyListeners();
   }

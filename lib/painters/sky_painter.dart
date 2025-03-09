@@ -6,6 +6,7 @@ import '../controllers/sky_view_controller.dart';
 import '../utils/color_utils.dart';
 
 /// Custom painter for rendering the night sky with stars and constellations
+/// from inside the celestial sphere looking outward
 class SkyPainter extends CustomPainter {
   final CelestialData data;
   final SkyViewController controller;
@@ -16,10 +17,14 @@ class SkyPainter extends CustomPainter {
   final bool showConstellationBoundaries;
   final bool showGrid;
   final bool brightStarsOnly;
+  final bool showBackground;
   
   // Highlighted constellation
   final String? hoveredConstellation;
   final String? selectedConstellation;
+  
+  // Random number generator with fixed seed for consistent background stars
+  final Random _random = Random(42);
   
   SkyPainter({
     required this.data,
@@ -29,6 +34,7 @@ class SkyPainter extends CustomPainter {
     this.showConstellationBoundaries = false,
     this.showGrid = false,
     this.brightStarsOnly = false,
+    this.showBackground = true,
     this.hoveredConstellation,
     this.selectedConstellation,
   }) : super(repaint: controller);
@@ -37,6 +43,11 @@ class SkyPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     // Draw background gradient
     _drawBackground(canvas, size);
+    
+    // Draw background stars if enabled
+    if (showBackground) {
+      _drawBackgroundStars(canvas, size);
+    }
     
     // Draw celestial grid if enabled
     if (showGrid) {
@@ -77,6 +88,54 @@ class SkyPainter extends CustomPainter {
       ).createShader(rect);
     
     canvas.drawRect(rect, paint);
+  }
+  
+  /// Draw random background stars
+  void _drawBackgroundStars(Canvas canvas, Size size) {
+    // Number of stars based on screen size, clamped to a reasonable range
+    final int starCount = (size.width * size.height / 1000).round().clamp(200, 2000);
+    
+    // Twinkling effect variables
+    final double twinklePhase = controller.twinklePhase;
+    
+    for (int i = 0; i < starCount; i++) {
+      // Position is random across the entire screen
+      final double x = _random.nextDouble() * size.width;
+      final double y = _random.nextDouble() * size.height;
+      
+      // Star properties are semi-deterministic based on position
+      final int starSeed = ((x * 100) + y).round();
+      final Random starRandom = Random(starSeed);
+      
+      // Size varies based on position to create depth effect
+      double radius = starRandom.nextDouble() * 1.0 + 0.3; // 0.3-1.3 pixels
+      
+      // Brightness varies based on "distance"
+      final double baseOpacity = starRandom.nextDouble() * 0.5 + 0.2; // 0.2-0.7 opacity
+      
+      // Twinkle effect based on position and time
+      final double twinkleSpeed = 0.5 + starRandom.nextDouble(); // Random speed
+      final double twinkleFactor = sin((twinklePhase * twinkleSpeed) % (2 * pi));
+      
+      // Apply twinkling - increase size and brightness slightly
+      final double currentRadius = radius * (1.0 + max(0, twinkleFactor) * 0.1);
+      final double currentOpacity = min(1.0, baseOpacity * (1.0 + max(0, twinkleFactor) * 0.2));
+      
+      // Draw star
+      final Paint starPaint = Paint()
+        ..color = Colors.white.withOpacity(currentOpacity);
+      
+      canvas.drawCircle(Offset(x, y), currentRadius, starPaint);
+      
+      // Draw subtle glow for brighter stars
+      if (baseOpacity > 0.5 && twinkleFactor > 0.3) {
+        final Paint glowPaint = Paint()
+          ..color = Colors.white.withOpacity(currentOpacity * 0.3)
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2.0);
+        
+        canvas.drawCircle(Offset(x, y), currentRadius * 1.5, glowPaint);
+      }
+    }
   }
   
   /// Draw a celestial grid with RA/Dec lines
@@ -126,7 +185,7 @@ class SkyPainter extends CustomPainter {
     for (final constellation in data.constellations.values) {
       // Check if this constellation should be highlighted
       final bool isHighlighted = constellation.abbreviation == selectedConstellation || 
-                               constellation.abbreviation == hoveredConstellation;
+                              constellation.abbreviation == hoveredConstellation;
                                
       // Create a paint for this constellation
       final Paint linePaint = Paint()
@@ -258,72 +317,72 @@ class SkyPainter extends CustomPainter {
   }
   
   /// Project celestial coordinates to screen coordinates
-  /// This uses an inside-out perspective as if viewer is at the center of the celestial sphere
+  /// This uses a true inside-out perspective with the viewer at the center of the celestial sphere
   Offset? _projectToScreen(double ra, double dec, Size size) {
     // Convert to radians
     final double raRad = ra * (pi / 180.0);
     final double decRad = dec * (pi / 180.0);
     
-    // Convert to 3D unit vector (points outward from center)
+    // Convert celestial coordinates to 3D direction vector from center outward
+    // Adjust the coordinate system to match expected orientation
     final double x = cos(decRad) * cos(raRad);
     final double y = cos(decRad) * sin(raRad);
     final double z = sin(decRad);
     
-    // Get camera parameters (viewer looking outward from center)
-    final double headingRad = controller.heading * (pi / 180.0);
+    // Camera view direction - where we're looking from the center
+    // Adjust heading by 180 degrees to fix the pole orientation
+    final double headingRad = (controller.heading + 180.0) * (pi / 180.0);
     final double pitchRad = controller.pitch * (pi / 180.0);
     
-    // Compute direction vector of camera (where we're looking)
+    // Calculate view direction vector
     final double dx = cos(pitchRad) * sin(headingRad);
-    final double dy = sin(pitchRad);
-    final double dz = cos(pitchRad) * cos(headingRad);
+    final double dy = cos(pitchRad) * cos(headingRad);
+    final double dz = sin(pitchRad);
     
-    // Compute dot product to check if star is in front of us
+    // Dot product to determine if star is in front of viewer
     final double dot = x * dx + y * dy + z * dz;
     
-    // If dot product is negative, star is behind us
-    if (dot < 0) return null;
+    // If star is behind us, don't show it
+    if (dot <= 0) return null;
     
-    // Compute the field of view in radians
+    // Calculate angular distance from view center
     final double fovRad = controller.fieldOfView * (pi / 180.0);
     
-    // Calculate angle between view direction and star
-    final double angle = acos(dot);
+    // If star is outside our field of view, don't show it
+    if (acos(dot) > fovRad / 2) return null;
     
-    // If angle is greater than half FOV, star is not visible
-    if (angle > fovRad / 2) return null;
-    
-    // For the math below, it's easier if we define a proper view coordinate system
-    // Up vector - perpendicular to viewing direction, points to zenith as much as possible
+    // Create view-plane coordinate system
+    // Right vector is perpendicular to view direction and world up (0,0,1)
     final double upX = 0;
-    final double upY = 1;
-    final double upZ = 0;
+    final double upY = 0;
+    final double upZ = 1;
     
-    // Right vector is cross product of direction and up
-    final double rightX = dy * upZ - dz * upY;
-    final double rightY = dz * upX - dx * upZ;
-    final double rightZ = dx * upY - dy * upX;
+    double rightX = dy * upZ - dz * upY;
+    double rightY = dz * upX - dx * upZ;
+    double rightZ = dx * upY - dy * upX;
     
     // Normalize right vector
     final double rightLength = sqrt(rightX * rightX + rightY * rightY + rightZ * rightZ);
-    final double nx = rightX / rightLength;
-    final double ny = rightY / rightLength;
-    final double nz = rightZ / rightLength;
+    if (rightLength > 0.0001) {
+      rightX /= rightLength;
+      rightY /= rightLength;
+      rightZ /= rightLength;
+    }
     
-    // The real up vector is perpendicular to both the view direction and right vector
-    final double ux = dy * nz - dz * ny;
-    final double uy = dz * nx - dx * nz;
-    final double uz = dx * ny - dy * nx;
+    // True up vector (perpendicular to both view and right)
+    final double trueUpX = dy * rightZ - dz * rightY;
+    final double trueUpY = dz * rightX - dx * rightZ;
+    final double trueUpZ = dx * rightY - dy * rightX;
     
-    // Project star direction onto right and up vectors
-    final double projRight = x * nx + y * ny + z * nz;
-    final double projUp = x * ux + y * uy + z * uz;
+    // Project the star onto the view plane
+    final double rightComponent = x * rightX + y * rightY + z * rightZ;
+    final double upComponent = x * trueUpX + y * trueUpY + z * trueUpZ;
     
-    // Calculate screen position
-    // tan(angle) gives distance from center as proportion of distance to screen edge
+    // Convert to screen coordinates with perspective
     final double tanHalfFov = tan(fovRad / 2);
-    final double screenX = size.width / 2 + size.width / 2 * (projRight / tanHalfFov);
-    final double screenY = size.height / 2 - size.height / 2 * (projUp / tanHalfFov);
+    final double screenX = size.width / 2 + size.width / 2 * (rightComponent / (dot * tanHalfFov));
+    // Invert the Y coordinate to fix the upside-down issue
+    final double screenY = size.height / 2 + size.height / 2 * (upComponent / (dot * tanHalfFov));
     
     return Offset(screenX, screenY);
   }
@@ -355,6 +414,7 @@ class SkyPainter extends CustomPainter {
            oldDelegate.showConstellationBoundaries != showConstellationBoundaries ||
            oldDelegate.showGrid != showGrid ||
            oldDelegate.brightStarsOnly != brightStarsOnly ||
+           oldDelegate.showBackground != showBackground ||
            oldDelegate.hoveredConstellation != hoveredConstellation ||
            oldDelegate.selectedConstellation != selectedConstellation;
   }

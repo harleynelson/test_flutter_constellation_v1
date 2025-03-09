@@ -6,10 +6,10 @@ import '../controllers/sky_view_controller.dart';
 import '../painters/sky_painter.dart';
 import '../utils/color_utils.dart';
 
-/// A consolidated, streamlined view of the night sky showing constellations
 /// A consolidated night sky viewer that displays stars and constellations
-/// from the perspective of being inside the celestial sphere looking outward.
-/// This simulates the natural view of the night sky as seen from Earth.
+/// from the perspective of an observer at the center of the celestial sphere.
+/// This simulates the natural view of the night sky as seen from Earth,
+/// with the stars mapped onto the inner surface of an imaginary sphere surrounding the viewer.
 class SkyViewConsolidated extends StatefulWidget {
   final CelestialData data;
   final Function(String constellationName)? onConstellationSelected;
@@ -34,6 +34,7 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
   bool _showConstellationLines = true;
   bool _showConstellationBoundaries = false;
   bool _showGrid = false;
+  bool _showBackgroundStars = true;
   bool _showAutoRotate = true;
   bool _showBrightStarsOnly = false;
 
@@ -44,8 +45,11 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
     // Initialize controller
     _controller = SkyViewController(tickerProvider: this);
     
-    // Set default viewing position (can be based on current time/date)
-    _controller.setToCurrentDatePosition();
+    // Set default viewing position (pointing North with slight upward angle)
+    _controller.setViewDirection(0.0, 15.0); // Heading=North, Pitch=15° above horizon
+    
+    // Enable auto-rotation by default for better experience
+    _controller.setAutoRotate(_showAutoRotate);
   }
   
   @override
@@ -60,20 +64,9 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
       children: [
         // Main sky view
         GestureDetector(
-          onScaleStart: (details) {
-              _controller.startDrag(details.focalPoint);
-            },
-          onScaleUpdate: (details) {
-              // Handle both drag and scale
-              if (details.scale != 1.0) {
-                _controller.zoom(details.scale);
-              } else {
-                _controller.updateDrag(details.focalPoint);
-              }
-            },
-          onScaleEnd: (details) {
-              _controller.endDrag();
-            },
+          onScaleStart: _controller.handleScaleStart,
+          onScaleUpdate: _controller.handleScaleUpdate,
+          onScaleEnd: _controller.handleScaleEnd,
           onTapUp: _handleTap,
           child: AnimatedBuilder(
             animation: _controller,
@@ -87,6 +80,7 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
                   showConstellationBoundaries: _showConstellationBoundaries,
                   showGrid: _showGrid,
                   brightStarsOnly: _showBrightStarsOnly,
+                  showBackground: _showBackgroundStars,
                   hoveredConstellation: _hoveredConstellation,
                   selectedConstellation: _selectedConstellation,
                 ),
@@ -219,14 +213,21 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
             ),
           ),
           const SizedBox(height: 4),
-          Row(
-            mainAxisSize: MainAxisSize.min,
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
             children: [
               _buildIconToggle(
                 Icons.star_border, 
                 "Stars", 
                 !_showBrightStarsOnly, 
                 (value) => setState(() => _showBrightStarsOnly = !value)
+              ),
+              _buildIconToggle(
+                Icons.auto_awesome, 
+                "Background", 
+                _showBackgroundStars, 
+                (value) => setState(() => _showBackgroundStars = value)
               ),
               _buildIconToggle(
                 Icons.polyline, 
@@ -258,49 +259,48 @@ class _SkyViewConsolidatedState extends State<SkyViewConsolidated> with SingleTi
   
   // Convert heading to compass direction
   String _getDirectionText(double heading) {
+    // Adjust by 180 degrees to match our modified projection
+    double adjustedHeading = (heading + 180) % 360;
     const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
-    final index = ((heading + 22.5) % 360 / 45).floor();
+    final index = ((adjustedHeading + 22.5) % 360 / 45).floor();
     return "Looking ${directions[index]}";
   }
   
   // Build an icon toggle button
   Widget _buildIconToggle(IconData icon, String label, bool value, Function(bool) onChanged) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 12),
-      child: GestureDetector(
-        onTap: () => onChanged(!value),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: value ? Colors.blue.withOpacity(0.6) : Colors.transparent,
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: value ? Colors.blue : Colors.grey,
-                  width: 1,
-                ),
-              ),
-              child: Center(
-                child: Icon(
-                  icon,
-                  color: value ? Colors.white : Colors.grey,
-                  size: 20,
-                ),
+    return GestureDetector(
+      onTap: () => onChanged(!value),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: value ? Colors.blue.withOpacity(0.6) : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: value ? Colors.blue : Colors.grey,
+                width: 1,
               ),
             ),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: TextStyle(
+            child: Center(
+              child: Icon(
+                icon,
                 color: value ? Colors.white : Colors.grey,
-                fontSize: 10,
+                size: 20,
               ),
             ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              color: value ? Colors.white : Colors.grey,
+              fontSize: 10,
+            ),
+          ),
+        ],
       ),
     );
   }
